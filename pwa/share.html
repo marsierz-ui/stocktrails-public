@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Log attention</title>
+  <style>
+    body { margin: 0; font: 15px/1.5 -apple-system, Segoe UI, Roboto, sans-serif; background: #161a26; color: #e8ebf2; }
+    .box { max-width: 480px; margin: 0 auto; padding: 22px 18px; }
+    h1 { font-size: 18px; }
+    .tk { font-size: 26px; font-weight: 700; margin: 6px 0; }
+    .muted { color: #9aa3b8; font-size: 13px; }
+    input { width: 100%; padding: 11px; margin: 8px 0; background: #11141c; color: #e8ebf2; border: 1px solid #3a4159; border-radius: 8px; font-size: 16px; }
+    .btns { display: flex; gap: 8px; margin: 12px 0; }
+    .btns button { flex: 1; padding: 12px; border: 1px solid #3a4159; border-radius: 8px; background: #2b3145; color: #e8ebf2; font-size: 15px; cursor: pointer; }
+    .pos { background: #2ecc71 !important; color: #0c1a10 !important; border-color: #2ecc71 !important; }
+    .neu { background: #8a93a6 !important; color: #11141c !important; border-color: #8a93a6 !important; }
+    .neg { background: #e74c3c !important; color: #1a0c0c !important; border-color: #e74c3c !important; }
+    #results { margin: 6px 0; }
+    .res { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; margin: 6px 0; background: #1f2435; border: 1px solid #343c54; border-radius: 8px; cursor: pointer; }
+    .res:hover { border-color: #3ddc97; }
+    .res .sym { font-weight: 700; }
+    .res .nm { color: #9aa3b8; font-size: 12px; }
+    .res .ex { color: #9aa3b8; font-size: 11px; white-space: nowrap; }
+    a { color: #3ddc97; }
+    #status { min-height: 20px; color: #2ecc71; }
+    #ocr-status { min-height: 18px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Stocktrails</h1>
+    <div id="detected"></div>
+    <div class="btns" id="label-btns" style="display:none">
+      <button class="pos" data-s="positive">Positive</button>
+      <button class="neu" data-s="neutral">Neutral</button>
+      <button class="neg" data-s="negative">Negative</button>
+    </div>
+    <div id="status"></div>
+
+    <div id="picker">
+      <div class="muted">Search by company name or ISIN (or share a screenshot of your broker app):</div>
+      <input id="name-input" placeholder="e.g. Rheinmetall, Apple, DE000A1EWWW0" autocapitalize="characters" autocomplete="off" />
+      <div id="ocr-status" class="muted"></div>
+      <div id="results"></div>
+    </div>
+
+    <p><a href="/dashboard/dashboard.html#performance">Open My Stocks &rarr;</a></p>
+  </div>
+
+  <script src="/src/config.js"></script>
+  <script src="/vendor/supabase.min.js"></script>
+  <script src="/src/pwa-shim.js"></script>
+  <script src="/src/portals.js"></script>
+  <script src="/src/prices.js"></script>
+  <script src="/src/pricedb.js"></script>
+  <script src="/src/store.js"></script>
+  <script src="/src/cloud.js"></script>
+  <script src="/src/sync.js"></script>
+  <script src="/pwa/share.js"></script>
+</body>
+</html>

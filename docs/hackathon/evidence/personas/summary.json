@@ -1,0 +1,481 @@
+{
+ "generated": "2026-10-19T16:51:44.625Z",
+ "seed": 21,
+ "seeds": 10,
+ "size": {
+  "nBuys": 140,
+  "bars": 1000,
+  "nPassed": 30
+ },
+ "personas": {
+  "fomo": {
+   "label": "The FOMO buyer",
+   "bias": "chasing",
+   "habit": "Buys after a stock has risen: on average +12% in the 20 days before the buy; every +10% of rise costs 7 points over the next month.",
+   "plantedShare": 0.3357142857142857,
+   "import": {
+    "format": "generic",
+    "trades": 226,
+    "roundTrip": true
+   },
+   "findings": {
+    "chasing": {
+     "tier": "detected",
+     "signals": [
+      "Buys made after the price had risen since your first look did -11.5 pts against those made after a fall.",
+      "You bought 78% of the calls whose stock rose after the call and 41% of those that fell."
+     ],
+     "rules": [
+      {
+       "id": "wait_runup",
+       "title": "Wait after a run-up",
+       "text": "Do not buy a stock that has already risen more than 15% in the last 30 days. Wait for a pullback, or skip it.",
+       "verdict": "supported",
+       "flagged": 9,
+       "testN": 70,
+       "mean": 0.10315206638957376,
+       "ci99": [
+        0.04913582586541622,
+        0.1527764948099145
+       ],
+       "flaggedMean": -0.10315206638957376,
+       "keptMean": -0.004187221185449078
+      },
+      {
+       "id": "wait_strong_market",
+       "title": "Wait after strong market stretches",
+       "text": "Do not buy right after one of the market's strongest stretches: its return over the last 20 days in the top 20% of days (above about 4.3%).",
+       "verdict": "unclear",
+       "flagged": 10,
+       "testN": 70,
+       "mean": 0.039436241717011045,
+       "ci99": [
+        -0.02023161587316835,
+        0.09995615470006933
+       ],
+       "flaggedMean": -0.039436241717011045,
+       "keptMean": -0.013157111210807452
+      }
+     ]
+    },
+    "impulse": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "bad_hour": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "turbulence": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "crowd_buys": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    }
+   }
+  },
+  "first_hour": {
+   "label": "The first-hour impulse buyer",
+   "bias": "impulse",
+   "habit": "40% of buys come within an hour of first looking at the stock; those buys do 9 points worse over the next month.",
+   "plantedShare": 0.4,
+   "import": {
+    "format": "generic",
+    "trades": 230,
+    "roundTrip": true
+   },
+   "findings": {
+    "chasing": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "impulse": {
+     "tier": "detected",
+     "signals": [
+      "24% of your timed decisions came within an hour of your first look; impulse buys did -9.2 pts against the ones you had looked at for a week or more."
+     ],
+     "rules": [
+      {
+       "id": "sleep_on_it",
+       "title": "Sleep on it",
+       "text": "Sleep on it: wait at least 1 hour between first looking at a stock and buying it.",
+       "verdict": "supported",
+       "flagged": 23,
+       "testN": 63,
+       "mean": 0.05914801733751809,
+       "ci99": [
+        0.020211866420905552,
+        0.0981609263495785
+       ],
+       "flaggedMean": -0.05914801733751809,
+       "keptMean": 0.052240256501817316
+      }
+     ]
+    },
+    "bad_hour": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "turbulence": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "crowd_buys": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    }
+   }
+  },
+  "night_trader": {
+   "label": "The night trader",
+   "bias": "bad_hour",
+   "habit": "About half of the buys are placed at 22:00 or later, after the market has closed; those buys do 8 points worse over the next month.",
+   "plantedShare": 0.4857142857142857,
+   "import": {
+    "format": "generic",
+    "trades": 226,
+    "roundTrip": true
+   },
+   "findings": {
+    "chasing": {
+     "tier": "watch",
+     "signals": [
+      "Buys made after the price had risen since your first look did -0.0 pts against those made after a fall."
+     ],
+     "rules": []
+    },
+    "impulse": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "bad_hour": {
+     "tier": "detected",
+     "signals": [
+      "Buys placed in the night (18-4 h) did -8.5 pts against your other buys."
+     ],
+     "rules": [
+      {
+       "id": "avoid_daypart",
+       "title": "Avoid your worst time of day",
+       "text": "Do not place buys in the night (22-6 h on your clock). Decide then if you like, and place the order at another time.",
+       "verdict": "supported",
+       "flagged": 36,
+       "testN": 70,
+       "mean": 0.05140390652871675,
+       "ci99": [
+        0.029270913793189246,
+        0.07669905025630526
+       ],
+       "flaggedMean": -0.05140390652871675,
+       "keptMean": 0.05423570101238911
+      }
+     ]
+    },
+    "turbulence": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "crowd_buys": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    }
+   }
+  },
+  "yolo": {
+   "label": "The YOLO trader",
+   "bias": "turbulence",
+   "habit": "Buys in turbulent markets are 2.5x the usual size and do 8 points worse over the next month.",
+   "plantedShare": 0.5571428571428572,
+   "import": {
+    "format": "generic",
+    "trades": 226,
+    "roundTrip": true
+   },
+   "findings": {
+    "chasing": {
+     "tier": "watch",
+     "signals": [
+      "Buys made after the price had risen since your first look did -0.2 pts against those made after a fall."
+     ],
+     "rules": [
+      {
+       "id": "wait_runup",
+       "title": "Wait after a run-up",
+       "text": "Do not buy a stock that has already risen more than 8% in the last 30 days. Wait for a pullback, or skip it.",
+       "verdict": "untested",
+       "flagged": 5,
+       "testN": 70,
+       "ci99": null
+      },
+      {
+       "id": "wait_strong_market",
+       "title": "Wait after strong market stretches",
+       "text": "Do not buy right after one of the market's strongest stretches: its return over the last 20 days in the top 20% of days (above about 4.3%).",
+       "verdict": "supported",
+       "flagged": 10,
+       "testN": 70,
+       "mean": 0.03197863188603027,
+       "ci99": [
+        0.0011153301265529603,
+        0.06829670596517898
+       ],
+       "flaggedMean": -0.03197863188603027,
+       "keptMean": -0.023612341362537828
+      }
+     ]
+    },
+    "impulse": {
+     "tier": "rules",
+     "signals": [],
+     "rules": [
+      {
+       "id": "sleep_on_it",
+       "title": "Sleep on it",
+       "text": "Sleep on it: wait at least 3 days between first looking at a stock and buying it.",
+       "verdict": "indicative",
+       "flagged": 24,
+       "testN": 57,
+       "mean": 0.027007124235417675,
+       "ci99": [
+        -0.003384593231012173,
+        0.05739406195817201
+       ],
+       "flaggedMean": -0.027007124235417675,
+       "keptMean": -0.022654044112031924
+      }
+     ]
+    },
+    "bad_hour": {
+     "tier": "rules",
+     "signals": [],
+     "rules": [
+      {
+       "id": "avoid_daypart",
+       "title": "Avoid your worst time of day",
+       "text": "Do not place buys in the midday (11-15 h on your clock). Decide then if you like, and place the order at another time.",
+       "verdict": "indicative",
+       "flagged": 15,
+       "testN": 70,
+       "mean": 0.05328880913895749,
+       "ci99": [
+        -0.00045828921531446316,
+        0.10158556478914203
+       ],
+       "flaggedMean": -0.05328880913895749,
+       "keptMean": -0.017039902973240185
+      }
+     ]
+    },
+    "turbulence": {
+     "tier": "rules",
+     "signals": [],
+     "rules": [
+      {
+       "id": "pause_turbulent",
+       "title": "Pause in turbulent markets",
+       "text": "Do not buy while the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year).",
+       "verdict": "indicative",
+       "flagged": 26,
+       "testN": 70,
+       "mean": 0.03204691803140589,
+       "ci99": [
+        -0.0060862146143906065,
+        0.07133669951242985
+       ],
+       "flaggedMean": -0.03204691803140589,
+       "keptMean": -0.020529702995364076
+      },
+      {
+       "id": "cap_turbulent",
+       "title": "Cap the size in turbulent markets",
+       "text": "When the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year), keep a buy to at most 1x your usual buy.",
+       "verdict": "supported",
+       "flagged": 19,
+       "testN": 68,
+       "mean": 0.016716213016775495,
+       "ci99": [
+        0.0015586698846290956,
+        0.03149074218005526
+       ],
+       "flaggedMean": -0.05121884318652272,
+       "keptMean": -0.014163418304596347
+      }
+     ]
+    },
+    "crowd_buys": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    }
+   }
+  },
+  "herd": {
+   "label": "Follow the throng",
+   "bias": "crowd_buys",
+   "habit": "35% of buys come right after a spike in other users' attention on the stock; those buys do 8 points worse over the next month.",
+   "plantedShare": 0.2714285714285714,
+   "import": {
+    "format": "generic",
+    "trades": 226,
+    "roundTrip": true
+   },
+   "findings": {
+    "chasing": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "impulse": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "bad_hour": {
+     "tier": "rules",
+     "signals": [],
+     "rules": [
+      {
+       "id": "avoid_daypart",
+       "title": "Avoid your worst time of day",
+       "text": "Do not place buys in the midday (11-15 h on your clock). Decide then if you like, and place the order at another time.",
+       "verdict": "supported",
+       "flagged": 15,
+       "testN": 70,
+       "mean": 0.04031360563958712,
+       "ci99": [
+        0.0010214573710195592,
+        0.08345255813112397
+       ],
+       "flaggedMean": -0.04031360563958712,
+       "keptMean": 0.007966859708749708
+      }
+     ]
+    },
+    "turbulence": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "crowd_buys": {
+     "tier": "detected",
+     "signals": [
+      "37% of your buys came while other Stocktrails users were piling into the stock; by each stock's own rate, chance would give 10%.",
+      "Those buys did -2.0 pts against your other buys over 5 trading days."
+     ],
+     "rules": [
+      {
+       "id": "wait_crowd",
+       "title": "Wait for the crowd to move on",
+       "text": "Do not buy a stock while other Stocktrails users look at it more than 3x as often as usual (the last 3 days against the month before). Wait until the crowd's attention fades.",
+       "verdict": "supported",
+       "flagged": 18,
+       "testN": 70,
+       "mean": 0.04908598995100408,
+       "ci99": [
+        0.0033071655088435605,
+        0.09145999230934045
+       ],
+       "flaggedMean": -0.04908598995100408,
+       "keptMean": 0.013788865740490394
+      }
+     ]
+    }
+   }
+  },
+  "control": {
+   "label": "Control investor",
+   "bias": null,
+   "habit": "No planted habit: every buy's return is market plus noise.",
+   "plantedShare": null,
+   "import": {
+    "format": "generic",
+    "trades": 226,
+    "roundTrip": true
+   },
+   "findings": {
+    "chasing": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "impulse": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "bad_hour": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "turbulence": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    },
+    "crowd_buys": {
+     "tier": "none",
+     "signals": [],
+     "rules": []
+    }
+   }
+  }
+ },
+ "robustness": {
+  "fomo": {
+   "own": 10,
+   "ownDetected": 10,
+   "ownRuleSupported": 9,
+   "others": 0,
+   "n": 10
+  },
+  "first_hour": {
+   "own": 10,
+   "ownDetected": 10,
+   "ownRuleSupported": 9,
+   "others": 1,
+   "n": 10
+  },
+  "night_trader": {
+   "own": 10,
+   "ownDetected": 10,
+   "ownRuleSupported": 6,
+   "others": 4,
+   "n": 10
+  },
+  "yolo": {
+   "own": 8,
+   "ownDetected": 0,
+   "ownRuleSupported": 8,
+   "others": 5,
+   "n": 10
+  },
+  "herd": {
+   "own": 10,
+   "ownDetected": 10,
+   "ownRuleSupported": 7,
+   "others": 3,
+   "n": 10
+  },
+  "control": {
+   "own": 0,
+   "ownDetected": 0,
+   "ownRuleSupported": 0,
+   "others": 1,
+   "n": 10
+  }
+ }
+}

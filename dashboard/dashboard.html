@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#161a26" />
+  <script src="../src/theme.js"></script>
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Stocktrails" />
+  <link rel="apple-touch-icon" href="../icons/icon192.png" />
+  <link rel="icon" href="../icons/logo.svg" type="image/svg+xml" />
+  <title>Stocktrails</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div id="auth-gate">
+    <div class="welcome">
+      <div class="welcome-glow"></div>
+      <header class="welcome-top">
+        <div class="welcome-brand">
+          <img class="brand-mark" src="../icons/brand/logo-48.svg" alt="" />
+          <span class="brand-name">Stocktrails</span>
+        </div>
+        <button id="gate-signin-top" class="ghost-cta">Sign in</button>
+      </header>
+
+      <section class="welcome-hero">
+        <span class="welcome-kicker">What if I bought?</span>
+        <h1>Turn browsing into insight.</h1>
+        <p class="welcome-lede">
+          Every ticker you look up is a quiet prediction. Stocktrails
+          records the stocks you research, the outlook and reasoning you attach,
+          and then shows you how those picks actually played out. Stop wondering
+          whether your instincts were right. Start measuring them.
+        </p>
+        <div class="muted small" id="gate-status"></div>
+
+      </section>
+
+      <section class="welcome-explain" id="welcome-explain">
+        <div class="we-head">
+          <span class="welcome-kicker">Walkthrough</span>
+          <h2>See everything Stocktrails measures</h2>
+          <p class="welcome-lede">Watch the 90-second narrated tour, then explore each part of the dashboard below, with every statistic explained.</p>
+        </div>
+        <figure class="we-video">
+          <video controls preload="metadata" playsinline poster="media/tour-poster.jpg">
+            <source src="media/stocktrails-tour.mp4" type="video/mp4">
+          </video>
+          <figcaption>The tour in 90 seconds: capture, measure, understand, calibrate and compare.</figcaption>
+        </figure>
+      </section>
+
+      <section class="welcome-features">
+        <div class="wf-card">
+          <div class="wf-ic">&#128200;</div>
+          <h3>Track without effort</h3>
+          <p>Browse Yahoo Finance, CNBC, TradingView and more as usual. Viewed tickers, dwell time and engagement are logged automatically.</p>
+        </div>
+        <div class="wf-card">
+          <div class="wf-ic">&#9998;</div>
+          <h3>Log your outlook</h3>
+          <p>Mark a stock positive, neutral or negative, set a target, and write the one-line thesis behind the call while it's fresh.</p>
+        </div>
+        <div class="wf-card">
+          <div class="wf-ic">&#127919;</div>
+          <h3>See what if you bought</h3>
+          <p>A live watchlist rebases every pick to its first-view price, scores your hit rate, and builds an index of your attention.</p>
+        </div>
+        <div class="wf-card">
+          <div class="wf-ic">&#127758;</div>
+          <h3>Compare with the crowd</h3>
+          <p>See how your research mix stacks up against the whole community, by conviction, hit rate and country.</p>
+        </div>
+      </section>
+
+      <section class="welcome-walk" id="welcome-walk">
+        <nav class="we-toc" aria-label="Walkthrough sections"><button type="button" data-scroll="we-capture">Capture</button><button type="button" data-scroll="we-stocks">My Stocks</button><button type="button" data-scroll="we-compare">Charts</button><button type="button" data-scroll="we-index">Index statistics</button><button type="button" data-scroll="we-habits">My Habits</button><button type="button" data-scroll="we-predictions">Predictions</button><button type="button" data-scroll="we-edge">Edge</button><button type="button" data-scroll="we-community">Community</button><button type="button" data-scroll="we-settings">Settings</button></nav>
+<article class="we-block" id="we-capture">
+<div class="we-copy"><span class="we-kick">1. Capture</span><h3>Label a stock in one click, right where you research</h3><p class="we-lead">Open a stock page on a supported finance site and a small card appears in the corner of the page. Nothing to start, nothing to copy: the view is logged for you.</p><ul><li>Ticker, time, price and source are recorded automatically on Yahoo Finance, Google Finance, MarketWatch, CNBC, Bloomberg, StockAnalysis, MarketBeat, Finviz, TradingView, Seeking Alpha, Nasdaq, Stocktwits, WSJ and Perplexity. Add any other site as a custom portal in Settings.</li><li>Say what you expect with one click: Positive, Neutral or Negative.</li><li>Optionally mark that you took a position, set a target price, choose a time horizon (1 week to 1 year) and write the one-line reason while it is fresh.</li><li>Reading behaviour is captured quietly in the background, with no extra clicks.</li></ul></div>
+<figure class="we-shot"><img loading="lazy" width="1280" height="800" src="media/tour-widget.jpg" alt="The Stocktrails card on a stock page with outlook buttons, position, target, horizon and rationale"></figure>
+<details class="we-stats" open><summary>Statistics measured</summary><div class="we-sg"><h4>Recorded on every view</h4><dl><div><dt>Price at view</dt><dd>The price when you opened the page, the anchor for every return the dashboard computes.</dd></div><div><dt>Active time</dt><dd>Minutes the tab was visible and in use on the stock page.</dd></div><div><dt>Scroll depth</dt><dd>How far down the page you read (maximum reached).</dd></div><div><dt>Focus switches</dt><dd>How often you tabbed away and came back during the visit.</dd></div><div><dt>Market session</dt><dd>Pre-market, market hours, after hours or overnight (US/Eastern) at the moment of the view.</dd></div><div><dt>Your call</dt><dd>Outlook label, position taken, target price, horizon and rationale.</dd></div></dl></div></details>
+</article>
+<article class="we-block" id="we-stocks">
+<div class="we-copy"><span class="we-kick">2. Measure</span><h3>My Stocks: every pick, scored since you first looked</h3><p class="we-lead">The watchlist ranks everything you have researched and shows what each stock did after your first view. Click a name to see it on the chart.</p><ul><li>Summary bar with your totals: tickers tracked, daily events, intraday views, label hit rate and average return per view per day.</li><li>A green Target hit badge appears when a stock has reached the target you set.</li><li>Single chart: the price with every view marked. Marker size shows time spent that day, colour shows your label, and a star means you attached a rationale.</li><li>The NASDAQ line runs next to it, coloured as a heat map of how much attention you were paying at the time, from blue (low) to red (high).</li><li>Choose daily or hourly bars, a period from 1 week to since your first view, local currency or USD, and drag the range slider to zoom or pan. Fix a wrong symbol with the Yahoo symbol box.</li></ul></div>
+<figure class="we-shot"><img loading="lazy" width="1280" height="800" src="media/tour-stocks.jpg" alt="Watchlist table and single-stock chart with labelled views against NASDAQ"></figure>
+<details class="we-stats" open><summary>Statistics measured</summary><div class="we-sg"><h4>Summary bar</h4><dl><div><dt>Tickers</dt><dd>Distinct stocks you have tracked.</dd></div><div><dt>Daily events</dt><dd>Attention events in the daily database (repeat views within 60 minutes merge into one).</dd></div><div><dt>Intraday views</dt><dd>Every individual view, each with its own price.</dd></div><div><dt>Hit rate</dt><dd>Share of Positive and Negative labels whose direction matched the move from the price when viewed to today.</dd></div><div><dt>Avg return / view / day</dt><dd>Average across stocks of return since first view, divided by total views and by days since first view.</dd></div></dl></div>
+<div class="we-sg"><h4>Watchlist columns</h4><dl><div><dt>First seen / Events</dt><dd>Date of your first view and how many attention events you logged.</dd></div><div><dt>Return since</dt><dd>(Current price - price at first view) / price at first view.</dd></div><div><dt>Ret / view</dt><dd>Return since first view divided by total views: what each unit of attention earned.</dd></div><div><dt>Ret / hour</dt><dd>Return since first view divided by hours of active time on the page.</dd></div><div><dt>Label hit rate</dt><dd>Share of that stock&#x27;s Positive and Negative labels that matched the move since you viewed it.</dd></div><div><dt>Sector / Cap</dt><dd>Sector from Yahoo and market-cap bucket: nano, micro, small, mid, large or mega.</dd></div><div><dt>Scroll / Focus</dt><dd>Maximum scroll depth reached and maximum focus switches across your views.</dd></div><div><dt>Conviction</dt><dd>log2(1 + views) x (0.5 + 0.5 x max scroll depth) x (1 + 0.1 x focus switches). Red up to 1, amber up to 3, green above.</dd></div></dl></div></details>
+</article>
+<article class="we-block" id="we-compare">
+<div class="we-copy"><span class="we-kick">2. Measure</span><h3>Compare every position, or turn them into an index</h3><p class="we-lead">Switch the chart between Single, Compare and Index to look at the same research from three angles.</p><ul><li>Compare puts every tracked stock on one chart, each rebased to 100, so relative performance is easy to read.</li><li>Index combines your positions into a single portfolio equity curve, always with no leverage and no look-ahead: each day uses the previous day&#x27;s weights.</li><li>Weighting: Equal, or Attention-weighted, where each name counts by its share of your total attention.</li><li>Holding rule: Attended = held and sold on Negative, Long only on Positive, or Hold everything attended.</li></ul></div>
+<figure class="we-shot"><img loading="lazy" width="1280" height="800" src="media/tour-compare.jpg" alt="Compare view with every position rebased to 100"></figure>
+
+</article>
+<article class="we-block" id="we-index">
+<div class="we-copy"><span class="we-kick">2. Measure</span><h3>Index statistics: the numbers behind your attention portfolio</h3><p class="we-lead">Below the Index chart the dashboard measures the portfolio the way a fund would, on the window you are looking at, annualized with a risk-free rate of 0.</p><ul><li>Allocation shows how concentrated your attention has made the portfolio.</li><li>Performance covers return, risk and drawdown.</li><li>Vs NASDAQ tells you whether the index beat simply holding the market, and why.</li><li>Weight vs contribution shows which stocks carried the result, with a holdings table.</li></ul></div>
+<figure class="we-shot"><img loading="lazy" width="1720" height="588" src="media/tour-index-stats.jpg" alt="Index statistics: allocation, performance and versus-NASDAQ measures"></figure>
+<details class="we-stats" open><summary>Statistics measured</summary><div class="we-sg"><h4>Allocation</h4><dl><div><dt>Holdings</dt><dd>Names currently held under the selected holding rule.</dd></div><div><dt>Concentration (HHI)</dt><dd>Sum of squared weights. 1 means everything in one name; 1/N means spread equally over N names.</dd></div><div><dt>Effective holdings</dt><dd>1 / HHI: how many equal-weight names would give the same concentration.</dd></div><div><dt>Top holding</dt><dd>Weight of the largest position.</dd></div><div><dt>Top 3 weight</dt><dd>Combined weight of the three largest positions.</dd></div><div><dt>Avg turnover / bar</dt><dd>Average share of the portfolio reallocated per bar: 0.5 x the sum of absolute weight changes.</dd></div></dl></div>
+<div class="we-sg"><h4>Performance</h4><dl><div><dt>Total return</dt><dd>Index return over the displayed window.</dd></div><div><dt>Annualized return</dt><dd>Geometric return scaled to one year (needs at least 5 bars).</dd></div><div><dt>Volatility (ann.)</dt><dd>Standard deviation of bar returns, annualized.</dd></div><div><dt>Sharpe (rf=0)</dt><dd>Annualized mean bar return divided by annualized volatility.</dd></div><div><dt>Sortino</dt><dd>Like Sharpe, but only downside deviation in the denominator.</dd></div><div><dt>Max drawdown</dt><dd>Largest peak-to-trough decline of the index in the window.</dd></div><div><dt>Hit rate</dt><dd>Share of bars with a positive return.</dd></div><div><dt>Best bar / Worst bar</dt><dd>Best and worst single-bar return in the window.</dd></div></dl></div>
+<div class="we-sg"><h4>Vs NASDAQ</h4><dl><div><dt>NASDAQ return</dt><dd>NASDAQ buy-and-hold over the same window.</dd></div><div><dt>Active return</dt><dd>Index return minus NASDAQ return.</dd></div><div><dt>Beta</dt><dd>Sensitivity of index bar returns to NASDAQ bar returns.</dd></div><div><dt>Correlation</dt><dd>Pearson r of index versus NASDAQ bar returns.</dd></div><div><dt>Alpha (ann.)</dt><dd>Annualized mean return not explained by beta x NASDAQ.</dd></div><div><dt>Tracking error (ann.)</dt><dd>Annualized standard deviation of (index - NASDAQ) bar returns.</dd></div></dl></div></details>
+</article>
+<article class="we-block" id="we-habits">
+<div class="we-copy"><span class="we-kick">3. Understand</span><h3>My Habits: how you actually research</h3><p class="we-lead">Two columns, Views and Time, show your research from two angles, with Overview, Trends and Breakdown tabs and a Day, Week, Month or Year span.</p><ul><li>Overview: usage summary, a year-long calendar heatmap and your market correlation.</li><li>Trends: views and active minutes over time, plus one line per stock to see what took your time and when.</li><li>Breakdown: by hour of day, weekday, sector, industry and most-attended stocks.</li><li>Market correlation compares your attention with NASDAQ returns on the previous day, the same day or the next day, next to the community&#x27;s.</li></ul></div>
+<figure class="we-shot"><img loading="lazy" width="1280" height="800" src="media/tour-habits.jpg" alt="My Habits overview with usage summary, calendar heatmap and market correlation"></figure>
+<details class="we-stats" open><summary>Statistics measured</summary><div class="we-sg"><h4>Usage summary</h4><dl><div><dt>Concentration (HHI)</dt><dd>Sum of each stock&#x27;s share of your views (or time), squared. 1 means all on one stock; near 0 means spread evenly.</dd></div><div><dt>Effective # stocks</dt><dd>1 / HHI: the equivalent number of stocks if your attention were spread evenly.</dd></div><div><dt>Discovery / revisit</dt><dd>Distinct stocks first viewed, versus all later views of stocks already seen.</dd></div><div><dt>Avg attention to label</dt><dd>Average time from a stock&#x27;s first view to the first time you labelled it.</dd></div><div><dt>Current streak / Longest streak</dt><dd>Consecutive days with at least one view, now and at best.</dd></div><div><dt>Longest no-attention</dt><dd>Longest gap in days with no views, including any current dry spell.</dd></div><div><dt>Busiest day</dt><dd>The single day with the most views (or most active time).</dd></div><div><dt>Total time / Avg time per view</dt><dd>Active time on stock pages, and how long an average view lasts (Time column).</dd></div></dl></div>
+<div class="we-sg"><h4>Market correlation</h4><dl><div><dt>Rolling Pearson r</dt><dd>Correlation of your daily views (or minutes) with NASDAQ returns over a rolling window.</dd></div><div><dt>Community line</dt><dd>The same measure using views per active user across the community.</dd></div><div><dt>Net outlook vs NASDAQ next day</dt><dd>Whether your bullish and bearish days tend to precede matching NASDAQ moves.</dd></div></dl></div></details>
+</article>
+<article class="we-block" id="we-breakdown">
+<div class="we-copy"><span class="we-kick">3. Understand</span><h3>Trends and breakdowns show where your time goes</h3><p class="we-lead">Switch to Trends to see your activity over time, or Breakdown to see it by hour, weekday, sector and industry.</p><ul><li>Find the hours and weekdays when you research most.</li><li>See which sectors and industries take your attention, and which stocks lead the list.</li><li>Every chart exists for both views and active minutes.</li></ul></div>
+<figure class="we-shot"><img loading="lazy" width="1280" height="800" src="media/tour-breakdown.jpg" alt="Breakdown by hour, weekday, sector and industry"></figure>
+
+</article>
+<article class="we-block" id="we-predictions">
+<div class="we-copy"><span class="we-kick">4. Calibrate</span><h3>Predictions: every call scored against your own target and deadline</h3><p class="we-lead">A call is a Positive or Negative label with a target price and horizon. Stocktrails follows each one to its deadline and keeps score.</p><ul><li>Scorecard across all your calls, with four charts: pace to target, accuracy by horizon, track record over time and timing calibration.</li><li>A table of every prediction with entry price, target, current price, progress to target, time used, return, return versus NASDAQ and status (for example 52d left).</li><li>Filter the list by Open, Resolved or All.</li></ul></div>
+<figure class="we-shot"><img loading="lazy" width="1280" height="800" src="media/tour-predictions.jpg" alt="Prediction scorecard with pace, accuracy by horizon, track record and timing charts"></figure>
+<details class="we-stats" open><summary>Statistics measured</summary><div class="we-sg"><h4>Scorecard</h4><dl><div><dt>Open</dt><dd>Predictions whose deadline has not passed and whose target has not been reached.</dd></div><div><dt>Due within 7d</dt><dd>Open predictions whose deadline falls in the next seven days.</dd></div><div><dt>Resolved</dt><dd>Predictions that reached their target or ran past their deadline.</dd></div><div><dt>Direction hit rate</dt><dd>Share of resolved predictions where the price moved the way you called it.</dd></div><div><dt>Target hit rate</dt><dd>Share of resolved predictions with a usable target that actually reached it before the deadline.</dd></div><div><dt>Progress when missed</dt><dd>On expired predictions, how much of the required move was made. Negative means it went the other way.</dd></div><div><dt>Median time used</dt><dd>On targets reached, the median share of the horizon that had elapsed. Well under 50% means your horizons are longer than they need to be.</dd></div><div><dt>Brier score</dt><dd>Calibration of your direction calls against outcomes. Lower is better; 0.25 means no skill.</dd></div><div><dt>Edge vs NASDAQ</dt><dd>Average return of the call minus NASDAQ over the same window, signed by call direction. Above 0 means the calls beat holding the index.</dd></div></dl></div></details>
+</article>
+<article class="we-block" id="we-edge">
+<div class="we-copy"><span class="we-kick">4. Calibrate</span><h3>Edge: do your labels actually carry information?</h3><p class="we-lead">The Edge tab tests your outlook labels statistically, so you can tell skill from a good streak.</p><ul><li>Event study: the average return after your Positive and after your Negative labels, at horizons from 1 day to 1 year.</li><li>Outlook mix over time: your Positive, Neutral and Negative labels per day, week or month.</li><li>Forecast accuracy over time, with a Daily, Weekly or Monthly view.</li></ul></div>
+<figure class="we-shot"><img loading="lazy" width="1280" height="800" src="media/tour-edge.jpg" alt="Edge tab with event study, outlook mix and forecast accuracy"></figure>
+<details class="we-stats" open><summary>Statistics measured</summary><div class="we-sg"><h4>Edge tab</h4><dl><div><dt>After Positive / After Negative</dt><dd>Average return from the price when you labelled to N trading days later.</dd></div><div><dt>Signal edge</dt><dd>Return aligned with your call (Positive adds +return, Negative adds -return). Above 0 means your labels add value.</dd></div><div><dt>N</dt><dd>Sample size behind each row; a row needs labels old enough to have that much history.</dd></div><div><dt>Overall hit rate</dt><dd>Positive calls that rose plus Negative calls that fell, over non-neutral labelled events with 30 days of history.</dd></div><div><dt>Labelled events / Flip rate</dt><dd>How many labels you recorded, and the share that overwrote a different earlier label.</dd></div></dl></div></details>
+</article>
+<article class="we-block" id="we-community">
+<div class="we-copy"><span class="we-kick">5. Compare</span><h3>Community: see how your research stacks up</h3><p class="we-lead">Three views put your habits next to everyone else&#x27;s. Only aggregates are shared, and a ticker appears in Trending only once at least 3 users have viewed it.</p><ul><li>Ranking over the last 30 days for views, research time, stocks covered and label hit rate, shown as top percent or as a rank in a small community.</li><li>You vs the crowd: a daily similarity score between your research mix and the community&#x27;s, and with what the wider internet is watching.</li><li>Index: the community&#x27;s most researched stocks built into an index, next to your own index and NASDAQ, with switchable lines for outside attention lists.</li><li>Trending now: which stocks are running hotter than usual today.</li></ul></div>
+<figure class="we-shot"><img loading="lazy" width="1280" height="800" src="media/tour-community-index.jpg" alt="Community index chart with outside attention lists and holdings table"></figure>
+<details class="we-stats" open><summary>Statistics measured</summary><div class="we-sg"><h4>Ranking and overlap</h4><dl><div><dt>Views / Research time / Stocks covered</dt><dd>Your totals for the last 30 days, ranked against all active users.</dd></div><div><dt>Label hit rate</dt><dd>Your Positive and Negative calls that matched the move, ranked against other users.</dd></div><div><dt>Overlap</dt><dd>Daily cosine similarity between your ticker mix and the crowd&#x27;s. 100% means you look at exactly what the crowd concentrates on; low means you research off the beaten path.</dd></div><div><dt>Outside lists</dt><dd>StockAnalysis pageviews, Reddit mentions, Stocktwits trending, Yahoo trending and Wikipedia pageviews, each compared with your mix on the days you researched.</dd></div></dl></div>
+<div class="we-sg"><h4>Community index and trending</h4><dl><div><dt>Weight / Users</dt><dd>A stock&#x27;s share of the basket and how many users researched it.</dd></div><div><dt>First community view / Return since</dt><dd>When the community first looked at it and how it has done since.</dd></div><div><dt>Views today / 7d avg per day</dt><dd>Community views today against the previous seven-day average.</dd></div><div><dt>Expected today / Heat</dt><dd>Views expected at each stock&#x27;s usual views per active user, and (views today + 1) / (expected + 1). A heat of 2x or more is flagged.</dd></div></dl></div></details>
+</article>
+<article class="we-block we-block-plain" id="we-settings">
+<div class="we-copy"><span class="we-kick">6. Own your data</span><h3>Settings: sync, export and your own portals</h3><p class="we-lead">Sign in with Google and your research syncs privately across the Chrome extension, the web app and the mobile app. Your data is yours and is never sold or used for ads.</p><ul><li>Account: sign in or out, and see how you use Stocktrails by section.</li><li>Data: export everything as JSON, import a file to merge it in, or clear local data (a backup downloads first).</li><li>Portals: add any finance site so it is tracked like the built-in ones.</li></ul></div>
+
+
+</article>
+      </section>
+
+      <section class="welcome-steps">
+        <div class="ws"><span class="ws-n">1</span><div><strong>Sign in</strong><p>One click with Google. Straightforward, no setup.</p></div></div>
+        <div class="ws-arrow">&#8594;</div>
+        <div class="ws"><span class="ws-n">2</span><div><strong>Research normally</strong><p>Automatic tracking of the tickers you look at.</p></div></div>
+        <div class="ws-arrow">&#8594;</div>
+        <div class="ws"><span class="ws-n">3</span><div><strong>Control your attention</strong><p>Watch your habits turn into real outcomes.</p></div></div>
+      </section>
+
+      <section class="welcome-foot">
+        <h2>Ready to see how your research pays off?</h2>
+        <button id="gate-signin-bottom" class="primary">Sign in with Google</button>
+        <div class="muted small" id="gate-status-bottom"></div>
+
+      </section>
+
+    </div>
+  </div>
+  <div id="signup-prompt" class="fb-hidden">
+    <div class="fb-box">
+      <h3>Create your account</h3>
+      <p class="muted small">Before you continue with Google, please read and accept the <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+      <label class="muted small gate-terms"><input type="checkbox" id="signup-accept" /><span>I am 18 or older and accept the Terms of Use and the Privacy Policy.</span></label>
+      <label class="muted small gate-terms"><input type="checkbox" id="signup-ai" /><span>Optional: turn on the AI assistant. It sends results worked out on this device (never amounts, prices, ISINs or your trade list) to our AI service and a model provider (OpenRouter). You can turn it off any time. <a href="privacy.html#ai" target="_blank" rel="noopener">What is sent</a></span></label>
+      <div class="terms-prompt-actions"><button id="signup-cancel">Cancel</button><button id="signup-continue" class="tr-primary" disabled>Continue with Google</button></div>
+      <div class="signup-email">
+        <div class="muted small">Or with an e-mail address and a password</div>
+        <input type="email" id="signup-email" placeholder="E-mail" autocomplete="email" />
+        <input type="password" id="signup-password" placeholder="Password (at least 8 characters)" autocomplete="current-password" />
+        <div class="terms-prompt-actions"><button id="signup-email-up" disabled>Create account</button><button id="signup-email-in" class="tr-primary" disabled>Sign in with e-mail</button></div>
+        <div class="muted small" id="signup-email-msg"></div>
+      </div>
+    </div>
+  </div>
+  <div id="terms-prompt" class="fb-hidden">
+    <div class="fb-box">
+      <h3>Terms of Use and Privacy Policy</h3>
+      <p class="muted small">Stocktrails now has <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and a <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>. Please read and accept them to keep using the app. They describe the optional AI assistant, which stays off unless you tick its box.</p>
+      <label class="muted small gate-terms"><input type="checkbox" id="terms-prompt-accept" /><span>I am 18 or older and accept the Terms of Use and the Privacy Policy.</span></label>
+      <label class="muted small gate-terms"><input type="checkbox" id="terms-prompt-ai" /><span>Optional: turn on the AI assistant (it sends results worked out on this device to our AI service and OpenRouter, a model provider; you can turn it off any time).</span></label>
+      <div class="terms-prompt-actions"><button id="terms-prompt-signout">Sign out</button><button id="terms-prompt-continue" class="tr-primary" disabled>Continue</button></div>
+    </div>
+  </div>
+  <div id="hover-tip"></div>
+  <button id="fb-open" title="Send feedback">Feedback</button>
+  <div id="fb-modal" class="fb-hidden">
+    <div class="fb-box">
+      <h3>Send feedback</h3>
+      <div class="fb-shot-wrap"><img id="fb-preview" alt="selected screenshot" /></div>
+      <div class="fb-row">
+        <button id="fb-retake" class="fb-mini">Retake area</button>
+        <label class="fb-chk"><input type="checkbox" id="fb-include" checked /> Include screenshot</label>
+      </div>
+      <textarea id="fb-text" rows="5" placeholder="What's on your mind? Bug, idea, anything."></textarea>
+      <div class="fb-actions">
+        <button id="fb-cancel">Cancel</button>
+        <button id="fb-send" class="primary">Submit</button>
+      </div>
+      <div id="fb-status" class="muted small"></div>
+    </div>
+  </div>
+
+  <!-- KPI drilldown: time series for a single metric (admin Insights) -->
+  <div id="metric-modal" class="mm-hidden">
+    <div class="mm-box">
+      <div class="mm-head">
+        <strong id="mm-title"></strong>
+        <button id="mm-close" class="mm-x" title="Close">&times;</button>
+      </div>
+      <div class="att-toolbar">
+        <select id="mm-gran" class="span-sel">
+          <option value="day">Day</option>
+          <option value="week">Week</option>
+          <option value="month" selected>Month</option>
+          <option value="year">Year</option>
+        </select>
+        <button id="mm-prev" class="navbtn" title="Earlier">&#9664;</button>
+        <span id="mm-range" class="muted small"></span>
+        <button id="mm-next" class="navbtn" title="Later">&#9654;</button>
+      </div>
+      <canvas id="mm-canvas" class="an-canvas"></canvas>
+      <div id="mm-tip" class="muted small"></div>
+      <div id="mm-desc" class="muted small"></div>
+    </div>
+  </div>
+
+  <header>
+    <h1 class="brand"><img class="brand-mark" src="../icons/brand/logo-48.svg" alt="" /><span class="brand-name">Stocktrails</span></h1>
+    <nav class="maintabs" id="maintabs">
+      <button data-m="attention" class="on">My Habits</button>
+      <button data-m="performance">My Stocks</button>
+      <button data-m="predictions">Predictions</button>
+      <button data-m="network">Community</button>
+      <button data-m="world">World</button>
+      <button data-m="settings">Settings</button>
+      <button data-m="admin" id="tab-admin" hidden>Admin</button>
+    </nav>
+    <div class="summary" id="summary"></div>
+  </header>
+
+  <!-- ===================== PERFORMANCE ===================== -->
+  <div class="mainview" id="main-performance" hidden>
+    <main>
+      <section class="left" id="sec-watchlist" data-area="watchlist">
+        <h2>Watchlist</h2>
+        <div class="watchlist-scroll">
+          <table id="watchlist">
+            <thead>
+              <tr>
+                <th data-sort="ticker" title="Stock symbol. Click to sort by name.">Ticker</th>
+                <th data-sort="first" title="Date of your first view of this stock. Click to sort.">First seen</th>
+                <th data-sort="events" title="Number of attention events recorded. Click to sort.">Events</th>
+                <th data-sort="ret" title="(current price − price at first view) / price at first view. Click to sort.">Return since</th>
+                <th data-sort="retview" title="Return since first attention ÷ total views. Click to sort.">Ret / view</th>
+                <th data-sort="rethour" title="Return since first attention ÷ hours of active time on the page. Click to sort.">Ret / hour</th>
+                <th data-sort="hit" title="Share of Positive/Negative labels whose direction matched the move since you viewed it. Click to sort.">Label hit rate</th>
+                <th data-sort="sector" title="GICS sector (from Yahoo). Click to sort.">Sector</th>
+                <th data-sort="cap" title="Market-cap bucket: nano/micro/small/mid/large/mega. Click to sort.">Cap</th>
+                <th data-sort="scroll" title="Max scroll depth reached on the page, across this stock's events. Click to sort.">Scroll</th>
+                <th data-sort="focus" title="Max number of focus switches (tab away and back) recorded for this stock. Click to sort.">Focus</th>
+                <th data-sort="conviction" title="Click to sort. Conviction = log2(1 + views) × (0.5 + 0.5 × max scroll depth) × (1 + focus switches × 0.1), over every view of this stock. Red up to 1, amber up to 3, green above.">Conviction</th><th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div id="watchlist-empty" class="muted">
+          Nothing tracked yet. Visit a stock page on a supported portal
+          (Yahoo Finance, Google Finance, MarketWatch, CNBC, Bloomberg,
+          StockAnalysis, MarketBeat, Finviz).
+        </div>
+      </section>
+
+      <section class="right" id="sec-chart" data-area="chart">
+        <div class="view-bar">
+          <div class="seg" id="view-seg">
+            <button data-v="single" class="on">Single</button>
+            <button data-v="compare">Compare</button>
+            <button data-v="index">Index</button>
+          </div>
+          <label class="muted small basis-ctl" title="Price-bar granularity for the chart. Daily = one bar per trading day (10y history). Hourly = hourly bars from the local archive (~2 years).">Resolution
+            <select id="resolution" title="Daily: one close per trading day. Hourly: intraday hourly bars from the local archive.">
+              <option value="daily">Daily</option>
+              <option value="hourly">Hourly</option>
+            </select>
+          </label>
+          <label class="muted small basis-ctl" id="period-ctl" title="How far back the Single chart shows. 'Since first view' starts at your first view of the stock.">Period
+            <select id="period">
+              <option value="7">1W</option>
+              <option value="30">1M</option>
+              <option value="90">3M</option>
+              <option value="180">6M</option>
+              <option value="365">1Y</option>
+              <option value="0" selected>Since first view</option>
+            </select>
+          </label>
+          <button type="button" class="ccy-btn" data-ccy-toggle title="Returns in local currency or USD - click to switch. Local: each stock's return in the currency it is listed in (0700.HK in HKD). USD: every price converted to dollars at that day's exchange rate first, so a foreign stock's return includes the currency move - what a USD investor would have had. One setting for the My Stocks and Community charts.">Local</button>
+          <div class="idx-opts hidden" id="idx-opts">
+            <label class="muted small" title="How the index portfolio weights its held names. Equal = same weight each. Attention-weighted = each name weighted by its share of your total attention.">Weighting
+              <select id="method" title="Equal: equal weight across held names. Attention-weighted: weight by each name's share of total attention.">
+                <option value="equal">Equal</option>
+                <option value="attention">Attention-weighted</option>
+              </select>
+            </label>
+            <label class="muted small" title="When a name counts as held vs in cash. Returns use prior-day weights (no look-ahead).">Holding
+              <select id="rule" title="Attended = held, sell on Negative: enters when first viewed, a Negative label moves it to cash, a later Positive re-buys. Long only on Positive: holds only names whose latest label is Positive. Hold everything attended: always holds every attended name.">
+                <option value="attended">Attended = held, sell on Negative</option>
+                <option value="positive" selected>Long only on Positive</option>
+                <option value="all">Hold everything attended</option>
+              </select>
+            </label>
+            <label class="muted small" title="Attention-weighted only. Weights count only the views inside this trailing window, so a name you stop viewing fades and drops out when its last view leaves the window. All time uses every view to date. If nothing held was viewed in the window the previous weights are kept.">Weight window
+              <select id="win">
+                <option value="0" selected>All time</option>
+                <option value="30">30 days</option>
+                <option value="60">60 days</option>
+                <option value="90">90 days</option>
+                <option value="180">180 days</option>
+                <option value="365">365 days</option>
+              </select>
+            </label>
+            <label class="muted small" title="Decision lag: how long after a view or label a trade may act on it. 0 = the same 16:00 ET close (exact only for US listings), 1 day or more is safer for stocks that close before the US market and models research taking days. Applies to entry, labels and attention weights.">Decision lag
+              <select id="lag">
+                <option value="0" selected>0 days (same close)</option>
+                <option value="1">1 day</option>
+                <option value="2">2 days</option>
+                <option value="3">3 days</option>
+                <option value="5">5 days</option>
+                <option value="7">7 days</option>
+                <option value="14">14 days</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="chart-head">
+          <h2 id="chart-title">Select a ticker</h2>
+          <div class="sym-edit hidden" id="sym-edit">
+            <label class="muted small">Yahoo symbol</label>
+            <input id="sym-input" type="text" spellcheck="false" />
+            <button id="sym-save">Set</button>
+          </div>
+        </div>
+        <canvas id="chart" width="720" height="380"></canvas>
+        <div id="chart-range" class="chart-range" title="Drag either handle to narrow the chart's time window; drag the middle to pan it.">
+          <div class="cr-track" id="cr-track">
+            <div class="cr-sel" id="cr-sel"></div>
+            <div class="cr-h" id="cr-h0"></div>
+            <div class="cr-h" id="cr-h1"></div>
+          </div>
+          <div class="cr-labels">
+            <span id="cr-from"></span>
+            <button type="button" id="cr-reset" class="cr-reset hidden">Reset zoom</button>
+            <span id="cr-to"></span>
+          </div>
+        </div>
+        <div id="chart-msg" class="muted"></div>
+        <div id="legend" class="legend">
+          <span><i class="dot positive"></i>Positive</span>
+          <span><i class="dot negative"></i>Negative</span>
+          <span><i class="dot neutral"></i>Neutral</span>
+          <span><i class="dot none"></i>No label</span>
+        </div>
+        <!-- Allocation statistics (Index view only) -->
+        <div id="idx-stats" class="idx-stats hidden"></div>
+        <!-- PREREQ B: captured metadata for the selected stock -->
+        <div id="single-meta" class="single-meta muted small"></div>
+        <div id="event-detail" class="muted small"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===================== MY HABITS (id: attention) ===================== -->
+  <div class="mainview" id="main-attention">
+    <section class="analytics">
+      <div class="att-toolbar">
+        <div class="seg subtabs" data-for="attention">
+          <button data-sub="trades" class="on" title="Import your broker's transaction export and see how your research shows up in what you buy and sell.">Trades &amp; research</button>
+          <button data-sub="overview">Overview</button>
+          <button data-sub="trends">Trends</button>
+          <button data-sub="breakdown">Breakdown</button>
+        </div>
+        <select id="at-gran" class="span-sel">
+          <option value="day">Day</option>
+          <option value="week">Week</option>
+          <option value="month" selected>Month</option>
+          <option value="year">Year</option>
+        </select>
+        <button id="at-prev" class="navbtn" title="Earlier">&#9664;</button>
+        <span id="at-range" class="muted small"></span>
+        <button id="at-next" class="navbtn" title="Later">&#9654;</button>
+      </div>
+
+      <div class="vt-grid">
+        <div class="vt-head">Views <span class="muted small">(events)</span></div>
+        <div class="vt-head">Time <span class="muted small">(active minutes)</span></div>
+
+        <div class="vt-pane" data-pane="overview">
+        <div class="vt-cell" data-area="att-usage">
+          <h4 id="sec-usage">Usage summary</h4>
+          <div id="usage-summary" class="usage-cards"></div>
+        </div>
+        <div class="vt-cell">
+          <h4 id="sec-time-usage">Usage summary</h4>
+          <div id="time-summary" class="usage-cards"></div>
+        </div>
+
+        <div class="vt-cell" data-area="att-calendar">
+          <h4 id="sec-calendar" title="Heatmap of total views per day over the last year.">Calendar</h4>
+          <div id="cal-heat"></div>
+        </div>
+        <div class="vt-cell">
+          <h4 title="Heatmap of active minutes per day over the last year.">Calendar</h4>
+          <div id="cal-heat-time"></div>
+        </div>
+        </div>
+
+        <div class="vt-pane" data-pane="trends" hidden>
+        <div class="vt-cell" data-area="att-over-time">
+          <h4 id="sec-attime" title="Views per bucket across the selected period.">Over time</h4>
+          <canvas id="att-time-canvas" class="an-canvas"></canvas>
+          <div id="att-time-tip" class="muted small"></div>
+        </div>
+        <div class="vt-cell">
+          <h4 id="sec-time-over" title="Active minutes per bucket across the selected period.">Over time</h4>
+          <canvas id="time-over-time-canvas" class="an-canvas"></canvas>
+          <div id="time-over-time-tip" class="muted small"></div>
+        </div>
+
+        <div class="vt-cell" data-area="att-by-stock">
+          <h4 id="sec-bystock" title="One line per stock: views per bucket.">By stock over time</h4>
+          <canvas id="att-by-stock-canvas" class="an-canvas"></canvas>
+          <div id="att-by-stock-tip" class="muted small"></div>
+        </div>
+        <div class="vt-cell">
+          <h4 id="sec-time-bystock" title="One line per stock: active minutes per bucket.">By stock over time</h4>
+          <canvas id="time-by-stock-canvas" class="an-canvas"></canvas>
+          <div id="time-by-stock-tip" class="muted small"></div>
+        </div>
+        </div>
+
+        <div class="vt-pane" data-pane="breakdown" hidden>
+        <div class="vt-cell" data-area="att-distributions">
+          <h4 id="sec-dist" title="Views by hour, weekday, and most-attended stocks.">Distributions</h4>
+          <div class="dist-stack">
+            <div><h5>By hour</h5><div id="hour-dist"></div></div>
+            <div><h5>By weekday</h5><div id="dow-dist"></div></div>
+            <div><h5>By sector</h5><div id="sector-dist"></div></div>
+            <div><h5>By industry</h5><div id="industry-dist"></div></div>
+            <div><h5>Most attended</h5><div id="top-stocks"></div></div>
+          </div>
+        </div>
+        <div class="vt-cell">
+          <h4 title="Active minutes by hour, weekday, and most time spent.">Distributions</h4>
+          <div class="dist-stack">
+            <div><h5>By hour</h5><div id="hour-dist-time"></div></div>
+            <div><h5>By weekday</h5><div id="dow-dist-time"></div></div>
+            <div><h5>By sector</h5><div id="sector-dist-time"></div></div>
+            <div><h5>By industry</h5><div id="industry-dist-time"></div></div>
+            <div><h5>Most time</h5><div id="top-stocks-time"></div></div>
+          </div>
+        </div>
+        </div>
+
+        <div class="vt-pane" data-pane="overview">
+        <div class="vt-cell" data-area="att-market">
+          <h4 id="sec-market" title="Rolling and point-in-time Pearson r of daily views vs NASDAQ returns, over the selected period - yours next to the community's (views per active user).">Market correlation (vs NASDAQ)</h4>
+          <div id="market-corr"></div>
+        </div>
+        <div class="vt-cell">
+          <h4 title="Rolling and point-in-time Pearson r of daily active minutes vs NASDAQ returns, over the selected period.">Market correlation (vs NASDAQ)</h4>
+          <div id="market-corr-time"></div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Imported broker trades: device-only data, kept out of feedback screenshots (data-private). -->
+      <div class="trades-pane" data-pane="trades" data-area="att-trades" data-private hidden>
+        <div id="trades-root"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== PREDICTIONS (target + horizon accuracy) ===================== -->
+  <div class="mainview" id="main-predictions" hidden>
+    <!-- Event study + Forecast Accuracy live here rather than under Performance:
+         both score how well your calls read the market, which is what this tab is
+         about. They sit outside #pred-body so they still show when no prediction
+         carries a target price. -->
+    <div class="att-toolbar sub-bar">
+      <div class="seg subtabs" data-for="predictions">
+        <button data-sub="calls" class="on">Calls</button>
+        <button data-sub="edge">Edge</button>
+      </div>
+    </div>
+    <section class="analytics" data-area="event-study" data-pane="edge" hidden>
+      <h2 id="sec-eventstudy">Event study</h2>
+      <div class="muted small" id="analytics-sub">
+        Average forward return after each label, by horizon. Tests whether your
+        calls have an edge and how long the signal persists.
+      </div>
+      <div id="analytics-body"></div>
+
+      <div data-area="outlook" class="pred-outlook">
+        <div class="att-head">
+          <h3 id="sec-outlook" title="Your Positive/Neutral/Negative labels per period (green/gray/red), stacked.">Outlook mix over time</h3>
+          <select id="om-gran" class="span-sel">
+            <option value="day">Daily</option>
+            <option value="week" selected>Weekly</option>
+            <option value="month">Monthly</option>
+          </select>
+        </div>
+        <div class="muted small">Labeled views: green positive, gray neutral, red negative.</div>
+        <div id="sentiment-mix"></div>
+      </div>
+
+      <!-- GROUP 4d: forecast accuracy card -->
+      <div id="forecast-card"></div>
+    </section>
+
+    <section class="analytics" data-area="predictions" data-pane="calls">
+      <div id="pred-empty" class="muted" hidden>
+        No predictions yet. In the extension popup (or the in-page widget), label a stock
+        Positive or Negative, set a <b>target price</b> and/or pick a <b>horizon</b> - the time
+        you give it to get there. Each one shows up here and is scored automatically. A call with a target but no horizon has no deadline: it is listed, but stays out of the accuracy numbers.
+      </div>
+
+      <div id="pred-body" hidden>
+        <h4 class="wm-h" id="sec-pred-score" title="Scored from the price when you made the call to the price at the deadline (or now, for open calls).">Scorecard</h4>
+        <div id="pred-cards" class="usage-cards"></div>
+
+        <div class="adm-two" style="margin-top: 18px">
+          <div data-area="pred-pace">
+            <h4 class="wm-h">Pace: progress to target vs time used</h4>
+            <div class="muted small">One dot per open prediction. X = share of the horizon already spent, Y = share of the
+              move to your target already made. The diagonal is on-pace: dots above it are ahead of schedule, dots below
+              (and especially below 0) are behind. Green = Positive call, red = Negative.</div>
+            <canvas id="pred-pace-canvas" class="an-canvas"></canvas>
+            <div id="pred-pace-tip" class="muted small"></div>
+          </div>
+          <div data-area="pred-horizon">
+            <h4 class="wm-h">Accuracy by horizon</h4>
+            <div class="muted small">Directional hit rate of resolved calls, grouped by the horizon you chose. The last bar
+              is the 50% coin-flip baseline. Tells you which time frames you actually read well.</div>
+            <canvas id="pred-horizon-canvas" class="an-canvas"></canvas>
+            <div id="pred-horizon-tip" class="muted small"></div>
+          </div>
+        </div>
+
+        <div class="adm-two" style="margin-top: 18px">
+          <div data-area="pred-curve">
+            <h4 class="wm-h">Track record over time</h4>
+            <div class="muted small">Cumulative directional hit rate as each prediction resolves, against the 50% baseline.
+              Rising = you are getting better; the line is noisy until ~10 resolved calls.</div>
+            <canvas id="pred-curve-canvas" class="an-canvas"></canvas>
+            <div id="pred-curve-tip" class="muted small"></div>
+          </div>
+          <div data-area="pred-timing">
+            <h4 class="wm-h">Timing calibration</h4>
+            <div class="muted small">For targets that were reached: how much of the horizon had been used when they got
+              there. Mass on the left = your targets arrive early (you could pick shorter horizons); mass on the right =
+              you only just make it.</div>
+            <canvas id="pred-timing-canvas" class="an-canvas"></canvas>
+            <div id="pred-timing-tip" class="muted small"></div>
+          </div>
+        </div>
+
+        <div class="att-head">
+          <h4 class="wm-h" id="sec-pred-list">Predictions</h4>
+          <div class="seg" id="pred-seg">
+            <button data-p="open" class="on">Open</button>
+            <button data-p="resolved">Resolved</button>
+            <button data-p="all">All</button>
+          </div>
+        </div>
+        <div class="muted small">The filter applies to this list only; the charts above always use every resolved call.</div>
+        <div id="pred-table"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== WORLD (community aggregates) ===================== -->
+  <div class="mainview" id="main-world" hidden>
+    <section class="analytics" data-area="world">
+      <!-- Non-admins: the tab is reachable but only shows this caption. -->
+      <div id="world-coming" hidden>
+        <div class="world-coming-card"><h2>Coming soon.</h2></div>
+      </div>
+      <div id="world-content" hidden>
+        <div class="att-toolbar">
+          <div class="seg" id="world-seg">
+            <button data-w="attention" class="on" title="Colour intensity = community views per country on the shown day.">Attention</button>
+            <button data-w="topstock" title="The most viewed stock in each country on the shown day.">Top stock</button>
+            <button data-w="time" title="Active research minutes per user in each country on the shown day.">Research time</button>
+            <button data-w="hit" title="Share of that day's Positive/Negative labels whose direction matched the move since (green above 50%, red below).">Hit rate</button>
+            <button data-w="ret" title="Average return since view, per view made that day (green positive, red negative).">Return / view</button>
+            <button data-w="corr" title="Per country: correlation of daily community views with the PREVIOUS trading day's NASDAQ return, over the loaded window.">vs NASDAQ</button>
+            <button data-w="vscrowd" title="Per country: how similar its research mix is to the global research mix (cosine similarity). Mainstream vs distinctive.">vs crowd</button>
+          </div>
+          <span class="muted small" id="world-status"></span>
+        </div>
+        <!-- Map on the left, per-country table on the right (uses the side space). -->
+        <div class="world-row">
+          <div class="world-left">
+            <div id="world-map-wrap">
+              <div id="world-map"></div>
+              <div id="world-legend" class="muted small"></div>
+            </div>
+            <!-- Replayable time axis: strap sits UNDER the map. -->
+            <div class="world-strap">
+              <button id="world-restart" class="navbtn" title="Replay from the first day on the axis">&#9198;</button>
+              <button id="world-play" class="navbtn" title="Play from the current day, then stop on today and stay live">&#9654;</button>
+              <input id="world-slider" type="range" min="0" max="0" value="0" />
+              <span id="world-day" class="muted small"></span>
+            </div>
+          </div>
+          <div id="world-table" class="world-right"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== COMMUNITY (id: network) ===================== -->
+  <div class="mainview" id="main-network" hidden>
+    <section class="analytics" data-area="network">
+      <div class="att-toolbar">
+        <div class="seg subtabs" data-for="network">
+          <button data-sub="standing" class="on">You vs crowd</button>
+          <button data-sub="index">Index</button>
+          <button data-sub="trending">Trending</button>
+        </div>
+      </div>
+      <div data-pane="standing">
+        <h4 class="wm-h net-h">Ranking (last 30 days)</h4>
+        <div class="muted small">Where you stand among all active users.</div>
+        <div id="net-pct" class="usage-cards"></div>
+        <div data-area="att-crowd">
+          <h4 class="wm-h net-h" id="sec-crowd" title="Daily cosine similarity between your ticker view-mix and the whole community's.">You vs the crowd</h4>
+          <div class="muted small">How closely your daily research overlaps with what the whole community is viewing, and with what the wider internet is looking at: StockAnalysis pageviews, Reddit mentions, Stocktwits and Yahoo trending, Wikipedia pageviews (cosine similarity of ticker mixes). 100% = you look at exactly what that crowd concentrates on; low = you are researching off the beaten path.</div>
+          <div id="net-crowd-now"></div>
+          <canvas id="net-crowd-canvas" class="an-canvas"></canvas>
+          <div id="net-crowd-tip" class="muted small"></div>
+        </div>
+      </div>
+      <div data-pane="index" hidden>
+        <h4 class="wm-h net-h" title="Both lines are built by the SAME rules, so with a single contributor they coincide exactly.&#10;&#10;1. Basket: every stock that has at least one view with a recorded price, ranked by views recorded up to that day (see 6), top 10. Ties break alphabetically so the cut is deterministic.&#10;2. Entry: a name becomes eligible at the first close after its first view that carried a price (a view recorded without a price cannot be checked against Yahoo). Returns are close to close from there.&#10;3. Weighting: set by the Weighting control. Equal = same weight per held name. Attention-weighted = each name's share of the basket's views recorded up to that day.&#10;4. Holding: set by the Holding control. Labels are collapsed to one majority label per day (positive vs negative counts; a tie is neutral), and the rule decides held vs cash from that timeline.&#10;5. Daily return uses the PREVIOUS day's weights, so a name leaving the basket does not distort the day it exits.&#10;6. Point in time: every close, the basket and the attention weights are rebuilt from the views recorded BEFORE that close (16:00 ET). A view or label after 16:00 ET counts toward the next trading day. So a name enters the basket at the first close where its running view count ranks top 10, and leaves when others overtake it.&#10;7. Trading: at every close the index sells names that dropped out of the basket, buys names that entered, applies the Holding rule to the day's labels, and resets every held name to its target weight. The return from one close to the next is earned on the weights set at the first close.&#10;&#10;The only difference is scope: the community line counts every user's views, yours counts only your own. When you are the sole contributor both read the same events, so the two lines lie on top of each other.">Community index</h4>
+        <div class="muted small">The community's most-researched stocks against your own basket;
+          each name enters at its first view. NASDAQ rebased to the same start for reference.
+          Hover the heading for exactly how both lines are built.</div>
+        <div class="muted small">Alongside them, the same index built from what other sites say the wider
+          internet is looking at: each list is held in its published order, rebalanced daily, weighted by its
+          share of the attention that list measures. Those lines start where capture started - only Wikipedia
+          keeps history, and it is backfilled a few days - and the Holding rule does not reach them, since an outside list carries no
+          Positive/Negative calls. Untick anything you do not want on the chart.</div>
+        <div class="idx-opts" id="net-idx-opts">
+          <button type="button" class="ccy-btn" data-ccy-toggle title="Returns in local currency or USD - click to switch. Local: each stock's return in the currency it is listed in (0700.HK in HKD). USD: every price converted to dollars at that day's exchange rate first, so a foreign stock's return includes the currency move - what a USD investor would have had. One setting for the My Stocks and Community charts.">Local</button>
+          <label class="muted small" title="How both index lines weight their held names. Equal = same weight each. Attention-weighted = each name weighted by its share of total views.">Weighting
+            <select id="net-method" title="Equal: equal weight across held names. Attention-weighted: weight by each name's share of total views.">
+              <option value="equal">Equal</option>
+              <option value="attention" selected>Attention-weighted</option>
+            </select>
+          </label>
+          <label class="muted small" title="When a name counts as held vs in cash. Returns use the prior day's weights (no look-ahead).">Holding
+            <select id="net-rule" title="Hold everything attended: always holds every attended name. Attended = held, sell on Negative: enters on first view, a Negative label moves it to cash, a later Positive re-buys. Long only on Positive: holds only names whose latest label is Positive. The community's label for a day is the majority of that day's labels.">
+              <option value="all" selected>Hold everything attended</option>
+              <option value="attended">Attended = held, sell on Negative</option>
+              <option value="positive">Long only on Positive</option>
+            </select>
+          </label>
+        </div>
+        <div class="net-src" id="net-src"></div>
+        <canvas id="net-index-canvas" class="an-canvas"></canvas>
+        <div id="net-index-tip" class="muted small"></div>
+        <div id="net-src-note" class="muted small net-src-note"></div>
+        <div id="net-index-table"></div>
+        <div class="net-sec">
+          <h4 class="wm-h net-h" title="How the attention indices trade.&#10;&#10;Each list is captured once a day after the US close (16:40 ET) and the day's snapshot is final from then on (Wikipedia: the UTC day's pageviews, published overnight). Because it is read after that day's close, it trades at the NEXT trading day's close: there the index sells every name that left the list's top 10, buys every name that entered, and resizes the names it keeps to their new weights - share of the top 10's views for StockAnalysis, Reddit and Wikipedia, 1/rank for Stocktwits and Yahoo, or equal under Equal weighting. Those weights earn the return from that close to the next.&#10;&#10;Until a newer snapshot takes over (weekends, holidays, a missed capture) the last list stays in force and is reset to its weights at every close. Names without a Yahoo price history are left out and the rest re-weighted.">Attention index composition</h4>
+          <div class="muted small">What each outside attention index held on a captured day. Hover the heading for how they trade;
+            open Full screen for every day side by side, with sample sizes and a download.</div>
+          <div id="net-sa-tip" class="muted small"></div>
+          <div id="net-sa-comp" class="net-sa-comp"></div>
+          <button id="net-sa-csv" class="navbtn" title="Every captured day, every stock stockanalysis.com listed: day, rank, ticker, views, captured_at.">&#11015; Download full StockAnalysis history (CSV)</button>
+          <span id="net-sa-csv-msg" class="muted small"></span>
+        </div>
+      </div>
+      <div data-pane="trending" hidden>
+        <h4 class="wm-h net-h">Trending now</h4>
+        <div class="muted small">Today's community views vs what each ticker's trailing 7-day views per active user would predict for today's audience.</div>
+        <div id="net-trending"></div>
+        <div id="crowd-watch"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== SETTINGS ===================== -->
+  <div class="mainview" id="main-settings" hidden>
+    <div class="settings-col">
+      <div class="att-toolbar">
+        <div class="seg subtabs" data-for="settings">
+          <button data-sub="account" class="on">Account</button>
+          <button data-sub="data">Data</button>
+          <button data-sub="portals">Portals</button>
+          <button data-sub="appearance">Appearance</button>
+        </div>
+      </div>
+      <section class="portals" id="sec-account" data-area="account" data-pane="account">
+        <h2>Account</h2>
+        <div class="muted small">Sign in with Google to sync to the cloud across devices automatically.</div>
+        <div class="add-portal">
+          <button id="google-signin">Sign in with Google</button>
+          <button id="google-signout">Sign out</button>
+        </div>
+        <div class="muted small" id="account-status"></div>
+        <!-- GROUP E4: local feature-usage chart + GDPR transparency notice -->
+        <h3 id="sec-usage-chart" style="margin:14px 0 4px">How you use Stocktrails</h3>
+        <canvas id="acct-usage-canvas" class="an-canvas"></canvas>
+        <div id="acct-usage-tip" class="muted small"></div>
+        <div class="muted small" style="margin-top:6px">Section usage is synced to improve the app. No page content or personal data is included.</div>
+      </section>
+
+      <section class="portals" id="sec-settings" data-pane="data" hidden>
+        <h2>Data</h2>
+        <div class="add-portal">
+          <button id="export">Export JSON</button>
+          <button id="import">Import JSON (merge)</button>
+          <button id="clear" class="danger">Clear all</button>
+        </div>
+        <input id="import-file" type="file" accept="application/json" style="display:none" />
+        <div class="muted small" id="settings-status"></div>
+        <h3 style="margin:16px 0 4px">Research from your browsing history</h3>
+        <div class="muted small">Add research Stocktrails did not see live: from before you installed it, or from another browser.
+          Load a history file: <b>Chrome</b> via <a href="https://takeout.google.com/" target="_blank" rel="noopener">Google Takeout</a>
+          (deselect all &rarr; tick <b>Chrome</b> &rarr; export, unzip, pick <b>History.json</b>), or a <b>CSV</b> exported from another browser such as Comet
+          (needs a URL column and a visit-time column; those exports list each page once with its last visit, so views are understated).
+          Visits to the supported finance sites that are not already recorded are added; a stock already recorded at the same minute is skipped,
+          so importing two overlapping files, or the same file twice, adds nothing twice.
+          The file is read on this device; every other site in it is discarded and the file is not stored or uploaded. The added views sync to your account like live ones,
+          without time on page, scroll depth or labels.</div>
+        <div class="add-portal"><button id="history-import">Import browsing history</button></div>
+        <input id="history-file" type="file" accept="application/json,.json,text/csv,.csv" style="display:none" />
+        <div class="muted small" id="history-status"></div>
+      </section>
+
+      <section class="portals" id="sec-appearance" data-pane="appearance" hidden>
+        <h2>Appearance</h2>
+        <div class="muted small">Choose how Stocktrails looks. <b>Device</b> follows your system's light or dark setting and changes with it.</div>
+        <div class="add-portal">
+          <div class="seg" id="theme-seg">
+            <button type="button" data-theme-pref="dark">Dark</button>
+            <button type="button" data-theme-pref="light">Light</button>
+            <button type="button" data-theme-pref="system">Device</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="portals" id="sec-portals" data-area="portals" data-pane="portals" hidden>
+        <h2>Portals</h2>
+        <div class="muted small">Built in: <span id="builtin-portals"></span></div>
+        <ul id="custom-portals"></ul>
+        <div class="add-portal">
+          <input id="portal-name" type="text" placeholder="Name (e.g. Example)" spellcheck="false" />
+          <input id="portal-pattern" type="text" spellcheck="false"
+                 placeholder="Pattern, e.g. example.com/quote/{ticker} or example.com/q?s={ticker}" />
+          <button id="portal-add">Add portal</button>
+        </div>
+        <div class="muted small" id="portal-msg"></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== ADMIN (admins only) ===================== -->
+  <div class="mainview" id="main-admin" hidden>
+    <div class="panel-toolbar">
+      <strong>Admin</strong>
+      <div class="seg" id="admin-seg">
+        <button data-a="users" class="on">Users</button>
+        <button data-a="aggregate">Aggregate</button>
+        <button data-a="insights">Insights</button>
+        <button data-a="feedback">Feedback</button>
+        <button data-a="collected">Collected stats</button>
+        <button data-a="system">System</button>
+      </div>
+      <button id="adm-export-leadlag" class="navbtn" title="Download per-event lead-lag data (up to 50k rows) as CSV for offline regression.">&#11015; Export Lead-Lag CSV</button>
+      <span class="muted small" id="admin-status"></span>
+    </div>
+    <div id="admin-view"></div>
+  </div>
+
+  <script src="../src/config.js"></script>
+  <script src="../vendor/supabase.min.js"></script>
+  <script src="../vendor/world-map.js"></script>
+  <script src="../vendor/tz-countries.js"></script>
+  <script src="../src/offscreen-shim.js"></script>
+  <script src="../src/pwa-shim.js"></script>
+  <script src="../src/portals.js"></script>
+  <script src="../src/prices.js"></script>
+  <script src="../src/pricecache.js"></script>
+  <script src="../src/pricedb.js"></script>
+  <script src="../src/store.js"></script>
+  <script src="../src/cloud.js"></script>
+  <script src="../src/sync.js"></script>
+  <script src="../src/ledger.js"></script>
+  <script src="../src/ledgerdb.js"></script>
+  <script src="../src/decisions.js"></script>
+  <script src="../src/indicators.js"></script>
+  <script src="../src/biases.js"></script>
+  <script src="../src/aitools.js"></script>
+  <script src="../src/aiclient.js"></script>
+  <script src="../src/rationale.js"></script>
+  <script src="../src/history.js"></script>
+  <script src="../src/shadow.js"></script>
+  <script src="../src/agentsession.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="trcharts.js"></script>
+  <script src="trades.js"></script>
+  <script src="biascards.js"></script>
+  <script src="crowdwatch.js"></script>
+  <script src="coach.js"></script>
+  <script src="shadow.js"></script>
+  <script src="headinfo.js"></script>
+  <script src="ai.js"></script>
+</body>
+</html>

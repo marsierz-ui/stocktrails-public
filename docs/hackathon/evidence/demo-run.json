@@ -1,0 +1,741 @@
+{
+ "generated": "2026-10-16T05:27:46.236Z",
+ "live": false,
+ "seed": 21,
+ "planted": {
+  "runupMean": 0.08,
+  "chase": -0.07,
+  "impulse": -0.08,
+  "impulseShare": 0.25,
+  "evening": -0.07,
+  "turbulent": -0.06,
+  "oversize": 2.2,
+  "passedEdge": 0.08,
+  "avoidEdge": -0.03,
+  "valuationEdge": 0.15
+ },
+ "suites": [
+  {
+   "file": "test-trades.js",
+   "pass": 105,
+   "fail": 0,
+   "exit": 0
+  },
+  {
+   "file": "test-biases.js",
+   "pass": 37,
+   "fail": 0,
+   "exit": 0
+  },
+  {
+   "file": "test-ai.js",
+   "pass": 94,
+   "fail": 0,
+   "exit": 0
+  },
+  {
+   "file": "test-shadow.js",
+   "pass": 28,
+   "fail": 0,
+   "exit": 0
+  }
+ ],
+ "assistantLog": [
+  {
+   "at": 1792128365135,
+   "dir": "out",
+   "task": "step",
+   "bytes": 109,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"What are my biggest biases and what should I change?\",\"results\":[],\"step\":1}"
+  },
+  {
+   "at": 1792128365137,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 1,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":1,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_biases\",\"args\":{}},{\"tool\":\"get_finding\",\"args\":{\"id\":\"q8\"}}]}"
+  },
+  {
+   "at": 1792128365137,
+   "dir": "tool",
+   "tool": "get_biases",
+   "args": {},
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365139,
+   "dir": "tool",
+   "tool": "get_finding",
+   "args": {
+    "id": "q8"
+   },
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365139,
+   "dir": "out",
+   "task": "step",
+   "bytes": 6126,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"What are my biggest biases and what should I change?\",\"results\":[{\"tool\":\"get_biases\",\"args\":{},\"result\":{\"biases\":[{\"id\":\"chasing\",\"label\":\"Chasing price rises\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"Buys made after the price had risen since your first look did -3.2 pts against those made after a fall.\",\"You bought 37% of the calls whose stock rose after the call and 20% of those that fell.\"],\"rules\":[{\"id\":\"wait_runup\",\"title\":\"Wait after a run-up\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy a stock that has already risen more than 8% in the last 30 days. Wait for a pullback, or skip it.\",\"flaggedOutOfSample\":15,\"laterDecisions\":70,\"gainPerFlaggedPts\":16.3,\"range99Pts\":[10.8,21.5],\"inSampleGainPts\":14.2,\"decisions\":140},{\"id\":\"wait_strong_market\",\"title\":\"Wait after strong market stretches\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy right after one of the market's strongest stretches: its return over the last 20 days in the top 33% of days (above about 2.1%).\",\"flaggedOutOfSample\":14,\"laterDecisions\":70,\"gainPerFlaggedPts\":10.9,\"range99Pts\":[4.1,15.6],\"inSampleGainPts\":10.2,\"decisions\":140}]},{\"id\":\"bad_hour\",\"label\":\"Buying at a bad time of day\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"Buys placed in the evening (17-3 h) did -6.6 pts against your other buys.\"],\"rules\":[{\"id\":\"avoid_daypart\",\"title\":\"Avoid your worst time of day\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\",\"flaggedOutOfSample\":19,\"laterDecisions\":70,\"gainPerFlaggedPts\":17,\"range99Pts\":[12.3,21.1],\"inSampleGainPts\":15,\"decisions\":140}]},{\"id\":\"say_do_gap\",\"label\":\"Not acting on your own calls\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"You bought 38% of your Positive calls on stocks you did not hold.\",\"The Positive calls you passed on did +20.8 pts better than the stocks you bought.\"],\"rules\":[{\"id\":\"act_on_calls\",\"title\":\"Act on your calls or drop them\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Within 30 days of a Positive call on a stock you do not hold, buy it (even a small starter position) or take the label off.\",\"flaggedOutOfSample\":53,\"laterDecisions\":89,\"gainPerFlaggedPts\":11.3,\"range99Pts\":[6.5,16],\"inSampleGainPts\":10.9,\"decisions\":178}]},{\"id\":\"ignored_targets\",\"label\":\"Targets that do not trigger a sale\",\"tier\":\"detected\",\"status\":\"indicative\",\"clear\":true,\"signals\":[\"You sold within two weeks of reaching your target only 0 of 8 times.\"],\"rules\":[{\"id\":\"exit_at_target\",\"title\":\"Sell at your target\",\"verdict\":\"untested\",\"verdictText\":\"too little data to test\",\"rule\":null,\"flaggedOutOfSample\":0,\"laterDecisions\":0,\"gainPerFlaggedPts\":null,\"range99Pts\":null,\"inSampleGainPts\":null,\"decisions\":8}]},{\"id\":\"impulse\",\"label\":\"Trading on impulse\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"sleep_on_it\",\"title\":\"Sleep on it\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Sleep on it: wait at least 3 days between first looking at a stock and buying it.\",\"flaggedOutOfSample\":27,\"laterDecisions\":62,\"gainPerFlaggedPts\":13.2,\"range99Pts\":[9.2,17.2],\"inSampleGainPts\":12.1,\"decisions\":124}]},{\"id\":\"turbulence\",\"label\":\"Oversized buys in turbulent markets\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"pause_turbulent\",\"title\":\"Pause in turbulent markets\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy while the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year).\",\"flaggedOutOfSample\":26,\"laterDecisions\":70,\"gainPerFlaggedPts\":10.9,\"range99Pts\":[6.3,15.1],\"inSampleGainPts\":10.9,\"decisions\":140},{\"id\":\"cap_turbulent\",\"title\":\"Cap the size in turbulent markets\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"When the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year), keep a buy to at most 1x your usual buy.\",\"flaggedOutOfSample\":18,\"laterDecisions\":68,\"gainPerFlaggedPts\":4.4,\"range99Pts\":[2.6,6.2],\"inSampleGainPts\":3.9,\"decisions\":136}]},{\"id\":\"no_research\",\"label\":\"Buying without research\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"research_gate\",\"title\":\"Research before you buy\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do more research before you buy: look at the stock on at least about 3 occasions in the 30 days before (a conviction score of 2, the number on the watchlist's pills).\",\"flaggedOutOfSample\":41,\"laterDecisions\":70,\"gainPerFlaggedPts\":11.5,\"range99Pts\":[7.9,15.1],\"inSampleGainPts\":10,\"decisions\":140}]}],\"facts\":[\"Chasing price rises (detected, solid, clear): rule \\\"Wait after a run-up\\\" held up out of sample, worth 16.3 pts per flagged decision out of sample.\",\"Buying at a bad time of day (detected, solid, clear): rule \\\"Avoid your worst time of day\\\" held up out of sample, worth 17 pts per flagged decision out of sample.\",\"Not acting on your own calls (detected, solid, clear): rule \\\"Act on your calls or drop them\\\" held up out of sample, worth 11.3 pts per flagged decision out of sample.\",\"Targets that do not trigger a sale (detected, indicative, clear).\",\"Trading on impulse (rules, indicative): rule \\\"Sleep on it\\\" held up out of sample, worth 13.2 pts per flagged decision out of sample.\",\"Oversized buys in turbulent markets (rules, indicative): rule \\\"Pause in turbulent markets\\\" held up out of sample, worth 10.9 pts per flagged decision out of sample.\",\"Buying without research (rules, indicative): rule \\\"Research before you buy\\\" held up out of sample, worth 11.5 pts per flagged decision out of sample.\"]}},{\"tool\":\"get_finding\",\"args\":{\"id\":\"q8\"},\"result\":{\"id\":\"q8\",\"label\":\"Size vs conviction\""
+  },
+  {
+   "at": 1792128365140,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 2,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":2,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_rule\",\"args\":{\"id\":\"wait_runup\"}}]}"
+  },
+  {
+   "at": 1792128365140,
+   "dir": "tool",
+   "tool": "get_rule",
+   "args": {
+    "id": "wait_runup"
+   },
+   "step": 2,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365140,
+   "dir": "out",
+   "task": "step",
+   "bytes": 6766,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"What are my biggest biases and what should I change?\",\"results\":[{\"tool\":\"get_biases\",\"args\":{},\"result\":{\"biases\":[{\"id\":\"chasing\",\"label\":\"Chasing price rises\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"Buys made after the price had risen since your first look did -3.2 pts against those made after a fall.\",\"You bought 37% of the calls whose stock rose after the call and 20% of those that fell.\"],\"rules\":[{\"id\":\"wait_runup\",\"title\":\"Wait after a run-up\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy a stock that has already risen more than 8% in the last 30 days. Wait for a pullback, or skip it.\",\"flaggedOutOfSample\":15,\"laterDecisions\":70,\"gainPerFlaggedPts\":16.3,\"range99Pts\":[10.8,21.5],\"inSampleGainPts\":14.2,\"decisions\":140},{\"id\":\"wait_strong_market\",\"title\":\"Wait after strong market stretches\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy right after one of the market's strongest stretches: its return over the last 20 days in the top 33% of days (above about 2.1%).\",\"flaggedOutOfSample\":14,\"laterDecisions\":70,\"gainPerFlaggedPts\":10.9,\"range99Pts\":[4.1,15.6],\"inSampleGainPts\":10.2,\"decisions\":140}]},{\"id\":\"bad_hour\",\"label\":\"Buying at a bad time of day\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"Buys placed in the evening (17-3 h) did -6.6 pts against your other buys.\"],\"rules\":[{\"id\":\"avoid_daypart\",\"title\":\"Avoid your worst time of day\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\",\"flaggedOutOfSample\":19,\"laterDecisions\":70,\"gainPerFlaggedPts\":17,\"range99Pts\":[12.3,21.1],\"inSampleGainPts\":15,\"decisions\":140}]},{\"id\":\"say_do_gap\",\"label\":\"Not acting on your own calls\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"You bought 38% of your Positive calls on stocks you did not hold.\",\"The Positive calls you passed on did +20.8 pts better than the stocks you bought.\"],\"rules\":[{\"id\":\"act_on_calls\",\"title\":\"Act on your calls or drop them\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Within 30 days of a Positive call on a stock you do not hold, buy it (even a small starter position) or take the label off.\",\"flaggedOutOfSample\":53,\"laterDecisions\":89,\"gainPerFlaggedPts\":11.3,\"range99Pts\":[6.5,16],\"inSampleGainPts\":10.9,\"decisions\":178}]},{\"id\":\"ignored_targets\",\"label\":\"Targets that do not trigger a sale\",\"tier\":\"detected\",\"status\":\"indicative\",\"clear\":true,\"signals\":[\"You sold within two weeks of reaching your target only 0 of 8 times.\"],\"rules\":[{\"id\":\"exit_at_target\",\"title\":\"Sell at your target\",\"verdict\":\"untested\",\"verdictText\":\"too little data to test\",\"rule\":null,\"flaggedOutOfSample\":0,\"laterDecisions\":0,\"gainPerFlaggedPts\":null,\"range99Pts\":null,\"inSampleGainPts\":null,\"decisions\":8}]},{\"id\":\"impulse\",\"label\":\"Trading on impulse\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"sleep_on_it\",\"title\":\"Sleep on it\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Sleep on it: wait at least 3 days between first looking at a stock and buying it.\",\"flaggedOutOfSample\":27,\"laterDecisions\":62,\"gainPerFlaggedPts\":13.2,\"range99Pts\":[9.2,17.2],\"inSampleGainPts\":12.1,\"decisions\":124}]},{\"id\":\"turbulence\",\"label\":\"Oversized buys in turbulent markets\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"pause_turbulent\",\"title\":\"Pause in turbulent markets\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy while the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year).\",\"flaggedOutOfSample\":26,\"laterDecisions\":70,\"gainPerFlaggedPts\":10.9,\"range99Pts\":[6.3,15.1],\"inSampleGainPts\":10.9,\"decisions\":140},{\"id\":\"cap_turbulent\",\"title\":\"Cap the size in turbulent markets\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"When the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year), keep a buy to at most 1x your usual buy.\",\"flaggedOutOfSample\":18,\"laterDecisions\":68,\"gainPerFlaggedPts\":4.4,\"range99Pts\":[2.6,6.2],\"inSampleGainPts\":3.9,\"decisions\":136}]},{\"id\":\"no_research\",\"label\":\"Buying without research\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"research_gate\",\"title\":\"Research before you buy\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do more research before you buy: look at the stock on at least about 3 occasions in the 30 days before (a conviction score of 2, the number on the watchlist's pills).\",\"flaggedOutOfSample\":41,\"laterDecisions\":70,\"gainPerFlaggedPts\":11.5,\"range99Pts\":[7.9,15.1],\"inSampleGainPts\":10,\"decisions\":140}]}],\"facts\":[\"Chasing price rises (detected, solid, clear): rule \\\"Wait after a run-up\\\" held up out of sample, worth 16.3 pts per flagged decision out of sample.\",\"Buying at a bad time of day (detected, solid, clear): rule \\\"Avoid your worst time of day\\\" held up out of sample, worth 17 pts per flagged decision out of sample.\",\"Not acting on your own calls (detected, solid, clear): rule \\\"Act on your calls or drop them\\\" held up out of sample, worth 11.3 pts per flagged decision out of sample.\",\"Targets that do not trigger a sale (detected, indicative, clear).\",\"Trading on impulse (rules, indicative): rule \\\"Sleep on it\\\" held up out of sample, worth 13.2 pts per flagged decision out of sample.\",\"Oversized buys in turbulent markets (rules, indicative): rule \\\"Pause in turbulent markets\\\" held up out of sample, worth 10.9 pts per flagged decision out of sample.\",\"Buying without research (rules, indicative): rule \\\"Research before you buy\\\" held up out of sample, worth 11.5 pts per flagged decision out of sample.\"]}},{\"tool\":\"get_finding\",\"args\":{\"id\":\"q8\"},\"result\":{\"id\":\"q8\",\"label\":\"Size vs conviction\""
+  },
+  {
+   "at": 1792128365141,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 3,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":3,\"cap\":40},\"kind\":\"answer\",\"answer\":\"From your own results: Chasing price rises (detected, solid, clear): rule \\\"Wait after a run-up\\\" held up out of sample, worth 16.3 pts per flagged decision out of sample. Buying at a bad time of day (detected, solid, clear): rule \\\"Avoid your worst time of day\\\" held up out of sample, worth 17 pts per flagged decision out of sample. Not acting on your own calls (detected, solid, clear): rule \\\"Act on your calls or drop them\\\" held up out of sample, worth 11.3 pts per flagged decision out of sample. Conviction vs position size (ranked): r = 0.102, not clear. 136 buys. Rule: Do not buy a stock that has already risen more than 8% in the last 30 days. Wait for a pullback, or skip it. This is a description of your habits, not investment advice.\",\"proposals\":[\"wait_runup\",\"wait_strong_market\"],\"actions\":[{\"type\":\"adopt_rule\",\"id\":\"wait_runup\"}]}"
+  },
+  {
+   "at": 1792128365143,
+   "dir": "info",
+   "note": "Answer after 3 step(s), 3 tool result(s), 2 proposal(s) for you to decide."
+  },
+  {
+   "at": 1792128365164,
+   "dir": "out",
+   "task": "step",
+   "bytes": 110,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Why do my buys after a rise do worse than the others?\",\"results\":[],\"step\":1}"
+  },
+  {
+   "at": 1792128365165,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 4,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":4,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_finding\",\"args\":{\"id\":\"q4\"}}]}"
+  },
+  {
+   "at": 1792128365165,
+   "dir": "tool",
+   "tool": "get_finding",
+   "args": {
+    "id": "q4"
+   },
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365165,
+   "dir": "out",
+   "task": "step",
+   "bytes": 600,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Why do my buys after a rise do worse than the others?\",\"results\":[{\"tool\":\"get_finding\",\"args\":{\"id\":\"q4\"},\"result\":{\"id\":\"q4\",\"label\":\"Attention spikes, FOMO and run-ups\",\"status\":\"solid\",\"clear\":true,\"facts\":[\"Buys that followed a spike in attention: 54 of 140 (39%); sales: 0 of 87.\",\"Next month against the NASDAQ: buys after the price had risen since the first look -12.5% (80), after it had fallen -9.3% (44), difference -3.2 pts, clear.\",\"Calls bought when the stock had risen after the call: 41 of 111 (37%); when it had fallen: 10 of 50 (20%).\"]}}],\"step\":2}"
+  },
+  {
+   "at": 1792128365166,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 5,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":5,\"cap\":40},\"kind\":\"answer\",\"answer\":\"From your own results: Buys that followed a spike in attention: 54 of 140 (39%); sales: 0 of 87. Next month against the NASDAQ: buys after the price had risen since the first look -12.5% (80), after it had fallen -9.3% (44), difference -3.2 pts, clear. Calls bought when the stock had risen after the call: 41 of 111 (37%); when it had fallen: 10 of 50 (20%). This is a description of your habits, not investment advice.\",\"proposals\":[],\"actions\":[]}"
+  },
+  {
+   "at": 1792128365166,
+   "dir": "info",
+   "note": "Answer after 2 step(s), 1 tool result(s), 0 proposal(s) for you to decide."
+  },
+  {
+   "at": 1792128365167,
+   "dir": "out",
+   "task": "step",
+   "bytes": 91,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Do I act on my own Positive calls?\",\"results\":[],\"step\":1}"
+  },
+  {
+   "at": 1792128365167,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 6,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":6,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_finding\",\"args\":{\"id\":\"q2\"}}]}"
+  },
+  {
+   "at": 1792128365167,
+   "dir": "tool",
+   "tool": "get_finding",
+   "args": {
+    "id": "q2"
+   },
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365168,
+   "dir": "out",
+   "task": "step",
+   "bytes": 559,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Do I act on my own Positive calls?\",\"results\":[{\"tool\":\"get_finding\",\"args\":{\"id\":\"q2\"},\"result\":{\"id\":\"q2\",\"label\":\"Calls vs actions\",\"status\":\"solid\",\"clear\":false,\"facts\":[\"Trades followed the latest call 84% of the time (92 of 110).\",\"Positive calls on stocks not held that led to a buy within 30 days: 68 of 178 (38%).\",\"Negative calls on stocks held that led to a sale within 30 days: 24 of 37 (65%).\",\"Of 15 Negative calls on stocks not held, 8 lagged the market over 3 months (average -3.2% against it).\"]}}],\"step\":2}"
+  },
+  {
+   "at": 1792128365168,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 7,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":7,\"cap\":40},\"kind\":\"answer\",\"answer\":\"From your own results: Trades followed the latest call 84% of the time (92 of 110). Positive calls on stocks not held that led to a buy within 30 days: 68 of 178 (38%). Negative calls on stocks held that led to a sale within 30 days: 24 of 37 (65%). This is a description of your habits, not investment advice.\",\"proposals\":[],\"actions\":[]}"
+  },
+  {
+   "at": 1792128365168,
+   "dir": "info",
+   "note": "Answer after 2 step(s), 1 tool result(s), 0 proposal(s) for you to decide."
+  },
+  {
+   "at": 1792128365169,
+   "dir": "out",
+   "task": "step",
+   "bytes": 95,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"How well do I keep the rule I adopted?\",\"results\":[],\"step\":1}"
+  },
+  {
+   "at": 1792128365169,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 8,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":8,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_adherence\",\"args\":{}}]}"
+  },
+  {
+   "at": 1792128365169,
+   "dir": "tool",
+   "tool": "get_adherence",
+   "args": {},
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365176,
+   "dir": "out",
+   "task": "step",
+   "bytes": 644,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"How well do I keep the rule I adopted?\",\"results\":[{\"tool\":\"get_adherence\",\"args\":{},\"result\":{\"rules\":[{\"id\":\"avoid_daypart\",\"rule\":\"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\",\"adoptedMonth\":\"2025-07\",\"decisionsSince\":63,\"broken\":17,\"brokenShare\":0.27,\"brokenBeforeShare\":0.333,\"keptNextMonthPct\":-10.1,\"brokeNextMonthPct\":-17}],\"facts\":[\"Rule \\\"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\\\" adopted 2025-07: 63 decisions since, 17 broke it.\"]}}],\"step\":2}"
+  },
+  {
+   "at": 1792128365177,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 9,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":9,\"cap\":40},\"kind\":\"answer\",\"answer\":\"From your own results: Rule \\\"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\\\" adopted 2025-07: 63 decisions since, 17 broke it. This is a description of your habits, not investment advice.\",\"proposals\":[],\"actions\":[]}"
+  },
+  {
+   "at": 1792128365177,
+   "dir": "info",
+   "note": "Answer after 2 step(s), 1 tool result(s), 0 proposal(s) for you to decide."
+  },
+  {
+   "at": 1792128365178,
+   "dir": "out",
+   "task": "step",
+   "bytes": 99,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Is buying in the evening a problem for me?\",\"results\":[],\"step\":1}"
+  },
+  {
+   "at": 1792128365179,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 10,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":10,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_finding\",\"args\":{\"id\":\"q7\"}}]}"
+  },
+  {
+   "at": 1792128365179,
+   "dir": "tool",
+   "tool": "get_finding",
+   "args": {
+    "id": "q7"
+   },
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365179,
+   "dir": "out",
+   "task": "step",
+   "bytes": 541,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Is buying in the evening a problem for me?\",\"results\":[{\"tool\":\"get_finding\",\"args\":{\"id\":\"q7\"},\"result\":{\"id\":\"q7\",\"label\":\"Impulse and time of day\",\"status\":\"solid\",\"clear\":false,\"facts\":[\"Decisions within an hour of the first look: 16 of 227 (7%).\",\"Next month against the NASDAQ: impulse buys -13.3% (16), buys first looked at a week or more before -11.5% (34), difference -1.8 pts, not clear.\",\"Buys in the evening did -6.6 pts against the others (clear, holds with the boundaries moved).\"]}}],\"step\":2}"
+  },
+  {
+   "at": 1792128365179,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 11,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":11,\"cap\":40},\"kind\":\"answer\",\"answer\":\"From your own results: Decisions within an hour of the first look: 16 of 227 (7%). Next month against the NASDAQ: impulse buys -13.3% (16), buys first looked at a week or more before -11.5% (34), difference -1.8 pts, not clear. Buys in the evening did -6.6 pts against the others (clear, holds with the boundaries moved). This is a description of your habits, not investment advice.\",\"proposals\":[],\"actions\":[]}"
+  },
+  {
+   "at": 1792128365179,
+   "dir": "info",
+   "note": "Answer after 2 step(s), 1 tool result(s), 0 proposal(s) for you to decide."
+  },
+  {
+   "at": 1792128365181,
+   "dir": "out",
+   "task": "step",
+   "bytes": 119,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Review my week and remind me before I buy my most viewed stock\",\"results\":[],\"step\":1}"
+  },
+  {
+   "at": 1792128365181,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 12,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":12,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_weekly_review\",\"args\":{\"days\":7}}]}"
+  },
+  {
+   "at": 1792128365181,
+   "dir": "tool",
+   "tool": "get_weekly_review",
+   "args": {
+    "days": 7
+   },
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365184,
+   "dir": "out",
+   "task": "step",
+   "bytes": 1463,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Review my week and remind me before I buy my most viewed stock\",\"results\":[{\"tool\":\"get_weekly_review\",\"args\":{\"days\":7},\"result\":{\"days\":7,\"attention\":{\"views\":4,\"viewsBefore\":6,\"minutes\":6,\"minutesBefore\":7,\"stocks\":3,\"newStocks\":[\"Stock 2\",\"Stock 1\",\"Stock 3\"],\"top\":[{\"stock\":\"Stock 1\",\"views\":2,\"before\":0},{\"stock\":\"Stock 2\",\"views\":1,\"before\":0},{\"stock\":\"Stock 3\",\"views\":1,\"before\":0}],\"spikes\":[],\"heldNotLookedAtFor30Days\":[],\"positiveCalls\":[\"Stock 1\",\"Stock 3\"],\"negativeCalls\":[\"Stock 2\"]},\"trades\":{\"buys\":2,\"sells\":2,\"researchedShare\":1,\"impulseShare\":0,\"afterRiseShare\":0,\"eveningShare\":0.5,\"nextMonth\":-0.198,\"withResult\":2,\"tradesEndBeforeThePeriod\":false},\"rules\":[{\"rule\":\"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\",\"inShort\":\"Place the order at another time of day, not in the evening.\",\"broken\":1,\"stocks\":[\"Stock 1\"]}],\"facts\":[\"Attention in the last 7 days: 4 views (6 in the 7 days before), about 6 minutes of research (7 before), 3 stocks.\",\"Most looked at: Stock 1 2 (new), Stock 2 1 (new), Stock 3 1 (new).\",\"First looks: Stock 2, Stock 1, Stock 3.\",\"Calls made: 2 Positive, 1 Negative.\",\"Trades: 2 buys and 2 sales, 100% researched, 0% on impulse.\",\"Rule \\\"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\\\": broken 1 time(s) (Stock 1).\"]}}],\"step\":2}"
+  },
+  {
+   "at": 1792128365185,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 13,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":13,\"cap\":40},\"kind\":\"answer\",\"answer\":\"From your own results: Attention in the last 7 days: 4 views (6 in the 7 days before), about 6 minutes of research (7 before), 3 stocks. Most looked at: Stock 1 2 (new), Stock 2 1 (new), Stock 3 1 (new). First looks: Stock 2, Stock 1, Stock 3. This is a description of your habits, not investment advice.\",\"proposals\":[],\"actions\":[{\"type\":\"set_reminder\",\"stock\":\"Stock 1\",\"text\":\"Check the run-up and sleep on it before buying.\"},{\"type\":\"save_note\",\"text\":\"Attention in the last 7 days: 4 views (6 in the 7 days before), about 6 minutes of research (7 before), 3 stocks.\"}]}"
+  },
+  {
+   "at": 1792128365185,
+   "dir": "info",
+   "note": "Answer after 2 step(s), 1 tool result(s), 2 proposal(s) for you to decide."
+  },
+  {
+   "at": 1792128365186,
+   "dir": "out",
+   "task": "step",
+   "bytes": 87,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Am I leaving my biases behind?\",\"results\":[],\"step\":1}"
+  },
+  {
+   "at": 1792128365186,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 14,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":14,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_biases\",\"args\":{}},{\"tool\":\"compare_periods\",\"args\":{\"days\":180}}]}"
+  },
+  {
+   "at": 1792128365186,
+   "dir": "tool",
+   "tool": "get_biases",
+   "args": {},
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365187,
+   "dir": "tool",
+   "tool": "compare_periods",
+   "args": {
+    "days": 180
+   },
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365192,
+   "dir": "out",
+   "task": "step",
+   "bytes": 9839,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Am I leaving my biases behind?\",\"results\":[{\"tool\":\"get_biases\",\"args\":{},\"result\":{\"biases\":[{\"id\":\"chasing\",\"label\":\"Chasing price rises\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"Buys made after the price had risen since your first look did -3.2 pts against those made after a fall.\",\"You bought 37% of the calls whose stock rose after the call and 20% of those that fell.\"],\"rules\":[{\"id\":\"wait_runup\",\"title\":\"Wait after a run-up\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy a stock that has already risen more than 8% in the last 30 days. Wait for a pullback, or skip it.\",\"flaggedOutOfSample\":15,\"laterDecisions\":70,\"gainPerFlaggedPts\":16.3,\"range99Pts\":[10.8,21.5],\"inSampleGainPts\":14.2,\"decisions\":140},{\"id\":\"wait_strong_market\",\"title\":\"Wait after strong market stretches\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy right after one of the market's strongest stretches: its return over the last 20 days in the top 33% of days (above about 2.1%).\",\"flaggedOutOfSample\":14,\"laterDecisions\":70,\"gainPerFlaggedPts\":10.9,\"range99Pts\":[4.1,15.6],\"inSampleGainPts\":10.2,\"decisions\":140}]},{\"id\":\"bad_hour\",\"label\":\"Buying at a bad time of day\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"Buys placed in the evening (17-3 h) did -6.6 pts against your other buys.\"],\"rules\":[{\"id\":\"avoid_daypart\",\"title\":\"Avoid your worst time of day\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\",\"flaggedOutOfSample\":19,\"laterDecisions\":70,\"gainPerFlaggedPts\":17,\"range99Pts\":[12.3,21.1],\"inSampleGainPts\":15,\"decisions\":140}]},{\"id\":\"say_do_gap\",\"label\":\"Not acting on your own calls\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"You bought 38% of your Positive calls on stocks you did not hold.\",\"The Positive calls you passed on did +20.8 pts better than the stocks you bought.\"],\"rules\":[{\"id\":\"act_on_calls\",\"title\":\"Act on your calls or drop them\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Within 30 days of a Positive call on a stock you do not hold, buy it (even a small starter position) or take the label off.\",\"flaggedOutOfSample\":53,\"laterDecisions\":89,\"gainPerFlaggedPts\":11.3,\"range99Pts\":[6.5,16],\"inSampleGainPts\":10.9,\"decisions\":178}]},{\"id\":\"ignored_targets\",\"label\":\"Targets that do not trigger a sale\",\"tier\":\"detected\",\"status\":\"indicative\",\"clear\":true,\"signals\":[\"You sold within two weeks of reaching your target only 0 of 8 times.\"],\"rules\":[{\"id\":\"exit_at_target\",\"title\":\"Sell at your target\",\"verdict\":\"untested\",\"verdictText\":\"too little data to test\",\"rule\":null,\"flaggedOutOfSample\":0,\"laterDecisions\":0,\"gainPerFlaggedPts\":null,\"range99Pts\":null,\"inSampleGainPts\":null,\"decisions\":8}]},{\"id\":\"impulse\",\"label\":\"Trading on impulse\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"sleep_on_it\",\"title\":\"Sleep on it\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Sleep on it: wait at least 3 days between first looking at a stock and buying it.\",\"flaggedOutOfSample\":27,\"laterDecisions\":62,\"gainPerFlaggedPts\":13.2,\"range99Pts\":[9.2,17.2],\"inSampleGainPts\":12.1,\"decisions\":124}]},{\"id\":\"turbulence\",\"label\":\"Oversized buys in turbulent markets\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"pause_turbulent\",\"title\":\"Pause in turbulent markets\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy while the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year).\",\"flaggedOutOfSample\":26,\"laterDecisions\":70,\"gainPerFlaggedPts\":10.9,\"range99Pts\":[6.3,15.1],\"inSampleGainPts\":10.9,\"decisions\":140},{\"id\":\"cap_turbulent\",\"title\":\"Cap the size in turbulent markets\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"When the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year), keep a buy to at most 1x your usual buy.\",\"flaggedOutOfSample\":18,\"laterDecisions\":68,\"gainPerFlaggedPts\":4.4,\"range99Pts\":[2.6,6.2],\"inSampleGainPts\":3.9,\"decisions\":136}]},{\"id\":\"no_research\",\"label\":\"Buying without research\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"research_gate\",\"title\":\"Research before you buy\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do more research before you buy: look at the stock on at least about 3 occasions in the 30 days before (a conviction score of 2, the number on the watchlist's pills).\",\"flaggedOutOfSample\":41,\"laterDecisions\":70,\"gainPerFlaggedPts\":11.5,\"range99Pts\":[7.9,15.1],\"inSampleGainPts\":10,\"decisions\":140}]}],\"facts\":[\"Chasing price rises (detected, solid, clear): rule \\\"Wait after a run-up\\\" held up out of sample, worth 16.3 pts per flagged decision out of sample.\",\"Buying at a bad time of day (detected, solid, clear): rule \\\"Avoid your worst time of day\\\" held up out of sample, worth 17 pts per flagged decision out of sample.\",\"Not acting on your own calls (detected, solid, clear): rule \\\"Act on your calls or drop them\\\" held up out of sample, worth 11.3 pts per flagged decision out of sample.\",\"Targets that do not trigger a sale (detected, indicative, clear).\",\"Trading on impulse (rules, indicative): rule \\\"Sleep on it\\\" held up out of sample, worth 13.2 pts per flagged decision out of sample.\",\"Oversized buys in turbulent markets (rules, indicative): rule \\\"Pause in turbulent markets\\\" held up out of sample, worth 10.9 pts per flagged decision out of sample.\",\"Buying without research (rules, indicative): rule \\\"Research before you buy\\\" held up out of sample, worth 11.5 pts per flagged decision out of sample.\"]}},{\"tool\":\"compare_periods\",\"args\":{\"days\":180},\"result\":{\"days\":180,\"habits\":[{\"habit\":\"buys after a rise of mor"
+  },
+  {
+   "at": 1792128365193,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 15,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":15,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_rule\",\"args\":{\"id\":\"wait_runup\"}}]}"
+  },
+  {
+   "at": 1792128365193,
+   "dir": "tool",
+   "tool": "get_rule",
+   "args": {
+    "id": "wait_runup"
+   },
+   "step": 2,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365193,
+   "dir": "out",
+   "task": "step",
+   "bytes": 10479,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"Am I leaving my biases behind?\",\"results\":[{\"tool\":\"get_biases\",\"args\":{},\"result\":{\"biases\":[{\"id\":\"chasing\",\"label\":\"Chasing price rises\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"Buys made after the price had risen since your first look did -3.2 pts against those made after a fall.\",\"You bought 37% of the calls whose stock rose after the call and 20% of those that fell.\"],\"rules\":[{\"id\":\"wait_runup\",\"title\":\"Wait after a run-up\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy a stock that has already risen more than 8% in the last 30 days. Wait for a pullback, or skip it.\",\"flaggedOutOfSample\":15,\"laterDecisions\":70,\"gainPerFlaggedPts\":16.3,\"range99Pts\":[10.8,21.5],\"inSampleGainPts\":14.2,\"decisions\":140},{\"id\":\"wait_strong_market\",\"title\":\"Wait after strong market stretches\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy right after one of the market's strongest stretches: its return over the last 20 days in the top 33% of days (above about 2.1%).\",\"flaggedOutOfSample\":14,\"laterDecisions\":70,\"gainPerFlaggedPts\":10.9,\"range99Pts\":[4.1,15.6],\"inSampleGainPts\":10.2,\"decisions\":140}]},{\"id\":\"bad_hour\",\"label\":\"Buying at a bad time of day\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"Buys placed in the evening (17-3 h) did -6.6 pts against your other buys.\"],\"rules\":[{\"id\":\"avoid_daypart\",\"title\":\"Avoid your worst time of day\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\",\"flaggedOutOfSample\":19,\"laterDecisions\":70,\"gainPerFlaggedPts\":17,\"range99Pts\":[12.3,21.1],\"inSampleGainPts\":15,\"decisions\":140}]},{\"id\":\"say_do_gap\",\"label\":\"Not acting on your own calls\",\"tier\":\"detected\",\"status\":\"solid\",\"clear\":true,\"signals\":[\"You bought 38% of your Positive calls on stocks you did not hold.\",\"The Positive calls you passed on did +20.8 pts better than the stocks you bought.\"],\"rules\":[{\"id\":\"act_on_calls\",\"title\":\"Act on your calls or drop them\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Within 30 days of a Positive call on a stock you do not hold, buy it (even a small starter position) or take the label off.\",\"flaggedOutOfSample\":53,\"laterDecisions\":89,\"gainPerFlaggedPts\":11.3,\"range99Pts\":[6.5,16],\"inSampleGainPts\":10.9,\"decisions\":178}]},{\"id\":\"ignored_targets\",\"label\":\"Targets that do not trigger a sale\",\"tier\":\"detected\",\"status\":\"indicative\",\"clear\":true,\"signals\":[\"You sold within two weeks of reaching your target only 0 of 8 times.\"],\"rules\":[{\"id\":\"exit_at_target\",\"title\":\"Sell at your target\",\"verdict\":\"untested\",\"verdictText\":\"too little data to test\",\"rule\":null,\"flaggedOutOfSample\":0,\"laterDecisions\":0,\"gainPerFlaggedPts\":null,\"range99Pts\":null,\"inSampleGainPts\":null,\"decisions\":8}]},{\"id\":\"impulse\",\"label\":\"Trading on impulse\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"sleep_on_it\",\"title\":\"Sleep on it\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Sleep on it: wait at least 3 days between first looking at a stock and buying it.\",\"flaggedOutOfSample\":27,\"laterDecisions\":62,\"gainPerFlaggedPts\":13.2,\"range99Pts\":[9.2,17.2],\"inSampleGainPts\":12.1,\"decisions\":124}]},{\"id\":\"turbulence\",\"label\":\"Oversized buys in turbulent markets\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"pause_turbulent\",\"title\":\"Pause in turbulent markets\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do not buy while the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year).\",\"flaggedOutOfSample\":26,\"laterDecisions\":70,\"gainPerFlaggedPts\":10.9,\"range99Pts\":[6.3,15.1],\"inSampleGainPts\":10.9,\"decisions\":140},{\"id\":\"cap_turbulent\",\"title\":\"Cap the size in turbulent markets\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"When the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year), keep a buy to at most 1x your usual buy.\",\"flaggedOutOfSample\":18,\"laterDecisions\":68,\"gainPerFlaggedPts\":4.4,\"range99Pts\":[2.6,6.2],\"inSampleGainPts\":3.9,\"decisions\":136}]},{\"id\":\"no_research\",\"label\":\"Buying without research\",\"tier\":\"rules\",\"status\":\"indicative\",\"clear\":false,\"signals\":[],\"rules\":[{\"id\":\"research_gate\",\"title\":\"Research before you buy\",\"verdict\":\"supported\",\"verdictText\":\"held up out of sample\",\"rule\":\"Do more research before you buy: look at the stock on at least about 3 occasions in the 30 days before (a conviction score of 2, the number on the watchlist's pills).\",\"flaggedOutOfSample\":41,\"laterDecisions\":70,\"gainPerFlaggedPts\":11.5,\"range99Pts\":[7.9,15.1],\"inSampleGainPts\":10,\"decisions\":140}]}],\"facts\":[\"Chasing price rises (detected, solid, clear): rule \\\"Wait after a run-up\\\" held up out of sample, worth 16.3 pts per flagged decision out of sample.\",\"Buying at a bad time of day (detected, solid, clear): rule \\\"Avoid your worst time of day\\\" held up out of sample, worth 17 pts per flagged decision out of sample.\",\"Not acting on your own calls (detected, solid, clear): rule \\\"Act on your calls or drop them\\\" held up out of sample, worth 11.3 pts per flagged decision out of sample.\",\"Targets that do not trigger a sale (detected, indicative, clear).\",\"Trading on impulse (rules, indicative): rule \\\"Sleep on it\\\" held up out of sample, worth 13.2 pts per flagged decision out of sample.\",\"Oversized buys in turbulent markets (rules, indicative): rule \\\"Pause in turbulent markets\\\" held up out of sample, worth 10.9 pts per flagged decision out of sample.\",\"Buying without research (rules, indicative): rule \\\"Research before you buy\\\" held up out of sample, worth 11.5 pts per flagged decision out of sample.\"]}},{\"tool\":\"compare_periods\",\"args\":{\"days\":180},\"result\":{\"days\":180,\"habits\":[{\"habit\":\"buys after a rise of mor"
+  },
+  {
+   "at": 1792128365195,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 16,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":16,\"cap\":40},\"kind\":\"answer\",\"answer\":\"From your own results: Your habits in the last 180 days against all your earlier decisions (99% ranges; \\\"fading\\\" means the change is clearly below zero): 0 fading, 0 getting stronger. Buys after a rise of more than 8% in 30 days: 22% before (104), 19% recently (36): no clear change (change -2.7 pts, 99% range -19.3 to 20.1). Buys within 3 day(s) of the first look: 58% before (91), 42% recently (33): no clear change (change -15.8 pts, 99% range -38.5 to 9.6). Chasing price rises (detected, solid, clear): rule \\\"Wait after a run-up\\\" held up out of sample, worth 16.3 pts per flagged decision out of sample. Buying at a bad time of day (detected, solid, clear): rule \\\"Avoid your worst time of day\\\" held up out of sample, worth 17 pts per flagged decision out of sample. This is a description of your habits, not investment advice.\",\"proposals\":[\"wait_runup\",\"wait_strong_market\"],\"actions\":[{\"type\":\"adopt_rule\",\"id\":\"wait_runup\"}]}"
+  },
+  {
+   "at": 1792128365195,
+   "dir": "info",
+   "note": "Answer after 3 step(s), 3 tool result(s), 2 proposal(s) for you to decide."
+  },
+  {
+   "at": 1792128365197,
+   "dir": "out",
+   "task": "step",
+   "bytes": 88,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"How would the agents have done?\",\"results\":[],\"step\":1}"
+  },
+  {
+   "at": 1792128365197,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 17,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":17,\"cap\":40},\"kind\":\"calls\",\"calls\":[{\"tool\":\"get_agent_portfolio\",\"args\":{}}]}"
+  },
+  {
+   "at": 1792128365197,
+   "dir": "tool",
+   "tool": "get_agent_portfolio",
+   "args": {},
+   "step": 1,
+   "tier": "T0 read-only",
+   "note": "Ran on this device; the result is sent only with the next request."
+  },
+  {
+   "at": 1792128365685,
+   "dir": "out",
+   "task": "step",
+   "bytes": 3359,
+   "body": "{\"v\":1,\"task\":\"step\",\"question\":\"How would the agents have done?\",\"results\":[{\"tool\":\"get_agent_portfolio\",\"args\":{},\"result\":{\"view\":\"trades\",\"record\":null,\"latest\":[{\"stock\":\"Stock 1\",\"month\":\"2026-07\",\"rulesAgent\":\"pass\",\"aiAgent\":null,\"you\":\"bought\"},{\"stock\":\"Stock 2\",\"month\":\"2026-07\",\"rulesAgent\":\"pass\",\"aiAgent\":null,\"you\":\"bought\"},{\"stock\":\"Stock 3\",\"month\":\"2026-07\",\"rulesAgent\":\"pass\",\"aiAgent\":null,\"you\":\"bought\"},{\"stock\":\"Stock 4\",\"month\":\"2026-07\",\"rulesAgent\":\"pass\",\"aiAgent\":null,\"you\":\"bought\"},{\"stock\":\"Stock 5\",\"month\":\"2026-06\",\"rulesAgent\":\"pass\",\"aiAgent\":null,\"you\":\"bought\"},{\"stock\":\"Stock 6\",\"month\":\"2026-06\",\"rulesAgent\":\"pass\",\"aiAgent\":null,\"you\":\"bought\"},{\"stock\":\"Stock 7\",\"month\":\"2026-06\",\"rulesAgent\":\"pass\",\"aiAgent\":null,\"you\":\"bought\"},{\"stock\":\"Stock 8\",\"month\":\"2026-05\",\"rulesAgent\":\"pass\",\"aiAgent\":null,\"you\":\"bought\"}],\"buys\":140,\"valuePctOfMoneyIn\":{\"you\":106.8,\"rulesAgent\":120.2,\"aiAgent\":null,\"nasdaq\":129.1,\"aiCoverageShare\":null},\"paired\":[{\"horizonDays\":21,\"buys\":140,\"youPts\":-10.4,\"rulesAgentPts\":-4.9,\"rulesMinusYouPts\":5.6,\"rulesRange99Pts\":[3.7,7.6]},{\"horizonDays\":63,\"buys\":140,\"youPts\":-9.9,\"rulesAgentPts\":-4.8,\"rulesMinusYouPts\":5.1,\"rulesRange99Pts\":[2.9,7.2]},{\"horizonDays\":126,\"buys\":131,\"youPts\":-12.2,\"rulesAgentPts\":-6.9,\"rulesMinusYouPts\":5.2,\"rulesRange99Pts\":[1.9,9]}],\"beforeAfterAppStart\":{\"startMonth\":\"2024-01\",\"enough\":false,\"horizonDays\":63,\"before\":{\"buys\":0,\"youPts\":null,\"rulesAgentPts\":null,\"gapPts\":null,\"gapRange99Pts\":null},\"after\":{\"buys\":140,\"youPts\":-9.9,\"rulesAgentPts\":-4.8,\"gapPts\":5.1,\"gapRange99Pts\":[3,7.2]},\"gapChangePts\":null,\"gapChangeRange99Pts\":null,\"habits\":[{\"habit\":\"buys after a rise of more than 8% in 30 days\",\"beforeShare\":null,\"beforeN\":0,\"afterShare\":0.214,\"afterN\":140},{\"habit\":\"buys within 3 day(s) of the first look\",\"beforeShare\":null,\"beforeN\":0,\"afterShare\":0.54,\"afterN\":124},{\"habit\":\"buys in the evening (18-22 h)\",\"beforeShare\":null,\"beforeN\":0,\"afterShare\":0.314,\"afterN\":140},{\"habit\":\"buys in turbulent markets (the most turbulent 33% of days)\",\"beforeShare\":null,\"beforeN\":0,\"afterShare\":0.321,\"afterN\":140},{\"habit\":\"buys in turbulent markets that were over 1x your usual size\",\"beforeShare\":null,\"beforeN\":0,\"afterShare\":0.733,\"afterN\":45},{\"habit\":\"buys after the market's strongest stretches (top 33% of days)\",\"beforeShare\":null,\"beforeN\":0,\"afterShare\":0.329,\"afterN\":140},{\"habit\":\"buys with little research before\",\"beforeShare\":null,\"beforeN\":0,\"afterShare\":0.571,\"afterN\":140},{\"habit\":\"Positive calls not acted on\",\"beforeShare\":null,\"beforeN\":0,\"afterShare\":0.618,\"afterN\":178}]},\"facts\":[\"Paper portfolios on your 140 buys, as a share of the money put in: you 106.8%, rules agent 120.2%, NASDAQ 129.1% (no currency conversion).\",\"Per buy over 21 trading days against the NASDAQ: rules agent minus you +5.6 pts (99% range 3.7 to 7.6), 140 buys.\",\"Per buy over 63 trading days against the NASDAQ: rules agent minus you +5.1 pts (99% range 2.9 to 7.2), 140 buys.\",\"Per buy over 126 trading days against the NASDAQ: rules agent minus you +5.2 pts (99% range 1.9 to 9), 131 buys.\",\"Not enough buys before and after the investor started using the app to compare them.\",\"Paper portfolios: the agents act only on your own buys and the stocks you looked at, place no orders, and this is not investment advice.\"]}}],\"step\":2}"
+  },
+  {
+   "at": 1792128365686,
+   "dir": "in",
+   "task": "step",
+   "ok": true,
+   "error": null,
+   "provider": "mock",
+   "usage": {
+    "used": 18,
+    "cap": 40
+   },
+   "body": "{\"ok\":true,\"task\":\"step\",\"provider\":\"mock\",\"usage\":{\"used\":18,\"cap\":40},\"kind\":\"answer\",\"answer\":\"From your own results: Paper portfolios on your 140 buys, as a share of the money put in: you 106.8%, rules agent 120.2%, NASDAQ 129.1% (no currency conversion). Per buy over 21 trading days against the NASDAQ: rules agent minus you +5.6 pts (99% range 3.7 to 7.6), 140 buys. Per buy over 63 trading days against the NASDAQ: rules agent minus you +5.1 pts (99% range 2.9 to 7.2), 140 buys. This is a description of your habits, not investment advice.\",\"proposals\":[],\"actions\":[]}"
+  },
+  {
+   "at": 1792128365686,
+   "dir": "info",
+   "note": "Answer after 2 step(s), 1 tool result(s), 0 proposal(s) for you to decide."
+  }
+ ],
+ "answers": [
+  {
+   "q": "What are my biggest biases and what should I change?",
+   "ok": true,
+   "answer": "From your own results: Chasing price rises (detected, solid, clear): rule \"Wait after a run-up\" held up out of sample, worth 16.3 pts per flagged decision out of sample. Buying at a bad time of day (detected, solid, clear): rule \"Avoid your worst time of day\" held up out of sample, worth 17 pts per flagged decision out of sample. Not acting on your own calls (detected, solid, clear): rule \"Act on your calls or drop them\" held up out of sample, worth 11.3 pts per flagged decision out of sample. Conviction vs position size (ranked): r = 0.102, not clear. 136 buys. Rule: Do not buy a stock that has already risen more than 8% in the last 30 days. Wait for a pullback, or skip it. This is a description of your habits, not investment advice.",
+   "unmatched": [],
+   "steps": 3,
+   "actions": [
+    {
+     "type": "adopt_rule",
+     "id": "wait_runup"
+    },
+    {
+     "type": "adopt_rule",
+     "id": "wait_strong_market"
+    }
+   ],
+   "tools": [
+    {
+     "tool": "get_biases",
+     "args": {}
+    },
+    {
+     "tool": "get_finding",
+     "args": {
+      "id": "q8"
+     }
+    },
+    {
+     "tool": "get_rule",
+     "args": {
+      "id": "wait_runup"
+     }
+    }
+   ]
+  },
+  {
+   "q": "Why do my buys after a rise do worse than the others?",
+   "ok": true,
+   "answer": "From your own results: Buys that followed a spike in attention: 54 of 140 (39%); sales: 0 of 87. Next month against the NASDAQ: buys after the price had risen since the first look -12.5% (80), after it had fallen -9.3% (44), difference -3.2 pts, clear. Calls bought when the stock had risen after the call: 41 of 111 (37%); when it had fallen: 10 of 50 (20%). This is a description of your habits, not investment advice.",
+   "unmatched": [],
+   "steps": 2,
+   "actions": [],
+   "tools": [
+    {
+     "tool": "get_finding",
+     "args": {
+      "id": "q4"
+     }
+    }
+   ]
+  },
+  {
+   "q": "Do I act on my own Positive calls?",
+   "ok": true,
+   "answer": "From your own results: Trades followed the latest call 84% of the time (92 of 110). Positive calls on stocks not held that led to a buy within 30 days: 68 of 178 (38%). Negative calls on stocks held that led to a sale within 30 days: 24 of 37 (65%). This is a description of your habits, not investment advice.",
+   "unmatched": [],
+   "steps": 2,
+   "actions": [],
+   "tools": [
+    {
+     "tool": "get_finding",
+     "args": {
+      "id": "q2"
+     }
+    }
+   ]
+  },
+  {
+   "q": "How well do I keep the rule I adopted?",
+   "ok": true,
+   "answer": "From your own results: Rule \"Do not place buys in the evening (18-22 h on your clock). Decide then if you like, and place the order at another time.\" adopted 2025-07: 63 decisions since, 17 broke it. This is a description of your habits, not investment advice.",
+   "unmatched": [],
+   "steps": 2,
+   "actions": [],
+   "tools": [
+    {
+     "tool": "get_adherence",
+     "args": {}
+    }
+   ]
+  },
+  {
+   "q": "Is buying in the evening a problem for me?",
+   "ok": true,
+   "answer": "From your own results: Decisions within an hour of the first look: 16 of 227 (7%). Next month against the NASDAQ: impulse buys -13.3% (16), buys first looked at a week or more before -11.5% (34), difference -1.8 pts, not clear. Buys in the evening did -6.6 pts against the others (clear, holds with the boundaries moved). This is a description of your habits, not investment advice.",
+   "unmatched": [],
+   "steps": 2,
+   "actions": [],
+   "tools": [
+    {
+     "tool": "get_finding",
+     "args": {
+      "id": "q7"
+     }
+    }
+   ]
+  },
+  {
+   "q": "Review my week and remind me before I buy my most viewed stock",
+   "ok": true,
+   "answer": "From your own results: Attention in the last 7 days: 4 views (6 in the 7 days before), about 6 minutes of research (7 before), 3 stocks. Most looked at: S139 Corp 2 (new), N5 Corp 1 (new), P27 Corp 1 (new). First looks: N5 Corp, S139 Corp, P27 Corp. This is a description of your habits, not investment advice.",
+   "unmatched": [],
+   "steps": 2,
+   "actions": [
+    {
+     "type": "set_reminder",
+     "stock": "S139 Corp"
+    },
+    {
+     "type": "save_note"
+    }
+   ],
+   "tools": [
+    {
+     "tool": "get_weekly_review",
+     "args": {
+      "days": 7
+     }
+    }
+   ]
+  },
+  {
+   "q": "Am I leaving my biases behind?",
+   "ok": true,
+   "answer": "From your own results: Your habits in the last 180 days against all your earlier decisions (99% ranges; \"fading\" means the change is clearly below zero): 0 fading, 0 getting stronger. Buys after a rise of more than 8% in 30 days: 22% before (104), 19% recently (36): no clear change (change -2.7 pts, 99% range -19.3 to 20.1). Buys within 3 day(s) of the first look: 58% before (91), 42% recently (33): no clear change (change -15.8 pts, 99% range -38.5 to 9.6). Chasing price rises (detected, solid, clear): rule \"Wait after a run-up\" held up out of sample, worth 16.3 pts per flagged decision out of sample. Buying at a bad time of day (detected, solid, clear): rule \"Avoid your worst time of day\" held up out of sample, worth 17 pts per flagged decision out of sample. This is a description of your habits, not investment advice.",
+   "unmatched": [],
+   "steps": 3,
+   "actions": [
+    {
+     "type": "adopt_rule",
+     "id": "wait_runup"
+    },
+    {
+     "type": "adopt_rule",
+     "id": "wait_strong_market"
+    }
+   ],
+   "tools": [
+    {
+     "tool": "get_biases",
+     "args": {}
+    },
+    {
+     "tool": "compare_periods",
+     "args": {
+      "days": 180
+     }
+    },
+    {
+     "tool": "get_rule",
+     "args": {
+      "id": "wait_runup"
+     }
+    }
+   ]
+  },
+  {
+   "q": "How would the agents have done?",
+   "ok": true,
+   "answer": "From your own results: Paper portfolios on your 140 buys, as a share of the money put in: you 106.8%, rules agent 120.2%, NASDAQ 129.1% (no currency conversion). Per buy over 21 trading days against the NASDAQ: rules agent minus you +5.6 pts (99% range 3.7 to 7.6), 140 buys. Per buy over 63 trading days against the NASDAQ: rules agent minus you +5.1 pts (99% range 2.9 to 7.2), 140 buys. This is a description of your habits, not investment advice.",
+   "unmatched": [],
+   "steps": 2,
+   "actions": [],
+   "tools": [
+    {
+     "tool": "get_agent_portfolio",
+     "args": {}
+    }
+   ]
+  }
+ ]
+}

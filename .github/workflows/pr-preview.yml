@@ -1,0 +1,40 @@
+name: PR preview
+
+# Deploys a pull request to gh-pages under /pr-preview/pr-<n>/ and posts a
+# comment with the live URL, so a changed feature can be tried in the browser
+# before approving/merging. Cleans up the preview when the PR is closed. Free.
+#
+# Previews are served from the same origin as the production web app, so their
+# code can read that origin's storage (the signed-in session, the trades ledger).
+# A preview therefore deploys only when a maintainer adds the "preview" label
+# after reading the diff; a later push does not redeploy until the label is
+# removed and added again. Open previews in a browser profile that is not signed
+# in to the production app.
+on:
+  pull_request:
+    types: [labeled, closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: preview-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    if: github.event.action == 'closed' || github.event.label.name == 'preview'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Same file set as deploy-pwa.yml: previews are public too.
+      - name: Collect the web app files
+        if: github.event.action != 'closed'
+        run: |
+          mkdir site
+          cp -r index.html manifest.webmanifest sw.js dashboard src vendor icons pwa site/
+      - uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9 # v1.8.1
+        with:
+          source-dir: site
+          action: ${{ github.event.action == 'closed' && 'remove' || 'deploy' }}

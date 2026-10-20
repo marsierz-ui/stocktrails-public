@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stocktrails - Admin</title>
+  <style>
+    body { margin: 0; font: 14px/1.5 -apple-system, Segoe UI, Roboto, sans-serif; background: #161a26; color: #e8ebf2; }
+    header { display: flex; gap: 12px; align-items: center; padding: 14px 20px; border-bottom: 1px solid #2c3145; }
+    h1 { font-size: 16px; margin: 0; flex: 1; }
+    .tabs { display: flex; gap: 6px; padding: 10px 20px; }
+    .tabs button { padding: 7px 14px; border: 1px solid #3a4159; background: #1f2435; color: #e8ebf2; border-radius: 7px; cursor: pointer; }
+    .tabs button.on { background: #3ddc97; color: #08111f; border-color: #3ddc97; }
+    main { padding: 0 20px 40px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+    th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid #262b3d; font-size: 13px; }
+    th { color: #9aa3b8; font-weight: 600; }
+    tr.click { cursor: pointer; }
+    tr.click:hover td { background: #1c2233; }
+    input { padding: 9px; background: #11141c; color: #e8ebf2; border: 1px solid #3a4159; border-radius: 7px; font-size: 14px; }
+    .muted { color: #9aa3b8; }
+    .card { border: 1px solid #2c3145; border-radius: 10px; padding: 12px; margin: 10px 0; background: #1b2030; }
+    .fb-head { display: flex; gap: 10px; align-items: center; font-size: 12px; color: #9aa3b8; }
+    .fb-text { white-space: pre-wrap; margin: 8px 0; }
+    .fb-shot { max-width: 100%; border: 1px solid #2c3145; border-radius: 8px; cursor: zoom-in; }
+    .pill { padding: 1px 8px; border-radius: 10px; background: #2b3145; font-size: 11px; }
+    .bars { display: grid; gap: 3px; }
+    .barrow { display: grid; grid-template-columns: 90px 1fr 60px; gap: 8px; align-items: center; font-size: 12px; }
+    .bar { height: 12px; background: #3ddc97; border-radius: 3px; }
+    .proc { border: 1px solid #2c3145; border-radius: 10px; padding: 14px; margin: 12px 0; background: #1b2030; }
+    .proc h3 { margin: 0 0 4px; font-size: 15px; }
+    .proc .what { color: #c7cdda; font-size: 13px; margin: 4px 0 10px; }
+    .proc-flow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .proc-step { background: #11141c; border: 1px solid #343c54; border-radius: 6px; padding: 5px 9px; font-size: 12px; }
+    .proc-arrow { color: #9aa3b8; }
+    .proc .where { color: #6f7891; font-size: 11px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stocktrails - Admin</h1>
+    <input id="token" type="password" placeholder="admin token" />
+    <button id="load">Load</button>
+  </header>
+  <div class="tabs">
+    <button data-t="users" class="on">Users</button>
+    <button data-t="aggregate">Aggregate</button>
+    <button data-t="feedback">Feedback</button>
+    <button data-t="system">System</button>
+  </div>
+  <main id="view"><p class="muted">Enter the admin token and click Load.</p></main>
+
+  <script>
+    var TAB = "users";
+    function tok() { return document.getElementById("token").value.trim(); }
+    function api(p) {
+      return fetch(p, { headers: { Authorization: "Bearer " + tok() } }).then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      });
+    }
+    function apiPost(p, body) {
+      return fetch(p, { method: "POST", headers: { Authorization: "Bearer " + tok(), "Content-Type": "application/json" }, body: JSON.stringify(body || {}) })
+        .then(function (r) { if (!r.ok) return r.text().then(function (t) { throw new Error(t || ("HTTP " + r.status)); }); return r.json(); });
+    }
+    var STATUSES = ["new", "triaged", "approved", "dispatched", "done"];
+    // ' is escaped too: the attributes below are written with single delimiters,
+    // so leaving it alone let an escaped value break out and add a handler.
+    function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]; }); }
+    // Feedback screenshots come from the reporting client and are rendered here,
+    // in an admin session: only an actual inline image ever reaches an <img src>.
+    function safeImg(s) { return /^data:image\/(png|jpeg|jpg|gif|webp);base64,[A-Za-z0-9+/=\s]*$/.test(String(s || "")) ? String(s) : null; }
+    function when(ts) { return ts ? new Date(ts).toLocaleString() : "-"; }
+
+    function renderUsers() {
+      return api("/admin/users").then(function (rows) {
+        var h = "<table><tr><th>User</th><th>id</th><th>Events</th><th>Intraday</th><th>Last activity</th></tr>";
+        rows.forEach(function (r) {
+          h += "<tr class='click' data-u='" + esc(r.user_id) + "'><td>" + esc(r.name) + "</td><td class='muted'>" + esc(r.user_id) +
+            "</td><td>" + r.events + "</td><td>" + r.intraday + "</td><td class='muted'>" + when(r.last_ts) + "</td></tr>";
+        });
+        h += "</table><div id='detail'></div>";
+        document.getElementById("view").innerHTML = h || "<p class='muted'>No users yet.</p>";
+        document.querySelectorAll("tr.click").forEach(function (tr) {
+          tr.addEventListener("click", function () { userDetail(tr.getAttribute("data-u")); });
+        });
+      });
+    }
+    function userDetail(uid) {
+      api("/admin/user/" + encodeURIComponent(uid)).then(function (d) {
+        var h = "<h3>" + esc(uid) + " - latest events</h3><table><tr><th>Ticker</th><th>Time</th><th>Source</th><th>Label</th><th>Price</th><th>Views</th></tr>";
+        d.events.forEach(function (e) {
+          h += "<tr><td>" + esc(e.ticker) + "</td><td class='muted'>" + when(e.ts) + "</td><td class='muted'>" + esc(e.source) +
+            "</td><td>" + esc(e.sentiment || "-") + "</td><td>" + esc(e.priceAtEvent == null ? "-" : e.priceAtEvent) + "</td><td>" + esc(e.views || 1) + "</td></tr>";
+        });
+        h += "</table>";
+        document.getElementById("detail").innerHTML = h;
+      });
+    }
+    function renderAggregate() {
+      return api("/admin/aggregate").then(function (a) {
+        var max = (a.topTickers[0] && a.topTickers[0].views) || 1;
+        var h = "<p>" + a.totals.users + " users, " + a.totals.events + " events.</p>";
+        h += "<h3>Sentiment mix</h3><p>" + a.sentiment.map(function (s) { return esc(s.sentiment) + ": " + s.n; }).join(" &middot; ") + "</p>";
+        h += "<h3>Top tickers (all users)</h3><div class='bars'>";
+        a.topTickers.forEach(function (t) {
+          h += "<div class='barrow'><span>" + esc(t.ticker) + "</span><span class='bar' style='width:" + (t.views / max * 100) + "%'></span><span class='muted'>" + t.views + " / " + t.users + "u</span></div>";
+        });
+        h += "</div>";
+        document.getElementById("view").innerHTML = h;
+      });
+    }
+    function renderFeedback() {
+      return api("/admin/feedback").then(function (rows) {
+        if (!rows.length) { document.getElementById("view").innerHTML = "<p class='muted'>No feedback yet.</p>"; return; }
+        document.getElementById("view").innerHTML = rows.map(function (f) {
+          var statusSel = "<select data-id='" + f.id + "' class='fb-status'>" + STATUSES.map(function (s) {
+            return "<option" + (s === f.status ? " selected" : "") + ">" + s + "</option>";
+          }).join("") + "</select>";
+          return "<div class='card'><div class='fb-head'><b>" + esc(f.user_id) + "</b><span>" + when(f.created_at) +
+            "</span>" + statusSel + "<input class='fb-cat' data-id='" + f.id + "' placeholder='category' value='" + esc(f.category || "") + "' style='width:120px' />" +
+            "<button class='fb-save' data-id='" + f.id + "'>Save</button>" +
+            (f.issue_url ? "<a href='" + esc(f.issue_url) + "' target='_blank'>issue &#8599;</a>" : "<button class='fb-issue' data-id='" + f.id + "'>Create GitHub issue</button>") +
+            "</div><div class='fb-text'>" + esc(f.text) + "</div>" +
+            (f.url ? "<div class='muted' style='font-size:12px'>" + esc(f.url) + "</div>" : "") +
+            (safeImg(f.screenshot) ? "<img class='fb-shot' src='" + esc(f.screenshot) + "' />" : "") + "</div>";
+        }).join("");
+        // Bound here rather than as an inline onclick: the markup around it is
+        // built from reported content, so it carries no executable attributes.
+        document.querySelectorAll(".fb-shot").forEach(function (im) {
+          im.addEventListener("click", function () { window.open(im.src); });
+        });
+        document.querySelectorAll(".fb-save").forEach(function (b) {
+          b.addEventListener("click", function () {
+            var id = b.getAttribute("data-id");
+            var status = document.querySelector(".fb-status[data-id='" + id + "']").value;
+            var category = document.querySelector(".fb-cat[data-id='" + id + "']").value;
+            apiPost("/admin/feedback/" + id, { status: status, category: category }).then(function () { b.textContent = "Saved"; }).catch(function (e) { alert(e.message); });
+          });
+        });
+        document.querySelectorAll(".fb-issue").forEach(function (b) {
+          b.addEventListener("click", function () {
+            b.textContent = "Creating..."; b.disabled = true;
+            apiPost("/admin/feedback/" + b.getAttribute("data-id") + "/issue", {}).then(function () { renderFeedback(); }).catch(function (e) { b.disabled = false; b.textContent = "Create GitHub issue"; alert(e.message); });
+          });
+        });
+      });
+    }
+    // Living documentation of every process the app runs. Extend as we build.
+    var PROCESSES = [
+      { name: "Attention capture", what: "When you open a stock page on a supported portal, the extension logs an attention event automatically (no clicking).",
+        flow: ["Stock page (portal)", "Content script reads ticker from URL", "Background worker", "Dedupe (60 min) + write Daily & Intraday DBs", "Badge + sync"],
+        where: "src/content.js, src/portals.js, src/background.js, src/store.js" },
+      { name: "Price at event", what: "Each event captures the stock's price at the moment you viewed it, for return-since-attention math.",
+        flow: ["New event", "Fetch Yahoo quote", "Store priceAtEvent on event"], where: "src/prices.js, src/background.js" },
+      { name: "Hourly archive", what: "Yahoo only serves ~730 days of hourly bars, so the app archives them locally to keep history indefinitely.",
+        flow: ["First sight of ticker", "Backfill ~730d hourly bars", "IndexedDB store", "Daily alarm appends new bars"], where: "src/pricedb.js, src/background.js" },
+      { name: "Daily price updates", what: "A background alarm refreshes prices and extends the hourly archive every day and on startup.",
+        flow: ["chrome.alarms (daily)", "Fetch new bars per symbol", "Append to archive"], where: "src/background.js" },
+      { name: "Sync", what: "Devices push local changes and pull others' via a server cursor; last-write-wins by updatedAt, deletions are tombstones.",
+        flow: ["collectChanges(since cursor)", "POST /sync", "Server upsert per user_id (LWW)", "GET /sync?since", "applyRemote merge"], where: "src/sync.js, src/store.js, server/server.js" },
+      { name: "Accounts (Option A: auto-provision)", what: "A fresh client mints its own account on first run (no URL/token typed); it then syncs automatically. user_id is durable and maps to a Google/Supabase uid when Option B lands.",
+        flow: ["First run, no token", "POST /register -> user_id + token", "Stored on device", "Auto-sync (5 min / on capture)", "Admin overview (this page)"], where: "src/config.js, src/sync.js, server/server.js (users table)" },
+      { name: "Name -> ticker resolution", what: "On mobile you can capture a stock by name/ISIN or a broker screenshot; it resolves to the right Yahoo listing.",
+        flow: ["Name / ISIN or screenshot OCR", "Yahoo symbol search", "Pick listing", "Log as attention + sync"], where: "src/prices.js, pwa/share.js" },
+      { name: "Feedback", what: "Users select an area on the page, screenshot it, add a note; it is stored and optionally pushed to Discord/GitHub.",
+        flow: ["Select area on live page", "Screenshot (html2canvas)", "POST /feedback", "Stored in DB", "Discord ping / GitHub issue"], where: "dashboard/dashboard.js, server/server.js" },
+      { name: "Mobile (PWA)", what: "The same dashboard runs as an installable web app; chrome.* is shimmed to IndexedDB and prices are proxied to avoid CORS.",
+        flow: ["Served by sync server", "chrome.* shimmed to IndexedDB", "Prices via /yahoo proxy", "Share-sheet capture"], where: "src/pwa-shim.js, manifest.webmanifest, sw.js" }
+    ];
+
+    function renderSystem() {
+      document.getElementById("view").innerHTML =
+        "<p class='muted'>What the app does, end to end. Updated as the app develops.</p>" +
+        PROCESSES.map(function (p) {
+          var flow = p.flow.map(function (s, i) {
+            return (i ? "<span class='proc-arrow'>&rarr;</span>" : "") + "<span class='proc-step'>" + esc(s) + "</span>";
+          }).join(" ");
+          return "<div class='proc'><h3>" + esc(p.name) + "</h3><div class='what'>" + esc(p.what) +
+            "</div><div class='proc-flow'>" + flow + "</div><div class='where'>" + esc(p.where) + "</div></div>";
+        }).join("");
+    }
+
+    function render() {
+      if (TAB === "system") { renderSystem(); return; }
+      var fn = TAB === "aggregate" ? renderAggregate : TAB === "feedback" ? renderFeedback : renderUsers;
+      fn().catch(function (e) { document.getElementById("view").innerHTML = "<p class='muted'>Error: " + esc(e.message) + " (wrong token?)</p>"; });
+    }
+    document.querySelectorAll(".tabs button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll(".tabs button").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); TAB = b.getAttribute("data-t"); render();
+      });
+    });
+    document.getElementById("load").addEventListener("click", function () { sessionStorage.setItem("at_admin", tok()); render(); });
+    var saved = sessionStorage.getItem("at_admin");
+    if (saved) { document.getElementById("token").value = saved; render(); }
+  </script>
+</body>
+</html>

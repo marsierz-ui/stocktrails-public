@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+.env
+.env.*
+.DS_Store
+Thumbs.db
+.claude/
+
+# Supabase CLI local state (project ref, pooler URL)
+supabase/.temp/
+docs/hackathon/technical-documentation/Stocktrails-Technical-Documentation-INTERNAL.pdf

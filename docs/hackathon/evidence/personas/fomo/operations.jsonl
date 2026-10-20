@@ -1,0 +1,872 @@
+{"seq":1,"at":"2024-05-11T11:13:00.000Z","account":"sandbox-fomo-21","op":"ACCOUNT_OPEN","persona":"The FOMO buyer","habit":"Buys after a stock has risen: on average +12% in the 20 days before the buy; every +10% of rise costs 7 points over the next month.","synthetic":true,"seed":21}
+{"seq":2,"at":"2024-05-11T11:14:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S0","isin":"US100000000","amountEur":282,"hour":13,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.074}
+{"seq":3,"at":"2024-05-16T08:41:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S2","page":"financials","dwellSec":70}
+{"seq":4,"at":"2024-05-16T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P24","page":"overview","dwellSec":60}
+{"seq":5,"at":"2024-05-16T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P24","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":6,"at":"2024-05-17T07:13:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S1","isin":"US100000100","amountEur":301,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0254}
+{"seq":7,"at":"2024-05-17T12:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S2","page":"analysis","dwellSec":86}
+{"seq":8,"at":"2024-05-17T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P13","page":"overview","dwellSec":60}
+{"seq":9,"at":"2024-05-17T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P13","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":10,"at":"2024-05-19T06:49:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S3","page":"overview","dwellSec":108}
+{"seq":11,"at":"2024-05-19T09:36:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S3","page":"community","dwellSec":150}
+{"seq":12,"at":"2024-05-20T16:10:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S3","page":"community","dwellSec":184}
+{"seq":13,"at":"2024-05-20T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S4","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":null}
+{"seq":14,"at":"2024-05-21T06:51:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S2","page":"community","dwellSec":96}
+{"seq":15,"at":"2024-05-22T07:36:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S2","isin":"US100000200","amountEur":269,"hour":9,"minutesSinceFirstLook":8575,"runupBeforeBuy":0.289,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.0734}
+{"seq":16,"at":"2024-05-26T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P0","page":"overview","dwellSec":60}
+{"seq":17,"at":"2024-05-26T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P0","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":18,"at":"2024-05-27T19:21:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S3","isin":"US100000300","amountEur":224,"hour":21,"minutesSinceFirstLook":12272,"runupBeforeBuy":0.0844,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.036}
+{"seq":19,"at":"2024-05-30T11:11:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S4","isin":"US100000400","amountEur":287,"hour":13,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.1121}
+{"seq":20,"at":"2024-06-08T08:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S6","page":"charts","dwellSec":160}
+{"seq":21,"at":"2024-06-08T11:54:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S6","page":"community","dwellSec":41}
+{"seq":22,"at":"2024-06-08T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N2","page":"news","dwellSec":40}
+{"seq":23,"at":"2024-06-08T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S6","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":109.42}
+{"seq":24,"at":"2024-06-08T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N2","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":25,"at":"2024-06-10T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P6","page":"overview","dwellSec":60}
+{"seq":26,"at":"2024-06-10T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P6","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":null}
+{"seq":27,"at":"2024-06-11T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S5","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":115}
+{"seq":28,"at":"2024-06-11T18:46:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S5","page":"charts","dwellSec":113}
+{"seq":29,"at":"2024-06-11T19:06:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S5","isin":"US100000500","amountEur":282,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0454}
+{"seq":30,"at":"2024-06-13T16:23:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S6","page":"news","dwellSec":210}
+{"seq":31,"at":"2024-06-14T12:47:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S6","page":"overview","dwellSec":153}
+{"seq":32,"at":"2024-06-14T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N1","page":"news","dwellSec":40}
+{"seq":33,"at":"2024-06-14T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N1","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":34,"at":"2024-06-15T07:25:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S6","isin":"US100000600","amountEur":519,"hour":9,"minutesSinceFirstLook":10039,"runupBeforeBuy":-0.0485,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0282}
+{"seq":35,"at":"2024-06-17T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S8","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":36,"at":"2024-06-18T12:40:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S12","page":"overview","dwellSec":167}
+{"seq":37,"at":"2024-06-19T06:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S7","page":"charts","dwellSec":125}
+{"seq":38,"at":"2024-06-19T06:55:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S7","page":"financials","dwellSec":143}
+{"seq":39,"at":"2024-06-19T07:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S7","isin":"US100000700","amountEur":246,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0468}
+{"seq":40,"at":"2024-06-22T19:38:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S8","isin":"US100000800","amountEur":155,"hour":21,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.1221}
+{"seq":41,"at":"2024-06-27T07:13:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S9","page":"news","dwellSec":149}
+{"seq":42,"at":"2024-06-27T07:19:40.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S9","page":"analysis","dwellSec":132}
+{"seq":43,"at":"2024-06-27T07:26:20.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S9","page":"community","dwellSec":153}
+{"seq":44,"at":"2024-06-27T07:33:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S9","isin":"US100000900","amountEur":342,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0461}
+{"seq":45,"at":"2024-06-27T14:20:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S12","page":"overview","dwellSec":75}
+{"seq":46,"at":"2024-06-27T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S9","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":115}
+{"seq":47,"at":"2024-06-29T10:01:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S10","page":"community","dwellSec":89}
+{"seq":48,"at":"2024-06-29T13:05:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S10","page":"financials","dwellSec":84}
+{"seq":49,"at":"2024-06-30T07:12:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S12","page":"news","dwellSec":98}
+{"seq":50,"at":"2024-06-30T09:03:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S10","page":"news","dwellSec":43}
+{"seq":51,"at":"2024-06-30T14:19:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S10","page":"analysis","dwellSec":211}
+{"seq":52,"at":"2024-06-30T15:02:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S12","page":"overview","dwellSec":31}
+{"seq":53,"at":"2024-06-30T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P1","page":"overview","dwellSec":60}
+{"seq":54,"at":"2024-06-30T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P1","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":55,"at":"2024-07-01T10:56:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S12","page":"community","dwellSec":73}
+{"seq":56,"at":"2024-07-02T07:30:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S10","isin":"US100001000","amountEur":369,"hour":9,"minutesSinceFirstLook":4169,"runupBeforeBuy":0.2175,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0428}
+{"seq":57,"at":"2024-07-06T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N0","page":"news","dwellSec":40}
+{"seq":58,"at":"2024-07-06T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N0","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":59,"at":"2024-07-08T11:12:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S11","isin":"US100001100","amountEur":439,"hour":13,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.1122}
+{"seq":60,"at":"2024-07-10T06:26:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S13","page":"community","dwellSec":175}
+{"seq":61,"at":"2024-07-10T11:37:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S13","page":"community","dwellSec":126}
+{"seq":62,"at":"2024-07-10T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S13","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":63,"at":"2024-07-11T07:39:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S12","isin":"US100001200","amountEur":318,"hour":9,"minutesSinceFirstLook":32819,"runupBeforeBuy":0.0128,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.0022}
+{"seq":64,"at":"2024-07-12T15:33:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S13","page":"news","dwellSec":34}
+{"seq":65,"at":"2024-07-12T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N12","page":"news","dwellSec":40}
+{"seq":66,"at":"2024-07-12T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N12","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":67,"at":"2024-07-14T19:33:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S13","isin":"US100001300","amountEur":265,"hour":21,"minutesSinceFirstLook":6547,"runupBeforeBuy":0.2233,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":0.0094}
+{"seq":68,"at":"2024-07-19T12:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S14","page":"news","dwellSec":44}
+{"seq":69,"at":"2024-07-19T12:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S14","page":"financials","dwellSec":117}
+{"seq":70,"at":"2024-07-19T14:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S14","page":"overview","dwellSec":97}
+{"seq":71,"at":"2024-07-19T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S14","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":72,"at":"2024-07-20T06:18:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S14","page":"charts","dwellSec":180}
+{"seq":73,"at":"2024-07-20T11:19:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S14","page":"community","dwellSec":168}
+{"seq":74,"at":"2024-07-21T14:39:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S14","page":"overview","dwellSec":80}
+{"seq":75,"at":"2024-07-22T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S7","isin":"US100000700","amountEur":248,"hour":10}
+{"seq":76,"at":"2024-07-22T11:15:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S14","isin":"US100001400","amountEur":366,"hour":13,"minutesSinceFirstLook":4269,"runupBeforeBuy":0.1447,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0493}
+{"seq":77,"at":"2024-07-23T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S15","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":115}
+{"seq":78,"at":"2024-07-24T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N9","page":"news","dwellSec":40}
+{"seq":79,"at":"2024-07-24T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N9","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":80,"at":"2024-07-27T11:46:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S15","isin":"US100001500","amountEur":276,"hour":13,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0047}
+{"seq":81,"at":"2024-07-30T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S16","sentiment":"positive","note":"A friend says it will double, not going to miss this one.","targetPrice":null}
+{"seq":82,"at":"2024-07-30T18:40:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S16","page":"financials","dwellSec":70}
+{"seq":83,"at":"2024-07-30T19:00:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S16","isin":"US100001600","amountEur":264,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0222}
+{"seq":84,"at":"2024-07-31T06:47:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S17","page":"charts","dwellSec":33}
+{"seq":85,"at":"2024-07-31T08:01:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S17","page":"charts","dwellSec":30}
+{"seq":86,"at":"2024-07-31T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S17","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":144.48}
+{"seq":87,"at":"2024-08-01T07:44:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S17","page":"charts","dwellSec":118}
+{"seq":88,"at":"2024-08-01T11:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S17","page":"charts","dwellSec":106}
+{"seq":89,"at":"2024-08-01T12:02:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S17","page":"overview","dwellSec":40}
+{"seq":90,"at":"2024-08-02T19:43:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S17","isin":"US100001700","amountEur":290,"hour":21,"minutesSinceFirstLook":3656,"runupBeforeBuy":0.2564,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.1008}
+{"seq":91,"at":"2024-08-05T06:55:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S18","page":"financials","dwellSec":111}
+{"seq":92,"at":"2024-08-05T07:15:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S18","isin":"US100001800","amountEur":227,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0609}
+{"seq":93,"at":"2024-08-06T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S8","isin":"US100000800","amountEur":165,"hour":10}
+{"seq":94,"at":"2024-08-07T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S19","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":95,"at":"2024-08-10T11:07:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S19","isin":"US100001900","amountEur":406,"hour":13,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0745}
+{"seq":96,"at":"2024-08-11T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N7","page":"news","dwellSec":40}
+{"seq":97,"at":"2024-08-11T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N7","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":98,"at":"2024-08-12T09:59:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S23","page":"financials","dwellSec":97}
+{"seq":99,"at":"2024-08-18T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S20","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":100,"at":"2024-08-19T07:40:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S20","isin":"US100002000","amountEur":230,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0727}
+{"seq":101,"at":"2024-08-24T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S14","isin":"US100001400","amountEur":317,"hour":10}
+{"seq":102,"at":"2024-08-25T08:40:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S23","page":"overview","dwellSec":214}
+{"seq":103,"at":"2024-08-28T13:04:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S23","page":"analysis","dwellSec":161}
+{"seq":104,"at":"2024-08-29T07:14:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S21","page":"charts","dwellSec":33}
+{"seq":105,"at":"2024-08-29T07:34:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S21","isin":"US100002100","amountEur":394,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0987}
+{"seq":106,"at":"2024-08-29T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S21","sentiment":"positive","note":"Looks right to me.","targetPrice":115}
+{"seq":107,"at":"2024-08-30T08:15:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S25","page":"news","dwellSec":34}
+{"seq":108,"at":"2024-08-30T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S12","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":109,"at":"2024-08-31T16:56:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S23","page":"analysis","dwellSec":65}
+{"seq":110,"at":"2024-09-05T07:51:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S23","page":"charts","dwellSec":87}
+{"seq":111,"at":"2024-09-05T15:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S23","page":"charts","dwellSec":55}
+{"seq":112,"at":"2024-09-06T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S22","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":115}
+{"seq":113,"at":"2024-09-07T07:44:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S22","isin":"US100002200","amountEur":288,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0158}
+{"seq":114,"at":"2024-09-07T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S16","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":115,"at":"2024-09-08T15:25:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S25","page":"news","dwellSec":208}
+{"seq":116,"at":"2024-09-08T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P11","page":"overview","dwellSec":60}
+{"seq":117,"at":"2024-09-08T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P11","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":118,"at":"2024-09-11T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P29","page":"overview","dwellSec":60}
+{"seq":119,"at":"2024-09-11T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P29","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":120,"at":"2024-09-12T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S12","isin":"US100001200","amountEur":304,"hour":10}
+{"seq":121,"at":"2024-09-16T07:15:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S23","isin":"US100002300","amountEur":417,"hour":9,"minutesSinceFirstLook":50236,"runupBeforeBuy":0.0623,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.078}
+{"seq":122,"at":"2024-09-16T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S16","isin":"US100001600","amountEur":270,"hour":10}
+{"seq":123,"at":"2024-09-17T13:32:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S26","page":"analysis","dwellSec":38}
+{"seq":124,"at":"2024-09-18T17:04:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S25","page":"analysis","dwellSec":66}
+{"seq":125,"at":"2024-09-19T09:09:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S25","page":"financials","dwellSec":179}
+{"seq":126,"at":"2024-09-20T07:10:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S24","isin":"US100002400","amountEur":369,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.1358}
+{"seq":127,"at":"2024-09-21T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N5","page":"news","dwellSec":40}
+{"seq":128,"at":"2024-09-21T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N5","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":129,"at":"2024-09-23T15:13:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S26","page":"community","dwellSec":160}
+{"seq":130,"at":"2024-09-23T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P5","page":"overview","dwellSec":60}
+{"seq":131,"at":"2024-09-23T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P5","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":132,"at":"2024-09-24T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S4","isin":"US100000400","amountEur":365,"hour":10}
+{"seq":133,"at":"2024-09-24T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S25","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":null}
+{"seq":134,"at":"2024-09-26T17:46:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S26","page":"community","dwellSec":189}
+{"seq":135,"at":"2024-09-27T11:17:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S25","isin":"US100002500","amountEur":311,"hour":13,"minutesSinceFirstLook":40502,"runupBeforeBuy":0.2813,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.1596}
+{"seq":136,"at":"2024-09-29T08:30:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S26","page":"financials","dwellSec":130}
+{"seq":137,"at":"2024-09-30T06:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S27","page":"community","dwellSec":117}
+{"seq":138,"at":"2024-10-02T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S6","isin":"US100000600","amountEur":534,"hour":10}
+{"seq":139,"at":"2024-10-02T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S26","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":130.25}
+{"seq":140,"at":"2024-10-03T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S27","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":141,"at":"2024-10-04T19:22:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S26","isin":"US100002600","amountEur":235,"hour":21,"minutesSinceFirstLook":24830,"runupBeforeBuy":0.1326,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0398}
+{"seq":142,"at":"2024-10-07T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S24","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":143,"at":"2024-10-09T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S10","isin":"US100001000","amountEur":300,"hour":10}
+{"seq":144,"at":"2024-10-09T19:49:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S27","isin":"US100002700","amountEur":397,"hour":21,"minutesSinceFirstLook":13744,"runupBeforeBuy":0.0562,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.066}
+{"seq":145,"at":"2024-10-12T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S28","sentiment":"positive","note":"Looks right to me.","targetPrice":null}
+{"seq":146,"at":"2024-10-13T11:12:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S28","isin":"US100002800","amountEur":444,"hour":13,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.0644}
+{"seq":147,"at":"2024-10-17T06:48:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S29","page":"financials","dwellSec":168}
+{"seq":148,"at":"2024-10-17T06:58:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S29","page":"financials","dwellSec":210}
+{"seq":149,"at":"2024-10-17T07:08:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S29","isin":"US100002900","amountEur":388,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.1033}
+{"seq":150,"at":"2024-10-17T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S29","sentiment":"positive","note":"A friend says it will double, not going to miss this one.","targetPrice":115}
+{"seq":151,"at":"2024-10-19T10:23:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S30","page":"community","dwellSec":127}
+{"seq":152,"at":"2024-10-19T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S30","sentiment":"positive","note":"A friend says it will double, not going to miss this one.","targetPrice":124.24}
+{"seq":153,"at":"2024-10-20T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S24","isin":"US100002400","amountEur":408,"hour":10}
+{"seq":154,"at":"2024-10-23T19:08:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S30","isin":"US100003000","amountEur":470,"hour":21,"minutesSinceFirstLook":6285,"runupBeforeBuy":0.0804,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.1177}
+{"seq":155,"at":"2024-10-25T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N8","page":"news","dwellSec":40}
+{"seq":156,"at":"2024-10-25T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N8","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":157,"at":"2024-10-26T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S25","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":158,"at":"2024-10-28T09:15:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S31","page":"charts","dwellSec":92}
+{"seq":159,"at":"2024-10-28T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S31","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":160,"at":"2024-10-29T20:43:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S31","isin":"US100003100","amountEur":409,"hour":21,"minutesSinceFirstLook":2128,"runupBeforeBuy":0.2109,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.1535}
+{"seq":161,"at":"2024-11-02T09:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S32","page":"analysis","dwellSec":122}
+{"seq":162,"at":"2024-11-02T12:15:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S32","page":"community","dwellSec":66}
+{"seq":163,"at":"2024-11-03T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S25","isin":"US100002500","amountEur":283,"hour":10}
+{"seq":164,"at":"2024-11-04T13:41:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S32","page":"overview","dwellSec":210}
+{"seq":165,"at":"2024-11-07T13:08:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S32","page":"news","dwellSec":26}
+{"seq":166,"at":"2024-11-12T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S32","sentiment":"positive","note":"Looks right to me.","targetPrice":null}
+{"seq":167,"at":"2024-11-12T19:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S15","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":168,"at":"2024-11-13T09:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S33","page":"news","dwellSec":48}
+{"seq":169,"at":"2024-11-13T15:07:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S33","page":"community","dwellSec":202}
+{"seq":170,"at":"2024-11-14T20:30:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S32","isin":"US100003200","amountEur":469,"hour":21,"minutesSinceFirstLook":17927,"runupBeforeBuy":0.2898,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.2412}
+{"seq":171,"at":"2024-11-15T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S9","isin":"US100000900","amountEur":330,"hour":10}
+{"seq":172,"at":"2024-11-15T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S15","isin":"US100001500","amountEur":225,"hour":10}
+{"seq":173,"at":"2024-11-15T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S33","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":126.35}
+{"seq":174,"at":"2024-11-16T11:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S33","page":"news","dwellSec":211}
+{"seq":175,"at":"2024-11-16T18:57:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S33","page":"overview","dwellSec":149}
+{"seq":176,"at":"2024-11-23T07:56:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S33","page":"community","dwellSec":66}
+{"seq":177,"at":"2024-11-23T17:33:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S33","page":"news","dwellSec":86}
+{"seq":178,"at":"2024-11-25T09:59:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S33","page":"overview","dwellSec":59}
+{"seq":179,"at":"2024-11-26T20:36:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S33","isin":"US100003300","amountEur":417,"hour":21,"minutesSinceFirstLook":19373,"runupBeforeBuy":0.0987,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.1169}
+{"seq":180,"at":"2024-12-01T15:49:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S34","page":"overview","dwellSec":143}
+{"seq":181,"at":"2024-12-02T08:03:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S34","isin":"US100003400","amountEur":376,"hour":9,"minutesSinceFirstLook":974,"runupBeforeBuy":0.0446,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.0694}
+{"seq":182,"at":"2024-12-08T09:51:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S35","page":"charts","dwellSec":178}
+{"seq":183,"at":"2024-12-08T14:49:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S35","page":"analysis","dwellSec":179}
+{"seq":184,"at":"2024-12-10T08:41:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S37","page":"charts","dwellSec":77}
+{"seq":185,"at":"2024-12-10T09:15:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S35","page":"overview","dwellSec":87}
+{"seq":186,"at":"2024-12-10T11:11:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S37","page":"analysis","dwellSec":100}
+{"seq":187,"at":"2024-12-11T08:18:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S35","isin":"US100003500","amountEur":402,"hour":9,"minutesSinceFirstLook":4227,"runupBeforeBuy":0.1412,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.1086}
+{"seq":188,"at":"2024-12-12T10:20:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S37","page":"analysis","dwellSec":185}
+{"seq":189,"at":"2024-12-13T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S13","isin":"US100001300","amountEur":238,"hour":10}
+{"seq":190,"at":"2024-12-13T11:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S37","page":"community","dwellSec":180}
+{"seq":191,"at":"2024-12-13T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S37","sentiment":"positive","note":"New product announcement should lift revenue next quarter.","targetPrice":133.23}
+{"seq":192,"at":"2024-12-16T19:44:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S36","page":"community","dwellSec":37}
+{"seq":193,"at":"2024-12-16T19:50:40.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S36","page":"charts","dwellSec":87}
+{"seq":194,"at":"2024-12-16T19:57:20.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S36","page":"analysis","dwellSec":93}
+{"seq":195,"at":"2024-12-16T20:04:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S36","isin":"US100003600","amountEur":268,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0869}
+{"seq":196,"at":"2024-12-17T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S20","isin":"US100002000","amountEur":265,"hour":10}
+{"seq":197,"at":"2024-12-17T14:28:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S37","page":"community","dwellSec":218}
+{"seq":198,"at":"2024-12-19T17:13:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S37","page":"charts","dwellSec":104}
+{"seq":199,"at":"2024-12-20T08:35:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S37","isin":"US100003700","amountEur":488,"hour":9,"minutesSinceFirstLook":14394,"runupBeforeBuy":0.1585,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.1762}
+{"seq":200,"at":"2024-12-23T11:44:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S38","page":"analysis","dwellSec":69}
+{"seq":201,"at":"2024-12-23T12:04:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S38","isin":"US100003800","amountEur":434,"hour":13,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0324}
+{"seq":202,"at":"2024-12-23T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S38","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":203,"at":"2024-12-24T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S11","isin":"US100001100","amountEur":396,"hour":10}
+{"seq":204,"at":"2024-12-24T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P23","page":"overview","dwellSec":60}
+{"seq":205,"at":"2024-12-24T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S39","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":206,"at":"2024-12-24T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P23","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":207,"at":"2024-12-26T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P8","page":"overview","dwellSec":60}
+{"seq":208,"at":"2024-12-26T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P8","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":209,"at":"2024-12-29T08:03:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S40","page":"news","dwellSec":50}
+{"seq":210,"at":"2024-12-29T09:12:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S40","page":"community","dwellSec":190}
+{"seq":211,"at":"2024-12-29T15:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S40","page":"financials","dwellSec":145}
+{"seq":212,"at":"2024-12-29T20:41:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S39","isin":"US100003900","amountEur":316,"hour":21,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.021}
+{"seq":213,"at":"2024-12-30T11:24:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S40","page":"charts","dwellSec":199}
+{"seq":214,"at":"2024-12-31T11:32:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S40","page":"financials","dwellSec":31}
+{"seq":215,"at":"2024-12-31T15:25:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S40","page":"community","dwellSec":186}
+{"seq":216,"at":"2025-01-02T12:25:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S40","page":"news","dwellSec":121}
+{"seq":217,"at":"2025-01-03T08:00:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S40","isin":"US100004000","amountEur":261,"hour":9,"minutesSinceFirstLook":7197,"runupBeforeBuy":0.3503,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.2678}
+{"seq":218,"at":"2025-01-03T11:08:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S44","page":"financials","dwellSec":142}
+{"seq":219,"at":"2025-01-03T14:42:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S44","page":"community","dwellSec":127}
+{"seq":220,"at":"2025-01-04T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N13","page":"news","dwellSec":40}
+{"seq":221,"at":"2025-01-04T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N13","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":222,"at":"2025-01-06T11:55:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S44","page":"news","dwellSec":93}
+{"seq":223,"at":"2025-01-08T16:32:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S44","page":"overview","dwellSec":73}
+{"seq":224,"at":"2025-01-09T13:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S41","page":"financials","dwellSec":86}
+{"seq":225,"at":"2025-01-09T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S41","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":226,"at":"2025-01-11T08:05:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S41","page":"news","dwellSec":34}
+{"seq":227,"at":"2025-01-12T07:02:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S41","page":"analysis","dwellSec":181}
+{"seq":228,"at":"2025-01-12T10:19:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S44","page":"analysis","dwellSec":116}
+{"seq":229,"at":"2025-01-12T16:56:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S41","page":"charts","dwellSec":116}
+{"seq":230,"at":"2025-01-13T09:36:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S41","page":"community","dwellSec":81}
+{"seq":231,"at":"2025-01-13T09:48:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S41","page":"analysis","dwellSec":65}
+{"seq":232,"at":"2025-01-13T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S42","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":115}
+{"seq":233,"at":"2025-01-15T08:18:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S41","isin":"US100004100","amountEur":257,"hour":9,"minutesSinceFirstLook":8315,"runupBeforeBuy":0.2647,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.2429}
+{"seq":234,"at":"2025-01-18T08:16:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S42","isin":"US100004200","amountEur":416,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0052}
+{"seq":235,"at":"2025-01-22T08:16:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S43","page":"overview","dwellSec":114}
+{"seq":236,"at":"2025-01-22T08:26:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S43","page":"overview","dwellSec":73}
+{"seq":237,"at":"2025-01-22T08:36:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S43","isin":"US100004300","amountEur":191,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0552}
+{"seq":238,"at":"2025-01-22T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S43","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":null}
+{"seq":239,"at":"2025-01-23T18:07:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S44","page":"news","dwellSec":47}
+{"seq":240,"at":"2025-01-24T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S44","sentiment":"positive","note":"Looks right to me.","targetPrice":132.55}
+{"seq":241,"at":"2025-01-29T08:19:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S44","isin":"US100004400","amountEur":434,"hour":9,"minutesSinceFirstLook":37271,"runupBeforeBuy":0.1526,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":0.0006}
+{"seq":242,"at":"2025-02-03T15:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S45","page":"financials","dwellSec":80}
+{"seq":243,"at":"2025-02-04T13:30:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S45","page":"overview","dwellSec":203}
+{"seq":244,"at":"2025-02-05T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S22","isin":"US100002200","amountEur":266,"hour":10}
+{"seq":245,"at":"2025-02-05T11:14:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S45","page":"overview","dwellSec":185}
+{"seq":246,"at":"2025-02-05T13:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S45","page":"news","dwellSec":210}
+{"seq":247,"at":"2025-02-08T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S26","isin":"US100002600","amountEur":220,"hour":10}
+{"seq":248,"at":"2025-02-08T12:14:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S45","page":"analysis","dwellSec":89}
+{"seq":249,"at":"2025-02-08T13:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S45","page":"news","dwellSec":128}
+{"seq":250,"at":"2025-02-08T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S46","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":115}
+{"seq":251,"at":"2025-02-11T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S45","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":null}
+{"seq":252,"at":"2025-02-12T18:28:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S45","page":"charts","dwellSec":189}
+{"seq":253,"at":"2025-02-13T08:44:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S45","isin":"US100004500","amountEur":413,"hour":9,"minutesSinceFirstLook":13974,"runupBeforeBuy":0.0123,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0302}
+{"seq":254,"at":"2025-02-13T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N11","page":"news","dwellSec":40}
+{"seq":255,"at":"2025-02-13T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N11","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":256,"at":"2025-02-18T20:34:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S46","isin":"US100004600","amountEur":233,"hour":21,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0767}
+{"seq":257,"at":"2025-02-24T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S21","isin":"US100002100","amountEur":430,"hour":10}
+{"seq":258,"at":"2025-02-24T12:33:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S47","isin":"US100004700","amountEur":397,"hour":13,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0949}
+{"seq":259,"at":"2025-02-24T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S48","sentiment":"positive","note":"New product announcement should lift revenue next quarter.","targetPrice":null}
+{"seq":260,"at":"2025-02-25T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P17","page":"overview","dwellSec":60}
+{"seq":261,"at":"2025-02-25T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P17","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":262,"at":"2025-02-26T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N4","page":"news","dwellSec":40}
+{"seq":263,"at":"2025-02-26T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N4","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":264,"at":"2025-02-27T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S34","isin":"US100003400","amountEur":318,"hour":10}
+{"seq":265,"at":"2025-02-28T20:35:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S48","isin":"US100004800","amountEur":434,"hour":21,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0249}
+{"seq":266,"at":"2025-03-02T08:40:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S49","page":"financials","dwellSec":33}
+{"seq":267,"at":"2025-03-02T09:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S49","page":"news","dwellSec":37}
+{"seq":268,"at":"2025-03-02T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S49","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":138.67}
+{"seq":269,"at":"2025-03-03T14:17:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S49","page":"analysis","dwellSec":206}
+{"seq":270,"at":"2025-03-03T18:58:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S49","page":"analysis","dwellSec":155}
+{"seq":271,"at":"2025-03-04T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P27","page":"overview","dwellSec":60}
+{"seq":272,"at":"2025-03-04T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P27","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":null}
+{"seq":273,"at":"2025-03-05T07:15:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S53","page":"overview","dwellSec":159}
+{"seq":274,"at":"2025-03-05T16:49:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S53","page":"community","dwellSec":72}
+{"seq":275,"at":"2025-03-06T15:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S50","page":"community","dwellSec":46}
+{"seq":276,"at":"2025-03-06T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S50","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":114.45}
+{"seq":277,"at":"2025-03-06T20:23:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S49","isin":"US100004900","amountEur":383,"hour":21,"minutesSinceFirstLook":6463,"runupBeforeBuy":0.2059,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.0547}
+{"seq":278,"at":"2025-03-09T18:36:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S50","page":"news","dwellSec":130}
+{"seq":279,"at":"2025-03-11T07:44:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S58","page":"community","dwellSec":208}
+{"seq":280,"at":"2025-03-11T08:15:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S58","page":"financials","dwellSec":100}
+{"seq":281,"at":"2025-03-11T19:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S40","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":282,"at":"2025-03-12T12:27:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S50","isin":"US100005000","amountEur":390,"hour":13,"minutesSinceFirstLook":8481,"runupBeforeBuy":-0.0048,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0998}
+{"seq":283,"at":"2025-03-16T09:39:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S53","page":"charts","dwellSec":58}
+{"seq":284,"at":"2025-03-16T14:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S52","page":"charts","dwellSec":76}
+{"seq":285,"at":"2025-03-17T07:42:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S51","page":"community","dwellSec":106}
+{"seq":286,"at":"2025-03-17T08:02:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S51","isin":"US100005100","amountEur":568,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0219}
+{"seq":287,"at":"2025-03-17T08:54:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S52","page":"news","dwellSec":155}
+{"seq":288,"at":"2025-03-17T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S41","isin":"US100004100","amountEur":199,"hour":10}
+{"seq":289,"at":"2025-03-17T13:55:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S58","page":"financials","dwellSec":28}
+{"seq":290,"at":"2025-03-17T15:24:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S58","page":"overview","dwellSec":168}
+{"seq":291,"at":"2025-03-18T07:03:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S52","page":"overview","dwellSec":58}
+{"seq":292,"at":"2025-03-18T09:17:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S53","page":"overview","dwellSec":202}
+{"seq":293,"at":"2025-03-19T10:52:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S52","page":"community","dwellSec":98}
+{"seq":294,"at":"2025-03-19T16:12:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S52","page":"analysis","dwellSec":140}
+{"seq":295,"at":"2025-03-19T16:16:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S52","page":"financials","dwellSec":52}
+{"seq":296,"at":"2025-03-19T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P14","page":"overview","dwellSec":60}
+{"seq":297,"at":"2025-03-19T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P14","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":298,"at":"2025-03-20T08:15:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S52","isin":"US100005200","amountEur":376,"hour":9,"minutesSinceFirstLook":5409,"runupBeforeBuy":0.026,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0774}
+{"seq":299,"at":"2025-03-22T10:42:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S56","page":"charts","dwellSec":114}
+{"seq":300,"at":"2025-03-24T15:59:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S58","page":"community","dwellSec":95}
+{"seq":301,"at":"2025-03-24T20:01:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S53","isin":"US100005300","amountEur":236,"hour":21,"minutesSinceFirstLook":28126,"runupBeforeBuy":-0.0843,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.233}
+{"seq":302,"at":"2025-03-25T13:33:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S58","page":"community","dwellSec":184}
+{"seq":303,"at":"2025-03-27T09:15:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S55","page":"overview","dwellSec":164}
+{"seq":304,"at":"2025-03-27T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S55","sentiment":"positive","note":"A friend says it will double, not going to miss this one.","targetPrice":null}
+{"seq":305,"at":"2025-03-28T19:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S47","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":306,"at":"2025-03-29T08:09:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S57","page":"analysis","dwellSec":149}
+{"seq":307,"at":"2025-03-29T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P2","page":"overview","dwellSec":60}
+{"seq":308,"at":"2025-03-29T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P2","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":309,"at":"2025-03-29T19:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S32","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":310,"at":"2025-03-30T06:08:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S57","page":"analysis","dwellSec":190}
+{"seq":311,"at":"2025-03-30T07:17:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S54","page":"overview","dwellSec":79}
+{"seq":312,"at":"2025-03-30T07:28:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S54","page":"charts","dwellSec":101}
+{"seq":313,"at":"2025-03-30T08:02:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S54","page":"charts","dwellSec":161}
+{"seq":314,"at":"2025-03-30T11:59:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S54","page":"news","dwellSec":105}
+{"seq":315,"at":"2025-03-30T12:22:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S56","page":"financials","dwellSec":54}
+{"seq":316,"at":"2025-03-30T12:38:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S54","page":"overview","dwellSec":98}
+{"seq":317,"at":"2025-03-30T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S54","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":122.85}
+{"seq":318,"at":"2025-03-30T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S48","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":319,"at":"2025-03-31T11:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S54","page":"news","dwellSec":205}
+{"seq":320,"at":"2025-03-31T12:35:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S56","page":"community","dwellSec":61}
+{"seq":321,"at":"2025-04-01T19:14:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S54","isin":"US100005400","amountEur":581,"hour":21,"minutesSinceFirstLook":3597,"runupBeforeBuy":0.0682,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.1249}
+{"seq":322,"at":"2025-04-05T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S32","isin":"US100003200","amountEur":379,"hour":10}
+{"seq":323,"at":"2025-04-05T13:58:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S58","page":"charts","dwellSec":136}
+{"seq":324,"at":"2025-04-05T19:19:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S55","isin":"US100005500","amountEur":409,"hour":21,"minutesSinceFirstLook":13564,"runupBeforeBuy":0.1229,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0044}
+{"seq":325,"at":"2025-04-07T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S56","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":326,"at":"2025-04-12T07:42:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S56","isin":"US100005600","amountEur":379,"hour":9,"minutesSinceFirstLook":30060,"runupBeforeBuy":0.0742,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.0054}
+{"seq":327,"at":"2025-04-12T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S48","isin":"US100004800","amountEur":427,"hour":10}
+{"seq":328,"at":"2025-04-12T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S57","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":329,"at":"2025-04-14T13:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S57","page":"analysis","dwellSec":117}
+{"seq":330,"at":"2025-04-15T08:40:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S57","page":"news","dwellSec":100}
+{"seq":331,"at":"2025-04-16T11:20:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S57","isin":"US100005700","amountEur":251,"hour":13,"minutesSinceFirstLook":26111,"runupBeforeBuy":0.0583,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.1184}
+{"seq":332,"at":"2025-04-18T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S58","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":134.48}
+{"seq":333,"at":"2025-04-20T07:00:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S58","isin":"US100005800","amountEur":439,"hour":9,"minutesSinceFirstLook":57556,"runupBeforeBuy":0.1694,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0415}
+{"seq":334,"at":"2025-04-22T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S49","isin":"US100004900","amountEur":411,"hour":10}
+{"seq":335,"at":"2025-04-23T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S28","isin":"US100002800","amountEur":470,"hour":10}
+{"seq":336,"at":"2025-04-25T19:11:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S59","page":"financials","dwellSec":103}
+{"seq":337,"at":"2025-04-25T19:17:40.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S59","page":"overview","dwellSec":126}
+{"seq":338,"at":"2025-04-25T19:24:20.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S59","page":"news","dwellSec":196}
+{"seq":339,"at":"2025-04-25T19:31:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S59","isin":"US100005900","amountEur":557,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0245}
+{"seq":340,"at":"2025-04-26T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S37","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":341,"at":"2025-04-28T07:27:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S60","isin":"US100006000","amountEur":363,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0799}
+{"seq":342,"at":"2025-04-29T06:54:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S61","page":"financials","dwellSec":168}
+{"seq":343,"at":"2025-04-29T12:26:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S61","page":"community","dwellSec":128}
+{"seq":344,"at":"2025-04-29T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P20","page":"overview","dwellSec":60}
+{"seq":345,"at":"2025-04-29T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S61","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":null}
+{"seq":346,"at":"2025-04-29T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P20","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":347,"at":"2025-04-30T16:13:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S61","page":"overview","dwellSec":32}
+{"seq":348,"at":"2025-05-03T14:03:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S61","page":"financials","dwellSec":211}
+{"seq":349,"at":"2025-05-04T11:10:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S61","page":"news","dwellSec":108}
+{"seq":350,"at":"2025-05-05T08:10:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S70","page":"community","dwellSec":56}
+{"seq":351,"at":"2025-05-06T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S37","isin":"US100003700","amountEur":470,"hour":10}
+{"seq":352,"at":"2025-05-06T19:48:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S61","isin":"US100006100","amountEur":305,"hour":21,"minutesSinceFirstLook":10854,"runupBeforeBuy":0.1841,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.1271}
+{"seq":353,"at":"2025-05-08T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P10","page":"overview","dwellSec":60}
+{"seq":354,"at":"2025-05-08T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P10","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":355,"at":"2025-05-09T07:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S62","page":"analysis","dwellSec":54}
+{"seq":356,"at":"2025-05-09T07:12:40.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S62","page":"community","dwellSec":98}
+{"seq":357,"at":"2025-05-09T07:19:20.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S62","page":"news","dwellSec":23}
+{"seq":358,"at":"2025-05-09T07:26:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S62","isin":"US100006200","amountEur":500,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.1525}
+{"seq":359,"at":"2025-05-09T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S62","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":115}
+{"seq":360,"at":"2025-05-11T13:09:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S63","page":"analysis","dwellSec":45}
+{"seq":361,"at":"2025-05-11T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S63","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":128.98}
+{"seq":362,"at":"2025-05-14T10:31:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S63","page":"analysis","dwellSec":178}
+{"seq":363,"at":"2025-05-15T11:15:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S63","page":"financials","dwellSec":185}
+{"seq":364,"at":"2025-05-16T06:22:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S69","page":"community","dwellSec":115}
+{"seq":365,"at":"2025-05-16T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S44","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":366,"at":"2025-05-17T11:18:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S63","page":"community","dwellSec":181}
+{"seq":367,"at":"2025-05-19T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S35","isin":"US100003500","amountEur":321,"hour":10}
+{"seq":368,"at":"2025-05-19T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S46","isin":"US100004600","amountEur":229,"hour":10}
+{"seq":369,"at":"2025-05-19T08:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S70","page":"news","dwellSec":213}
+{"seq":370,"at":"2025-05-19T19:29:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S63","isin":"US100006300","amountEur":326,"hour":21,"minutesSinceFirstLook":11900,"runupBeforeBuy":0.1216,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.0211}
+{"seq":371,"at":"2025-05-21T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S45","isin":"US100004500","amountEur":491,"hour":10}
+{"seq":372,"at":"2025-05-21T15:30:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S69","page":"analysis","dwellSec":137}
+{"seq":373,"at":"2025-05-22T06:52:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S69","page":"charts","dwellSec":194}
+{"seq":374,"at":"2025-05-22T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S36","isin":"US100003600","amountEur":299,"hour":10}
+{"seq":375,"at":"2025-05-22T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S64","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":115}
+{"seq":376,"at":"2025-05-22T18:41:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S64","page":"community","dwellSec":72}
+{"seq":377,"at":"2025-05-22T19:01:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S64","isin":"US100006400","amountEur":511,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0987}
+{"seq":378,"at":"2025-05-23T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S65","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":115}
+{"seq":379,"at":"2025-05-25T15:37:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S69","page":"overview","dwellSec":119}
+{"seq":380,"at":"2025-05-25T19:16:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S65","isin":"US100006500","amountEur":401,"hour":21,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0542}
+{"seq":381,"at":"2025-05-28T19:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S66","page":"community","dwellSec":43}
+{"seq":382,"at":"2025-05-28T19:16:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S66","page":"overview","dwellSec":57}
+{"seq":383,"at":"2025-05-28T19:26:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S66","isin":"US100006600","amountEur":485,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.2112}
+{"seq":384,"at":"2025-05-29T16:20:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S69","page":"charts","dwellSec":107}
+{"seq":385,"at":"2025-05-30T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S44","isin":"US100004400","amountEur":417,"hour":10}
+{"seq":386,"at":"2025-05-30T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S67","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":null}
+{"seq":387,"at":"2025-05-31T19:09:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S67","isin":"US100006700","amountEur":516,"hour":21,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0332}
+{"seq":388,"at":"2025-06-01T17:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S69","page":"charts","dwellSec":195}
+{"seq":389,"at":"2025-06-02T06:39:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S68","page":"overview","dwellSec":63}
+{"seq":390,"at":"2025-06-02T09:59:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S68","page":"analysis","dwellSec":124}
+{"seq":391,"at":"2025-06-02T12:25:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S68","page":"analysis","dwellSec":197}
+{"seq":392,"at":"2025-06-02T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S69","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":null}
+{"seq":393,"at":"2025-06-03T07:16:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S68","isin":"US100006800","amountEur":465,"hour":9,"minutesSinceFirstLook":1477,"runupBeforeBuy":0.116,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.0535}
+{"seq":394,"at":"2025-06-04T14:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S70","page":"charts","dwellSec":60}
+{"seq":395,"at":"2025-06-06T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S60","isin":"US100006000","amountEur":403,"hour":10}
+{"seq":396,"at":"2025-06-08T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S70","sentiment":"positive","note":"Looks right to me.","targetPrice":null}
+{"seq":397,"at":"2025-06-11T19:37:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S69","isin":"US100006900","amountEur":433,"hour":21,"minutesSinceFirstLook":38235,"runupBeforeBuy":0.0953,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0114}
+{"seq":398,"at":"2025-06-16T17:42:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S70","page":"news","dwellSec":214}
+{"seq":399,"at":"2025-06-17T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S39","isin":"US100003900","amountEur":326,"hour":10}
+{"seq":400,"at":"2025-06-18T11:22:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S70","isin":"US100007000","amountEur":236,"hour":13,"minutesSinceFirstLook":63552,"runupBeforeBuy":-0.0086,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0432}
+{"seq":401,"at":"2025-06-22T08:11:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S71","page":"charts","dwellSec":66}
+{"seq":402,"at":"2025-06-22T10:10:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S71","page":"financials","dwellSec":197}
+{"seq":403,"at":"2025-06-22T15:08:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S71","page":"news","dwellSec":161}
+{"seq":404,"at":"2025-06-23T11:51:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S71","page":"financials","dwellSec":47}
+{"seq":405,"at":"2025-06-23T16:11:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S71","page":"community","dwellSec":79}
+{"seq":406,"at":"2025-06-24T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S50","isin":"US100005000","amountEur":481,"hour":10}
+{"seq":407,"at":"2025-06-24T19:43:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S71","isin":"US100007100","amountEur":335,"hour":21,"minutesSinceFirstLook":3572,"runupBeforeBuy":0.1481,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.0939}
+{"seq":408,"at":"2025-06-26T07:49:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S73","page":"community","dwellSec":37}
+{"seq":409,"at":"2025-06-26T10:39:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S73","page":"analysis","dwellSec":73}
+{"seq":410,"at":"2025-06-26T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P21","page":"overview","dwellSec":60}
+{"seq":411,"at":"2025-06-26T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S73","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":140.03}
+{"seq":412,"at":"2025-06-26T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P21","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":413,"at":"2025-06-27T06:49:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S73","page":"overview","dwellSec":37}
+{"seq":414,"at":"2025-06-28T07:16:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S72","isin":"US100007200","amountEur":636,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.1036}
+{"seq":415,"at":"2025-06-29T17:49:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S73","page":"financials","dwellSec":194}
+{"seq":416,"at":"2025-06-30T11:11:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S73","page":"financials","dwellSec":95}
+{"seq":417,"at":"2025-07-01T07:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S73","page":"news","dwellSec":96}
+{"seq":418,"at":"2025-07-02T14:51:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S80","page":"news","dwellSec":44}
+{"seq":419,"at":"2025-07-03T14:08:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S73","page":"analysis","dwellSec":116}
+{"seq":420,"at":"2025-07-04T11:40:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S73","isin":"US100007300","amountEur":443,"hour":13,"minutesSinceFirstLook":11751,"runupBeforeBuy":0.2176,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.1536}
+{"seq":421,"at":"2025-07-05T08:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S74","page":"charts","dwellSec":177}
+{"seq":422,"at":"2025-07-05T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S74","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":null}
+{"seq":423,"at":"2025-07-05T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S56","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":424,"at":"2025-07-06T14:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S74","page":"news","dwellSec":105}
+{"seq":425,"at":"2025-07-07T07:26:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S74","isin":"US100007400","amountEur":493,"hour":9,"minutesSinceFirstLook":2796,"runupBeforeBuy":0.0007,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.0349}
+{"seq":426,"at":"2025-07-10T09:07:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S75","page":"overview","dwellSec":140}
+{"seq":427,"at":"2025-07-10T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P16","page":"overview","dwellSec":60}
+{"seq":428,"at":"2025-07-10T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P16","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":429,"at":"2025-07-11T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N6","page":"news","dwellSec":40}
+{"seq":430,"at":"2025-07-11T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N6","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":431,"at":"2025-07-12T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S56","isin":"US100005600","amountEur":368,"hour":10}
+{"seq":432,"at":"2025-07-13T07:47:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S75","isin":"US100007500","amountEur":385,"hour":9,"minutesSinceFirstLook":4240,"runupBeforeBuy":0.1688,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":0.0623}
+{"seq":433,"at":"2025-07-18T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S76","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":115}
+{"seq":434,"at":"2025-07-19T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S59","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":435,"at":"2025-07-19T19:44:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S76","isin":"US100007600","amountEur":333,"hour":21,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0102}
+{"seq":436,"at":"2025-07-22T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N10","page":"news","dwellSec":40}
+{"seq":437,"at":"2025-07-22T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N10","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":438,"at":"2025-07-23T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P9","page":"overview","dwellSec":60}
+{"seq":439,"at":"2025-07-23T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P9","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":440,"at":"2025-07-24T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S59","isin":"US100005900","amountEur":681,"hour":10}
+{"seq":441,"at":"2025-07-25T07:23:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S77","page":"charts","dwellSec":119}
+{"seq":442,"at":"2025-07-25T07:43:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S77","isin":"US100007700","amountEur":557,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0374}
+{"seq":443,"at":"2025-07-25T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S77","sentiment":"positive","note":"A friend says it will double, not going to miss this one.","targetPrice":null}
+{"seq":444,"at":"2025-07-31T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S52","isin":"US100005200","amountEur":510,"hour":10}
+{"seq":445,"at":"2025-08-04T09:51:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S83","page":"overview","dwellSec":137}
+{"seq":446,"at":"2025-08-04T11:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S78","page":"overview","dwellSec":64}
+{"seq":447,"at":"2025-08-04T11:33:40.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S78","page":"financials","dwellSec":179}
+{"seq":448,"at":"2025-08-04T11:40:20.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S78","page":"overview","dwellSec":89}
+{"seq":449,"at":"2025-08-04T11:47:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S78","isin":"US100007800","amountEur":297,"hour":13,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0062}
+{"seq":450,"at":"2025-08-04T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S78","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":451,"at":"2025-08-10T08:55:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S79","page":"news","dwellSec":81}
+{"seq":452,"at":"2025-08-10T12:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S79","page":"community","dwellSec":135}
+{"seq":453,"at":"2025-08-10T15:10:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S79","page":"news","dwellSec":146}
+{"seq":454,"at":"2025-08-10T15:20:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S79","page":"charts","dwellSec":212}
+{"seq":455,"at":"2025-08-10T17:01:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S79","page":"community","dwellSec":53}
+{"seq":456,"at":"2025-08-10T17:46:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S79","page":"analysis","dwellSec":73}
+{"seq":457,"at":"2025-08-11T11:28:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S79","isin":"US100007900","amountEur":756,"hour":13,"minutesSinceFirstLook":1593,"runupBeforeBuy":0.0688,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0669}
+{"seq":458,"at":"2025-08-13T14:47:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S83","page":"financials","dwellSec":40}
+{"seq":459,"at":"2025-08-14T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S80","sentiment":"positive","note":"New product announcement should lift revenue next quarter.","targetPrice":137.73}
+{"seq":460,"at":"2025-08-16T07:08:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S80","isin":"US100008000","amountEur":299,"hour":9,"minutesSinceFirstLook":64337,"runupBeforeBuy":0.1976,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.1547}
+{"seq":461,"at":"2025-08-16T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S65","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":462,"at":"2025-08-17T13:07:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S81","page":"analysis","dwellSec":106}
+{"seq":463,"at":"2025-08-17T14:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S83","page":"financials","dwellSec":47}
+{"seq":464,"at":"2025-08-21T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P4","page":"overview","dwellSec":60}
+{"seq":465,"at":"2025-08-21T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P4","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":466,"at":"2025-08-23T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S65","isin":"US100006500","amountEur":340,"hour":10}
+{"seq":467,"at":"2025-08-23T14:02:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S83","page":"charts","dwellSec":175}
+{"seq":468,"at":"2025-08-26T11:24:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S83","page":"community","dwellSec":64}
+{"seq":469,"at":"2025-08-28T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S61","isin":"US100006100","amountEur":276,"hour":10}
+{"seq":470,"at":"2025-08-28T15:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S84","page":"community","dwellSec":47}
+{"seq":471,"at":"2025-08-29T15:16:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S84","page":"financials","dwellSec":112}
+{"seq":472,"at":"2025-08-30T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S62","isin":"US100006200","amountEur":543,"hour":10}
+{"seq":473,"at":"2025-08-30T17:59:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S84","page":"overview","dwellSec":169}
+{"seq":474,"at":"2025-08-31T07:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S84","page":"financials","dwellSec":90}
+{"seq":475,"at":"2025-08-31T08:49:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S83","page":"news","dwellSec":190}
+{"seq":476,"at":"2025-08-31T11:09:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S81","isin":"US100008100","amountEur":367,"hour":13,"minutesSinceFirstLook":20042,"runupBeforeBuy":0.2041,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0734}
+{"seq":477,"at":"2025-08-31T14:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S83","page":"news","dwellSec":80}
+{"seq":478,"at":"2025-08-31T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S77","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":479,"at":"2025-09-01T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S83","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":480,"at":"2025-09-03T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S77","isin":"US100007700","amountEur":538,"hour":10}
+{"seq":481,"at":"2025-09-03T15:56:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S84","page":"community","dwellSec":83}
+{"seq":482,"at":"2025-09-04T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S82","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":115}
+{"seq":483,"at":"2025-09-08T12:01:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S84","page":"analysis","dwellSec":218}
+{"seq":484,"at":"2025-09-08T19:06:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S82","isin":"US100008200","amountEur":361,"hour":21,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0325}
+{"seq":485,"at":"2025-09-10T12:40:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S87","page":"analysis","dwellSec":177}
+{"seq":486,"at":"2025-09-11T07:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S83","isin":"US100008300","amountEur":273,"hour":9,"minutesSinceFirstLook":54554,"runupBeforeBuy":-0.0213,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0256}
+{"seq":487,"at":"2025-09-13T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P15","page":"overview","dwellSec":60}
+{"seq":488,"at":"2025-09-13T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P15","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":489,"at":"2025-09-14T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S78","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":490,"at":"2025-09-15T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S84","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":null}
+{"seq":491,"at":"2025-09-17T12:26:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S84","page":"news","dwellSec":191}
+{"seq":492,"at":"2025-09-20T06:20:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S86","page":"charts","dwellSec":108}
+{"seq":493,"at":"2025-09-20T07:25:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S86","page":"financials","dwellSec":123}
+{"seq":494,"at":"2025-09-20T19:16:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S84","isin":"US100008400","amountEur":399,"hour":21,"minutesSinceFirstLook":33370,"runupBeforeBuy":0.1052,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":0.0347}
+{"seq":495,"at":"2025-09-23T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S85","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":115}
+{"seq":496,"at":"2025-09-23T18:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S85","page":"charts","dwellSec":124}
+{"seq":497,"at":"2025-09-23T19:10:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S85","isin":"US100008500","amountEur":440,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0481}
+{"seq":498,"at":"2025-09-24T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S53","isin":"US100005300","amountEur":386,"hour":10}
+{"seq":499,"at":"2025-09-24T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S64","isin":"US100006400","amountEur":557,"hour":10}
+{"seq":500,"at":"2025-09-24T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S86","sentiment":"positive","note":"Looks right to me.","targetPrice":136.69}
+{"seq":501,"at":"2025-09-26T07:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S86","page":"news","dwellSec":46}
+{"seq":502,"at":"2025-09-29T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S58","isin":"US100005800","amountEur":515,"hour":10}
+{"seq":503,"at":"2025-09-29T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S80","isin":"US100008000","amountEur":237,"hour":10}
+{"seq":504,"at":"2025-10-01T08:55:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S88","page":"community","dwellSec":123}
+{"seq":505,"at":"2025-10-01T09:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S88","page":"overview","dwellSec":66}
+{"seq":506,"at":"2025-10-01T11:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S88","page":"analysis","dwellSec":43}
+{"seq":507,"at":"2025-10-01T14:18:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S88","page":"overview","dwellSec":51}
+{"seq":508,"at":"2025-10-01T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S87","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":124.09}
+{"seq":509,"at":"2025-10-01T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S88","sentiment":"positive","note":"A friend says it will double, not going to miss this one.","targetPrice":null}
+{"seq":510,"at":"2025-10-02T07:38:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S86","isin":"US100008600","amountEur":368,"hour":9,"minutesSinceFirstLook":17358,"runupBeforeBuy":0.1886,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.0163}
+{"seq":511,"at":"2025-10-04T16:38:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S88","page":"charts","dwellSec":23}
+{"seq":512,"at":"2025-10-04T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N14","page":"news","dwellSec":40}
+{"seq":513,"at":"2025-10-04T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N14","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":514,"at":"2025-10-05T11:33:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S87","isin":"US100008700","amountEur":229,"hour":13,"minutesSinceFirstLook":35933,"runupBeforeBuy":0.0791,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0152}
+{"seq":515,"at":"2025-10-06T16:01:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S88","page":"community","dwellSec":70}
+{"seq":516,"at":"2025-10-07T15:30:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S88","page":"community","dwellSec":211}
+{"seq":517,"at":"2025-10-08T07:21:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S88","isin":"US100008800","amountEur":479,"hour":9,"minutesSinceFirstLook":9986,"runupBeforeBuy":0.2007,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.1453}
+{"seq":518,"at":"2025-10-08T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S54","isin":"US100005400","amountEur":837,"hour":10}
+{"seq":519,"at":"2025-10-08T09:35:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S89","page":"news","dwellSec":55}
+{"seq":520,"at":"2025-10-09T11:34:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S89","page":"financials","dwellSec":156}
+{"seq":521,"at":"2025-10-10T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S76","isin":"US100007600","amountEur":313,"hour":10}
+{"seq":522,"at":"2025-10-10T12:23:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S89","page":"charts","dwellSec":179}
+{"seq":523,"at":"2025-10-11T12:37:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S89","page":"financials","dwellSec":105}
+{"seq":524,"at":"2025-10-12T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S89","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":525,"at":"2025-10-14T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S82","isin":"US100008200","amountEur":360,"hour":10}
+{"seq":526,"at":"2025-10-16T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S90","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":527,"at":"2025-10-19T19:41:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S89","isin":"US100008900","amountEur":347,"hour":21,"minutesSinceFirstLook":16446,"runupBeforeBuy":0.1093,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.1285}
+{"seq":528,"at":"2025-10-24T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S73","isin":"US100007300","amountEur":343,"hour":10}
+{"seq":529,"at":"2025-10-25T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S69","isin":"US100006900","amountEur":366,"hour":10}
+{"seq":530,"at":"2025-10-26T08:43:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S90","isin":"US100009000","amountEur":580,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0044}
+{"seq":531,"at":"2025-11-05T09:09:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S91","page":"analysis","dwellSec":159}
+{"seq":532,"at":"2025-11-05T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S91","sentiment":"positive","note":"Looks right to me.","targetPrice":125.68}
+{"seq":533,"at":"2025-11-07T13:04:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S91","page":"charts","dwellSec":172}
+{"seq":534,"at":"2025-11-10T19:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S87","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":535,"at":"2025-11-10T20:08:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S91","isin":"US100009100","amountEur":571,"hour":21,"minutesSinceFirstLook":7859,"runupBeforeBuy":0.0929,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0601}
+{"seq":536,"at":"2025-11-11T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"N3","page":"news","dwellSec":40}
+{"seq":537,"at":"2025-11-11T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"N3","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":538,"at":"2025-11-16T07:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S92","page":"overview","dwellSec":55}
+{"seq":539,"at":"2025-11-16T07:59:40.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S92","page":"news","dwellSec":217}
+{"seq":540,"at":"2025-11-16T08:06:20.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S92","page":"charts","dwellSec":193}
+{"seq":541,"at":"2025-11-16T08:13:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S92","isin":"US100009200","amountEur":331,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0925}
+{"seq":542,"at":"2025-11-16T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S87","isin":"US100008700","amountEur":232,"hour":10}
+{"seq":543,"at":"2025-11-16T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S92","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":null}
+{"seq":544,"at":"2025-11-20T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S88","isin":"US100008800","amountEur":391,"hour":10}
+{"seq":545,"at":"2025-11-20T10:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S93","page":"analysis","dwellSec":175}
+{"seq":546,"at":"2025-11-20T11:10:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S93","page":"charts","dwellSec":97}
+{"seq":547,"at":"2025-11-20T14:16:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S93","page":"overview","dwellSec":115}
+{"seq":548,"at":"2025-11-20T17:13:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S93","page":"news","dwellSec":207}
+{"seq":549,"at":"2025-11-20T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S93","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":121.87}
+{"seq":550,"at":"2025-11-21T08:31:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S93","page":"news","dwellSec":78}
+{"seq":551,"at":"2025-11-21T13:10:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S94","page":"financials","dwellSec":94}
+{"seq":552,"at":"2025-11-21T13:24:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S93","page":"financials","dwellSec":119}
+{"seq":553,"at":"2025-11-21T13:31:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S94","page":"charts","dwellSec":70}
+{"seq":554,"at":"2025-11-21T17:40:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S93","page":"analysis","dwellSec":86}
+{"seq":555,"at":"2025-11-22T09:51:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S94","page":"charts","dwellSec":72}
+{"seq":556,"at":"2025-11-22T10:46:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S94","page":"community","dwellSec":155}
+{"seq":557,"at":"2025-11-22T12:28:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S93","isin":"US100009300","amountEur":553,"hour":13,"minutesSinceFirstLook":2975,"runupBeforeBuy":0.0598,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.0619}
+{"seq":558,"at":"2025-11-22T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S94","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":140.96}
+{"seq":559,"at":"2025-11-23T17:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S94","page":"financials","dwellSec":91}
+{"seq":560,"at":"2025-11-24T11:26:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S94","page":"community","dwellSec":102}
+{"seq":561,"at":"2025-11-25T07:19:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S94","page":"news","dwellSec":99}
+{"seq":562,"at":"2025-11-26T08:10:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S94","isin":"US100009400","amountEur":446,"hour":9,"minutesSinceFirstLook":6900,"runupBeforeBuy":0.2257,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0951}
+{"seq":563,"at":"2025-12-02T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S66","isin":"US100006600","amountEur":572,"hour":10}
+{"seq":564,"at":"2025-12-02T19:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S81","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":565,"at":"2025-12-04T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S95","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":115}
+{"seq":566,"at":"2025-12-04T19:56:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S95","page":"analysis","dwellSec":90}
+{"seq":567,"at":"2025-12-04T20:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S95","page":"analysis","dwellSec":142}
+{"seq":568,"at":"2025-12-04T20:16:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S95","isin":"US100009500","amountEur":502,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0129}
+{"seq":569,"at":"2025-12-07T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P25","page":"overview","dwellSec":60}
+{"seq":570,"at":"2025-12-07T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P25","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":571,"at":"2025-12-08T07:54:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S96","page":"charts","dwellSec":131}
+{"seq":572,"at":"2025-12-08T08:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S96","page":"community","dwellSec":167}
+{"seq":573,"at":"2025-12-08T10:35:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S96","page":"charts","dwellSec":166}
+{"seq":574,"at":"2025-12-08T12:13:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S96","page":"charts","dwellSec":128}
+{"seq":575,"at":"2025-12-08T12:32:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S96","page":"overview","dwellSec":166}
+{"seq":576,"at":"2025-12-08T13:21:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S96","page":"analysis","dwellSec":69}
+{"seq":577,"at":"2025-12-08T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S96","page":"charts","dwellSec":69}
+{"seq":578,"at":"2025-12-08T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S96","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":125.04}
+{"seq":579,"at":"2025-12-09T08:37:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S96","isin":"US100009600","amountEur":645,"hour":9,"minutesSinceFirstLook":1483,"runupBeforeBuy":0.0873,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0333}
+{"seq":580,"at":"2025-12-09T10:54:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S97","page":"analysis","dwellSec":104}
+{"seq":581,"at":"2025-12-09T13:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S97","page":"community","dwellSec":59}
+{"seq":582,"at":"2025-12-09T13:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S97","page":"analysis","dwellSec":161}
+{"seq":583,"at":"2025-12-09T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S97","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":584,"at":"2025-12-11T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S81","isin":"US100008100","amountEur":341,"hour":10}
+{"seq":585,"at":"2025-12-12T08:27:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S97","isin":"US100009700","amountEur":364,"hour":9,"minutesSinceFirstLook":4173,"runupBeforeBuy":0.2079,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.1423}
+{"seq":586,"at":"2025-12-14T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P19","page":"overview","dwellSec":60}
+{"seq":587,"at":"2025-12-14T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P19","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":588,"at":"2025-12-16T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S98","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":115}
+{"seq":589,"at":"2025-12-16T19:41:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S98","page":"analysis","dwellSec":42}
+{"seq":590,"at":"2025-12-16T19:47:40.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S98","page":"news","dwellSec":182}
+{"seq":591,"at":"2025-12-16T19:54:20.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S98","page":"financials","dwellSec":69}
+{"seq":592,"at":"2025-12-16T20:01:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S98","isin":"US100009800","amountEur":402,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.1132}
+{"seq":593,"at":"2025-12-17T13:05:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S101","page":"charts","dwellSec":137}
+{"seq":594,"at":"2025-12-17T16:22:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S101","page":"overview","dwellSec":152}
+{"seq":595,"at":"2025-12-21T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S70","isin":"US100007000","amountEur":215,"hour":10}
+{"seq":596,"at":"2025-12-21T10:02:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S101","page":"overview","dwellSec":141}
+{"seq":597,"at":"2025-12-21T10:06:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S101","page":"analysis","dwellSec":110}
+{"seq":598,"at":"2025-12-21T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S100","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":599,"at":"2025-12-23T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S71","isin":"US100007100","amountEur":337,"hour":10}
+{"seq":600,"at":"2025-12-23T12:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S99","page":"charts","dwellSec":110}
+{"seq":601,"at":"2025-12-23T13:14:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S99","page":"charts","dwellSec":37}
+{"seq":602,"at":"2025-12-23T13:30:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S99","page":"news","dwellSec":40}
+{"seq":603,"at":"2025-12-23T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S99","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":604,"at":"2025-12-24T16:16:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S99","page":"news","dwellSec":128}
+{"seq":605,"at":"2025-12-24T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P26","page":"overview","dwellSec":60}
+{"seq":606,"at":"2025-12-24T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P26","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":607,"at":"2025-12-25T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S101","sentiment":"positive","note":"Looks right to me.","targetPrice":null}
+{"seq":608,"at":"2025-12-26T20:03:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S99","isin":"US100009900","amountEur":486,"hour":21,"minutesSinceFirstLook":4753,"runupBeforeBuy":0.1528,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":0.0143}
+{"seq":609,"at":"2025-12-29T08:46:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S100","isin":"US100010000","amountEur":451,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0514}
+{"seq":610,"at":"2025-12-29T10:21:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S101","page":"charts","dwellSec":95}
+{"seq":611,"at":"2025-12-31T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S75","isin":"US100007500","amountEur":373,"hour":10}
+{"seq":612,"at":"2025-12-31T15:41:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S108","page":"community","dwellSec":121}
+{"seq":613,"at":"2026-01-01T20:34:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S101","isin":"US100010100","amountEur":397,"hour":21,"minutesSinceFirstLook":22049,"runupBeforeBuy":0.1699,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.0848}
+{"seq":614,"at":"2026-01-02T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S83","isin":"US100008300","amountEur":270,"hour":10}
+{"seq":615,"at":"2026-01-04T08:52:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S102","page":"financials","dwellSec":192}
+{"seq":616,"at":"2026-01-04T10:40:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S102","page":"overview","dwellSec":92}
+{"seq":617,"at":"2026-01-04T14:28:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S102","page":"community","dwellSec":179}
+{"seq":618,"at":"2026-01-04T16:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S102","page":"charts","dwellSec":88}
+{"seq":619,"at":"2026-01-04T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S102","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":620,"at":"2026-01-06T12:21:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S102","isin":"US100010200","amountEur":325,"hour":13,"minutesSinceFirstLook":3089,"runupBeforeBuy":0.1152,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.0592}
+{"seq":621,"at":"2026-01-06T16:46:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S108","page":"charts","dwellSec":62}
+{"seq":622,"at":"2026-01-12T13:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S103","page":"analysis","dwellSec":88}
+{"seq":623,"at":"2026-01-13T15:52:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S103","page":"overview","dwellSec":203}
+{"seq":624,"at":"2026-01-13T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S103","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":115.34}
+{"seq":625,"at":"2026-01-16T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S98","isin":"US100009800","amountEur":449,"hour":10}
+{"seq":626,"at":"2026-01-16T16:30:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S108","page":"community","dwellSec":130}
+{"seq":627,"at":"2026-01-17T09:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S103","page":"overview","dwellSec":185}
+{"seq":628,"at":"2026-01-18T12:02:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S103","isin":"US100010300","amountEur":527,"hour":13,"minutesSinceFirstLook":8532,"runupBeforeBuy":0.0029,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.1058}
+{"seq":629,"at":"2026-01-19T10:16:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S104","page":"news","dwellSec":121}
+{"seq":630,"at":"2026-01-19T10:28:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S104","page":"analysis","dwellSec":165}
+{"seq":631,"at":"2026-01-19T13:26:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S104","page":"financials","dwellSec":73}
+{"seq":632,"at":"2026-01-19T14:02:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S104","page":"charts","dwellSec":102}
+{"seq":633,"at":"2026-01-19T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P7","page":"overview","dwellSec":60}
+{"seq":634,"at":"2026-01-19T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S104","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":108.89}
+{"seq":635,"at":"2026-01-19T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P7","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":636,"at":"2026-01-20T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P3","page":"overview","dwellSec":60}
+{"seq":637,"at":"2026-01-20T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P3","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":638,"at":"2026-01-22T10:28:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S104","page":"financials","dwellSec":111}
+{"seq":639,"at":"2026-01-23T20:35:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S104","isin":"US100010400","amountEur":253,"hour":21,"minutesSinceFirstLook":6379,"runupBeforeBuy":-0.0531,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0489}
+{"seq":640,"at":"2026-01-25T10:47:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S106","page":"analysis","dwellSec":63}
+{"seq":641,"at":"2026-01-25T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S106","sentiment":"positive","note":"New product announcement should lift revenue next quarter.","targetPrice":123.98}
+{"seq":642,"at":"2026-01-27T08:10:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S105","page":"financials","dwellSec":110}
+{"seq":643,"at":"2026-01-27T08:16:40.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S105","page":"analysis","dwellSec":127}
+{"seq":644,"at":"2026-01-27T08:23:20.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S105","page":"overview","dwellSec":70}
+{"seq":645,"at":"2026-01-27T08:30:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S105","isin":"US100010500","amountEur":461,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0674}
+{"seq":646,"at":"2026-01-28T15:14:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S108","page":"news","dwellSec":178}
+{"seq":647,"at":"2026-01-30T16:26:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S108","page":"community","dwellSec":28}
+{"seq":648,"at":"2026-01-30T19:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S96","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":649,"at":"2026-01-31T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S108","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":132.41}
+{"seq":650,"at":"2026-02-02T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S86","isin":"US100008600","amountEur":342,"hour":10}
+{"seq":651,"at":"2026-02-03T12:23:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S106","isin":"US100010600","amountEur":388,"hour":13,"minutesSinceFirstLook":13056,"runupBeforeBuy":0.0781,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0107}
+{"seq":652,"at":"2026-02-04T14:15:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S107","page":"analysis","dwellSec":104}
+{"seq":653,"at":"2026-02-04T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S107","sentiment":"positive","note":"Looks right to me.","targetPrice":125.81}
+{"seq":654,"at":"2026-02-05T08:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S108","page":"financials","dwellSec":52}
+{"seq":655,"at":"2026-02-05T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S99","isin":"US100009900","amountEur":533,"hour":10}
+{"seq":656,"at":"2026-02-05T09:46:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S108","page":"charts","dwellSec":111}
+{"seq":657,"at":"2026-02-06T13:07:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S107","page":"overview","dwellSec":20}
+{"seq":658,"at":"2026-02-06T14:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S107","page":"financials","dwellSec":186}
+{"seq":659,"at":"2026-02-08T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S95","isin":"US100009500","amountEur":562,"hour":10}
+{"seq":660,"at":"2026-02-08T20:21:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S107","isin":"US100010700","amountEur":502,"hour":21,"minutesSinceFirstLook":6126,"runupBeforeBuy":0.094,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.1452}
+{"seq":661,"at":"2026-02-11T08:08:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S109","page":"analysis","dwellSec":177}
+{"seq":662,"at":"2026-02-11T08:08:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S108","isin":"US100010800","amountEur":470,"hour":9,"minutesSinceFirstLook":60027,"runupBeforeBuy":0.1514,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.1309}
+{"seq":663,"at":"2026-02-11T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S109","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":664,"at":"2026-02-13T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S85","isin":"US100008500","amountEur":385,"hour":10}
+{"seq":665,"at":"2026-02-14T20:43:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S109","isin":"US100010900","amountEur":506,"hour":21,"minutesSinceFirstLook":5075,"runupBeforeBuy":0.1911,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.1252}
+{"seq":666,"at":"2026-02-20T13:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S115","page":"news","dwellSec":143}
+{"seq":667,"at":"2026-02-20T14:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S113","page":"overview","dwellSec":175}
+{"seq":668,"at":"2026-02-20T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S110","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":115}
+{"seq":669,"at":"2026-02-20T19:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S110","page":"news","dwellSec":144}
+{"seq":670,"at":"2026-02-20T19:56:40.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S110","page":"analysis","dwellSec":159}
+{"seq":671,"at":"2026-02-20T20:03:20.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S110","page":"news","dwellSec":168}
+{"seq":672,"at":"2026-02-20T20:10:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S110","isin":"US100011000","amountEur":565,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0118}
+{"seq":673,"at":"2026-02-22T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S113","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":128.95}
+{"seq":674,"at":"2026-02-23T11:03:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S113","page":"analysis","dwellSec":165}
+{"seq":675,"at":"2026-02-24T09:34:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S111","page":"news","dwellSec":125}
+{"seq":676,"at":"2026-02-24T09:42:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S111","page":"news","dwellSec":194}
+{"seq":677,"at":"2026-02-24T12:08:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S111","page":"financials","dwellSec":144}
+{"seq":678,"at":"2026-02-24T14:39:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S111","page":"financials","dwellSec":213}
+{"seq":679,"at":"2026-02-24T14:46:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S111","page":"overview","dwellSec":120}
+{"seq":680,"at":"2026-02-24T16:48:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S111","page":"news","dwellSec":160}
+{"seq":681,"at":"2026-02-24T18:22:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S111","page":"charts","dwellSec":219}
+{"seq":682,"at":"2026-02-24T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S111","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":null}
+{"seq":683,"at":"2026-02-25T12:01:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S111","isin":"US100011100","amountEur":292,"hour":13,"minutesSinceFirstLook":1587,"runupBeforeBuy":0.1767,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.1492}
+{"seq":684,"at":"2026-02-26T12:34:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S113","page":"news","dwellSec":131}
+{"seq":685,"at":"2026-02-28T10:29:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S113","page":"analysis","dwellSec":21}
+{"seq":686,"at":"2026-02-28T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S112","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":687,"at":"2026-02-28T19:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S112","page":"overview","dwellSec":121}
+{"seq":688,"at":"2026-02-28T20:03:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S112","page":"community","dwellSec":83}
+{"seq":689,"at":"2026-02-28T20:13:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S112","isin":"US100011200","amountEur":463,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0178}
+{"seq":690,"at":"2026-03-02T10:18:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S115","page":"charts","dwellSec":36}
+{"seq":691,"at":"2026-03-02T11:20:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S113","page":"charts","dwellSec":62}
+{"seq":692,"at":"2026-03-02T13:47:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S113","page":"financials","dwellSec":212}
+{"seq":693,"at":"2026-03-04T12:49:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S113","isin":"US100011300","amountEur":538,"hour":13,"minutesSinceFirstLook":17182,"runupBeforeBuy":0.1213,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0278}
+{"seq":694,"at":"2026-03-05T15:31:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S115","page":"charts","dwellSec":52}
+{"seq":695,"at":"2026-03-06T12:42:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S115","page":"news","dwellSec":80}
+{"seq":696,"at":"2026-03-10T12:32:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S115","page":"analysis","dwellSec":169}
+{"seq":697,"at":"2026-03-11T08:01:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S114","page":"community","dwellSec":112}
+{"seq":698,"at":"2026-03-11T08:11:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S114","page":"financials","dwellSec":101}
+{"seq":699,"at":"2026-03-11T08:21:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S114","isin":"US100011400","amountEur":646,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0999}
+{"seq":700,"at":"2026-03-15T20:17:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S115","isin":"US100011500","amountEur":449,"hour":21,"minutesSinceFirstLook":33504,"runupBeforeBuy":0.1458,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0692}
+{"seq":701,"at":"2026-03-18T13:32:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S116","page":"financials","dwellSec":51}
+{"seq":702,"at":"2026-03-18T16:52:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S118","page":"financials","dwellSec":32}
+{"seq":703,"at":"2026-03-18T17:36:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S118","page":"financials","dwellSec":102}
+{"seq":704,"at":"2026-03-18T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S116","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":705,"at":"2026-03-18T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S118","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":706,"at":"2026-03-19T09:07:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S118","page":"overview","dwellSec":103}
+{"seq":707,"at":"2026-03-20T08:34:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S118","page":"community","dwellSec":215}
+{"seq":708,"at":"2026-03-20T08:47:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S116","isin":"US100011600","amountEur":647,"hour":9,"minutesSinceFirstLook":2595,"runupBeforeBuy":0.0849,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.047}
+{"seq":709,"at":"2026-03-20T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S119","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":710,"at":"2026-03-21T09:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S101","isin":"US100010100","amountEur":343,"hour":10}
+{"seq":711,"at":"2026-03-22T07:17:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S117","page":"financials","dwellSec":164}
+{"seq":712,"at":"2026-03-22T08:32:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S117","page":"community","dwellSec":81}
+{"seq":713,"at":"2026-03-22T08:39:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S117","page":"news","dwellSec":157}
+{"seq":714,"at":"2026-03-22T10:19:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S118","page":"charts","dwellSec":135}
+{"seq":715,"at":"2026-03-22T15:09:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S117","page":"community","dwellSec":57}
+{"seq":716,"at":"2026-03-22T17:34:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S117","page":"analysis","dwellSec":76}
+{"seq":717,"at":"2026-03-22T18:02:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S117","page":"financials","dwellSec":77}
+{"seq":718,"at":"2026-03-22T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S117","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":134.7}
+{"seq":719,"at":"2026-03-23T20:03:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S117","isin":"US100011700","amountEur":198,"hour":21,"minutesSinceFirstLook":2206,"runupBeforeBuy":0.1713,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0358}
+{"seq":720,"at":"2026-03-24T18:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P12","page":"overview","dwellSec":60}
+{"seq":721,"at":"2026-03-24T19:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P12","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":722,"at":"2026-03-25T16:01:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S118","page":"news","dwellSec":41}
+{"seq":723,"at":"2026-03-25T19:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S97","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":724,"at":"2026-03-26T12:57:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S118","page":"community","dwellSec":173}
+{"seq":725,"at":"2026-03-27T08:40:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S118","isin":"US100011800","amountEur":574,"hour":9,"minutesSinceFirstLook":12468,"runupBeforeBuy":0.0372,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0227}
+{"seq":726,"at":"2026-03-28T14:25:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S121","page":"analysis","dwellSec":89}
+{"seq":727,"at":"2026-03-30T19:31:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S119","isin":"US100011900","amountEur":509,"hour":21,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0885}
+{"seq":728,"at":"2026-03-31T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S97","isin":"US100009700","amountEur":367,"hour":10}
+{"seq":729,"at":"2026-04-03T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S120","sentiment":"positive","note":"New product announcement should lift revenue next quarter.","targetPrice":115}
+{"seq":730,"at":"2026-04-06T07:18:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S120","isin":"US100012000","amountEur":533,"hour":9,"minutesSinceFirstLook":null,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.1725}
+{"seq":731,"at":"2026-04-07T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S91","isin":"US100009100","amountEur":622,"hour":10}
+{"seq":732,"at":"2026-04-10T13:40:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S123","page":"community","dwellSec":55}
+{"seq":733,"at":"2026-04-10T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S121","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":null}
+{"seq":734,"at":"2026-04-11T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S90","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":735,"at":"2026-04-12T11:09:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S121","isin":"US100012100","amountEur":497,"hour":13,"minutesSinceFirstLook":21404,"runupBeforeBuy":0.1767,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.2001}
+{"seq":736,"at":"2026-04-13T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S113","isin":"US100011300","amountEur":498,"hour":10}
+{"seq":737,"at":"2026-04-15T07:45:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S128","page":"analysis","dwellSec":62}
+{"seq":738,"at":"2026-04-15T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S89","isin":"US100008900","amountEur":294,"hour":10}
+{"seq":739,"at":"2026-04-15T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S90","isin":"US100009000","amountEur":442,"hour":10}
+{"seq":740,"at":"2026-04-17T06:47:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S122","page":"financials","dwellSec":191}
+{"seq":741,"at":"2026-04-17T08:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S122","page":"analysis","dwellSec":101}
+{"seq":742,"at":"2026-04-17T10:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S122","page":"news","dwellSec":102}
+{"seq":743,"at":"2026-04-17T11:28:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S122","page":"news","dwellSec":59}
+{"seq":744,"at":"2026-04-17T16:01:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S122","page":"analysis","dwellSec":193}
+{"seq":745,"at":"2026-04-17T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S94","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":746,"at":"2026-04-18T07:21:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S122","isin":"US100012200","amountEur":504,"hour":9,"minutesSinceFirstLook":1474,"runupBeforeBuy":0.0156,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0924}
+{"seq":747,"at":"2026-04-18T08:57:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S123","page":"financials","dwellSec":189}
+{"seq":748,"at":"2026-04-21T19:11:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S123","isin":"US100012300","amountEur":580,"hour":21,"minutesSinceFirstLook":16171,"runupBeforeBuy":0.0604,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0076}
+{"seq":749,"at":"2026-04-22T06:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S128","page":"overview","dwellSec":60}
+{"seq":750,"at":"2026-04-25T06:50:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S124","page":"analysis","dwellSec":109}
+{"seq":751,"at":"2026-04-25T07:10:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S124","isin":"US100012400","amountEur":343,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0708}
+{"seq":752,"at":"2026-04-25T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S94","isin":"US100009400","amountEur":419,"hour":10}
+{"seq":753,"at":"2026-04-25T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S124","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":754,"at":"2026-04-26T10:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S127","page":"analysis","dwellSec":48}
+{"seq":755,"at":"2026-04-27T14:46:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S127","page":"news","dwellSec":32}
+{"seq":756,"at":"2026-04-28T14:37:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S127","page":"community","dwellSec":187}
+{"seq":757,"at":"2026-04-28T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S125","sentiment":"positive","note":"New product announcement should lift revenue next quarter.","targetPrice":115}
+{"seq":758,"at":"2026-04-28T18:43:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S125","page":"financials","dwellSec":76}
+{"seq":759,"at":"2026-04-28T18:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S125","page":"news","dwellSec":62}
+{"seq":760,"at":"2026-04-28T19:03:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S125","isin":"US100012500","amountEur":590,"hour":21,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":0.0818}
+{"seq":761,"at":"2026-04-29T14:08:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S126","page":"financials","dwellSec":105}
+{"seq":762,"at":"2026-04-29T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S126","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":129.67}
+{"seq":763,"at":"2026-04-30T06:49:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S127","page":"analysis","dwellSec":136}
+{"seq":764,"at":"2026-04-30T11:55:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S126","page":"news","dwellSec":160}
+{"seq":765,"at":"2026-04-30T12:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S127","page":"analysis","dwellSec":103}
+{"seq":766,"at":"2026-04-30T13:34:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S126","page":"community","dwellSec":168}
+{"seq":767,"at":"2026-04-30T14:14:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S126","page":"overview","dwellSec":170}
+{"seq":768,"at":"2026-04-30T17:12:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S126","page":"community","dwellSec":196}
+{"seq":769,"at":"2026-05-01T07:33:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S126","isin":"US100012600","amountEur":485,"hour":9,"minutesSinceFirstLook":2485,"runupBeforeBuy":0.1276,"market":"calm","crowdSpikeBefore":null,"planted":true,"excess21":-0.0492}
+{"seq":770,"at":"2026-05-01T16:31:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S127","page":"charts","dwellSec":215}
+{"seq":771,"at":"2026-05-03T13:41:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S128","page":"charts","dwellSec":182}
+{"seq":772,"at":"2026-05-04T09:56:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S127","page":"news","dwellSec":214}
+{"seq":773,"at":"2026-05-05T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S103","isin":"US100010300","amountEur":497,"hour":10}
+{"seq":774,"at":"2026-05-06T07:43:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S127","isin":"US100012700","amountEur":444,"hour":9,"minutesSinceFirstLook":14236,"runupBeforeBuy":0.0905,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0003}
+{"seq":775,"at":"2026-05-06T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S128","sentiment":"positive","note":"Everyone is talking about it and the chart is straight up.","targetPrice":124.46}
+{"seq":776,"at":"2026-05-08T06:02:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S129","page":"financials","dwellSec":95}
+{"seq":777,"at":"2026-05-10T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S93","isin":"US100009300","amountEur":440,"hour":10}
+{"seq":778,"at":"2026-05-10T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S121","isin":"US100012100","amountEur":420,"hour":10}
+{"seq":779,"at":"2026-05-10T17:57:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S129","page":"charts","dwellSec":200}
+{"seq":780,"at":"2026-05-12T07:16:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S128","isin":"US100012800","amountEur":524,"hour":9,"minutesSinceFirstLook":38851,"runupBeforeBuy":0.0823,"market":"calm","crowdSpikeBefore":null,"planted":false,"excess21":-0.0457}
+{"seq":781,"at":"2026-05-15T15:46:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S129","page":"analysis","dwellSec":182}
+{"seq":782,"at":"2026-05-15T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S129","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":783,"at":"2026-05-18T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S115","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":784,"at":"2026-05-19T10:44:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S131","page":"news","dwellSec":75}
+{"seq":785,"at":"2026-05-19T14:27:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S131","page":"news","dwellSec":66}
+{"seq":786,"at":"2026-05-19T19:09:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S129","isin":"US100012900","amountEur":475,"hour":21,"minutesSinceFirstLook":16627,"runupBeforeBuy":0.1244,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0445}
+{"seq":787,"at":"2026-05-20T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S131","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":788,"at":"2026-05-22T10:51:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S137","page":"news","dwellSec":43}
+{"seq":789,"at":"2026-05-22T11:48:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S131","page":"news","dwellSec":149}
+{"seq":790,"at":"2026-05-22T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S119","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":791,"at":"2026-05-23T07:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S130","page":"analysis","dwellSec":104}
+{"seq":792,"at":"2026-05-23T07:20:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S130","isin":"US100013000","amountEur":501,"hour":9,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.0377}
+{"seq":793,"at":"2026-05-23T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S115","isin":"US100011500","amountEur":428,"hour":10}
+{"seq":794,"at":"2026-05-23T15:57:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S132","page":"charts","dwellSec":146}
+{"seq":795,"at":"2026-05-23T16:56:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S131","page":"news","dwellSec":104}
+{"seq":796,"at":"2026-05-24T09:14:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S131","page":"community","dwellSec":57}
+{"seq":797,"at":"2026-05-24T16:24:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S132","page":"financials","dwellSec":216}
+{"seq":798,"at":"2026-05-25T14:14:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S131","page":"charts","dwellSec":115}
+{"seq":799,"at":"2026-05-25T16:47:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S132","page":"overview","dwellSec":105}
+{"seq":800,"at":"2026-05-26T07:24:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S131","isin":"US100013100","amountEur":503,"hour":9,"minutesSinceFirstLook":9880,"runupBeforeBuy":0.2123,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0399}
+{"seq":801,"at":"2026-05-26T14:34:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S132","page":"analysis","dwellSec":200}
+{"seq":802,"at":"2026-05-27T13:34:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S132","page":"news","dwellSec":108}
+{"seq":803,"at":"2026-05-29T07:07:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S132","isin":"US100013200","amountEur":591,"hour":9,"minutesSinceFirstLook":8110,"runupBeforeBuy":0.1366,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":0.0208}
+{"seq":804,"at":"2026-05-29T07:52:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S137","page":"community","dwellSec":211}
+{"seq":805,"at":"2026-05-31T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S125","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":806,"at":"2026-06-01T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S119","isin":"US100011900","amountEur":555,"hour":10}
+{"seq":807,"at":"2026-06-02T09:30:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S137","page":"overview","dwellSec":104}
+{"seq":808,"at":"2026-06-02T09:36:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S137","page":"overview","dwellSec":50}
+{"seq":809,"at":"2026-06-02T10:21:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S133","page":"charts","dwellSec":182}
+{"seq":810,"at":"2026-06-02T13:16:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S133","page":"news","dwellSec":37}
+{"seq":811,"at":"2026-06-02T14:57:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S133","page":"community","dwellSec":164}
+{"seq":812,"at":"2026-06-02T15:23:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S133","page":"community","dwellSec":100}
+{"seq":813,"at":"2026-06-02T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S133","sentiment":"positive","note":"Saw it trending on social media, feels like the next big thing.","targetPrice":null}
+{"seq":814,"at":"2026-06-03T07:27:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S133","isin":"US100013300","amountEur":604,"hour":9,"minutesSinceFirstLook":1266,"runupBeforeBuy":0.1133,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0185}
+{"seq":815,"at":"2026-06-06T10:59:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S134","page":"financials","dwellSec":126}
+{"seq":816,"at":"2026-06-06T11:09:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S134","page":"charts","dwellSec":114}
+{"seq":817,"at":"2026-06-06T11:19:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S134","isin":"US100013400","amountEur":462,"hour":13,"minutesSinceFirstLook":20,"runupBeforeBuy":0,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.0376}
+{"seq":818,"at":"2026-06-06T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S134","sentiment":"positive","note":"New product announcement should lift revenue next quarter.","targetPrice":null}
+{"seq":819,"at":"2026-06-07T10:29:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S135","page":"analysis","dwellSec":152}
+{"seq":820,"at":"2026-06-07T12:14:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S135","page":"analysis","dwellSec":57}
+{"seq":821,"at":"2026-06-10T07:23:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S137","page":"community","dwellSec":35}
+{"seq":822,"at":"2026-06-10T10:52:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S135","page":"community","dwellSec":198}
+{"seq":823,"at":"2026-06-14T11:41:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S135","isin":"US100013500","amountEur":433,"hour":13,"minutesSinceFirstLook":10152,"runupBeforeBuy":0.0921,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.0838}
+{"seq":824,"at":"2026-06-19T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S109","isin":"US100010900","amountEur":356,"hour":10}
+{"seq":825,"at":"2026-06-19T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S131","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":826,"at":"2026-06-20T10:28:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S137","page":"charts","dwellSec":87}
+{"seq":827,"at":"2026-06-24T06:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S136","page":"charts","dwellSec":115}
+{"seq":828,"at":"2026-06-24T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S136","sentiment":"positive","note":"Beat earnings and raised guidance, the market has not priced it all in.","targetPrice":132.25}
+{"seq":829,"at":"2026-06-26T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S129","isin":"US100012900","amountEur":549,"hour":10}
+{"seq":830,"at":"2026-06-26T11:19:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S136","page":"overview","dwellSec":96}
+{"seq":831,"at":"2026-06-26T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P22","page":"overview","dwellSec":60}
+{"seq":832,"at":"2026-06-26T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P22","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":null}
+{"seq":833,"at":"2026-06-27T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S112","isin":"US100011200","amountEur":400,"hour":10}
+{"seq":834,"at":"2026-07-02T07:30:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S136","isin":"US100013600","amountEur":427,"hour":9,"minutesSinceFirstLook":11557,"runupBeforeBuy":0.15,"market":"turbulent","crowdSpikeBefore":null,"planted":true,"excess21":-0.0269}
+{"seq":835,"at":"2026-07-02T09:44:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S138","page":"community","dwellSec":67}
+{"seq":836,"at":"2026-07-02T11:17:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S137","page":"overview","dwellSec":121}
+{"seq":837,"at":"2026-07-03T07:28:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S138","page":"financials","dwellSec":53}
+{"seq":838,"at":"2026-07-03T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S127","isin":"US100012700","amountEur":524,"hour":10}
+{"seq":839,"at":"2026-07-05T07:03:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S137","isin":"US100013700","amountEur":248,"hour":9,"minutesSinceFirstLook":63132,"runupBeforeBuy":0.0937,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":-0.0983}
+{"seq":840,"at":"2026-07-07T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S138","sentiment":"positive","note":"Free cash flow yield of 7 percent, cheap versus its own history.","targetPrice":null}
+{"seq":841,"at":"2026-07-08T06:52:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S138","page":"charts","dwellSec":41}
+{"seq":842,"at":"2026-07-09T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S102","isin":"US100010200","amountEur":265,"hour":10}
+{"seq":843,"at":"2026-07-12T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P18","page":"overview","dwellSec":60}
+{"seq":844,"at":"2026-07-12T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P18","sentiment":"positive","note":"Breaking out to new highs with strong volume, want to be in before it runs.","targetPrice":null}
+{"seq":845,"at":"2026-07-14T17:00:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"P28","page":"overview","dwellSec":60}
+{"seq":846,"at":"2026-07-14T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"P28","sentiment":"positive","note":"Trades at a discount to peers on forward earnings and the balance sheet is clean.","targetPrice":null}
+{"seq":847,"at":"2026-07-14T19:31:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S138","isin":"US100013800","amountEur":482,"hour":21,"minutesSinceFirstLook":17867,"runupBeforeBuy":0.0713,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.012}
+{"seq":848,"at":"2026-07-16T06:53:00.000Z","account":"sandbox-fomo-21","op":"VIEW","ticker":"S139","page":"charts","dwellSec":153}
+{"seq":849,"at":"2026-07-16T18:00:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S139","sentiment":"positive","note":"Just have a good feeling about this one.","targetPrice":100.94}
+{"seq":850,"at":"2026-07-19T07:42:00.000Z","account":"sandbox-fomo-21","op":"ORDER_BUY","ticker":"S139","isin":"US100013900","amountEur":393,"hour":9,"minutesSinceFirstLook":4369,"runupBeforeBuy":-0.1223,"market":"turbulent","crowdSpikeBefore":null,"planted":false,"excess21":0.1797}
+{"seq":851,"at":"2026-07-23T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S124","isin":"US100012400","amountEur":466,"hour":10}
+{"seq":852,"at":"2026-07-23T18:30:00.000Z","account":"sandbox-fomo-21","op":"CALL","ticker":"S105","sentiment":"negative","note":null,"targetPrice":null}
+{"seq":853,"at":"2026-07-25T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S108","isin":"US100010800","amountEur":357,"hour":10}
+{"seq":854,"at":"2026-08-03T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S105","isin":"US100010500","amountEur":460,"hour":10}
+{"seq":855,"at":"2026-08-03T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S114","isin":"US100011400","amountEur":678,"hour":10}
+{"seq":856,"at":"2026-08-17T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S134","isin":"US100013400","amountEur":578,"hour":10}
+{"seq":857,"at":"2026-08-21T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S118","isin":"US100011800","amountEur":606,"hour":10}
+{"seq":858,"at":"2026-09-08T08:05:00.000Z","account":"sandbox-fomo-21","op":"ORDER_SELL","ticker":"S120","isin":"US100012000","amountEur":707,"hour":10}
+{"seq":859,"at":"2026-09-28T06:00:00.000Z","account":"sandbox-fomo-21","op":"IMPORT_CSV","file":"trades.csv","format":"generic","rows":226,"trades":226,"roundTrip":true}
+{"seq":860,"at":"2026-09-28T06:00:01.000Z","account":"sandbox-fomo-21","op":"ANALYZE","decisions":226,"buys":140,"priceSeries":185}
+{"seq":861,"at":"2026-09-28T06:00:02.000Z","account":"sandbox-fomo-21","op":"BIAS","bias":"chasing","name":"Chasing price rises","tier":"detected","signals":["Buys made after the price had risen since your first look did -11.5 pts against those made after a fall.","You bought 78% of the calls whose stock rose after the call and 41% of those that fell."]}
+{"seq":862,"at":"2026-09-28T06:00:02.001Z","account":"sandbox-fomo-21","op":"BIAS","bias":"ignored_targets","name":"Targets that do not trigger a sale","tier":"detected","signals":["You sold within two weeks of reaching your target only 0 of 17 times."]}
+{"seq":863,"at":"2026-09-28T06:00:02.002Z","account":"sandbox-fomo-21","op":"BIAS","bias":"confirmation","name":"Discounting news against your call","tier":"detected","signals":["After a sharp move against your call you changed it 0% of the time, no more than after a move in its favour (0%)."]}
+{"seq":864,"at":"2026-09-28T06:00:02.003Z","account":"sandbox-fomo-21","op":"BIAS","bias":"extrapolation","name":"Expecting past returns to continue","tier":"rules","signals":[]}
+{"seq":865,"at":"2026-09-28T06:00:02.004Z","account":"sandbox-fomo-21","op":"BIAS","bias":"overconfidence","name":"Trading more than your information supports","tier":"watch","signals":["You turn over 179% of your depot a year; the average private investor in Barber & Odean's data turned over about 75%."]}
+{"seq":866,"at":"2026-09-28T06:00:03.000Z","account":"sandbox-fomo-21","op":"RULE_CHECK","rule":"wait_runup","bias":"chasing","text":"Do not buy a stock that has already risen more than 15% in the last 30 days. Wait for a pullback, or skip it.","verdict":"supported","flagged":9,"of":70,"gainPerFlagged":0.10315206638957376,"ci99":[0.04913582586541622,0.1527764948099145]}
+{"seq":867,"at":"2026-09-28T06:00:03.001Z","account":"sandbox-fomo-21","op":"RULE_CHECK","rule":"avoid_daypart","bias":"bad_hour","text":"Do not place buys in the midday (11-15 h on your clock). Decide then if you like, and place the order at another time.","verdict":"unclear","flagged":21,"of":70,"gainPerFlagged":0.02604441195038476,"ci99":[-0.021001367376554496,0.08004311234307061]}
+{"seq":868,"at":"2026-09-28T06:00:03.002Z","account":"sandbox-fomo-21","op":"RULE_CHECK","rule":"pause_turbulent","bias":"turbulence","text":"Do not buy while the market is as turbulent as on the most turbulent 20% of days (volatility above about 26% a year).","verdict":"unsupported","flagged":22,"of":70,"gainPerFlagged":-0.002818979193162273,"ci99":[-0.04809978847304523,0.04788951317828761]}
+{"seq":869,"at":"2026-09-28T06:00:03.003Z","account":"sandbox-fomo-21","op":"RULE_CHECK","rule":"cap_turbulent","bias":"turbulence","text":"When the market is as turbulent as on the most turbulent 33% of days (volatility above about 23% a year), keep a buy to at most 1x your usual buy.","verdict":"unsupported","flagged":13,"of":68,"gainPerFlagged":-0.005314558112244702,"ci99":[-0.013629809329531988,0.00306931382264841]}
+{"seq":870,"at":"2026-09-28T06:00:03.004Z","account":"sandbox-fomo-21","op":"RULE_CHECK","rule":"wait_strong_market","bias":"chasing","text":"Do not buy right after one of the market's strongest stretches: its return over the last 20 days in the top 20% of days (above about 4.3%).","verdict":"unclear","flagged":10,"of":70,"gainPerFlagged":0.039436241717011045,"ci99":[-0.02023161587316835,0.09995615470006933]}
+{"seq":871,"at":"2026-09-28T06:00:03.005Z","account":"sandbox-fomo-21","op":"RULE_CHECK","rule":"no_quick_switch","bias":"overconfidence","text":"After selling, wait at least 3 days before you buy something else with the money. Switches you made faster did worse than what you sold.","verdict":"unsupported","flagged":18,"of":62,"gainPerFlagged":-0.05284988420317093,"ci99":[-0.16610152945619336,0.09489671918637689]}
+{"seq":872,"at":"2026-09-28T06:00:03.006Z","account":"sandbox-fomo-21","op":"RULE_CHECK","rule":"avoid_extrapolation","bias":"extrapolation","text":"Do not buy a stock whose 12-month return is in the top 10% of the stocks you viewed in the last 30 days.","verdict":"supported","flagged":10,"of":53,"gainPerFlagged":0.06211195491062044,"ci99":[0.009701228905297865,0.11928688294645073]}

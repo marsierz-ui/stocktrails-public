@@ -1,0 +1,64 @@
+name: Project board
+
+# Keeps the team board in sync: new issue -> To do, assigned or draft PR ->
+# In progress, PR ready for review -> Review, merged or closed -> Done.
+# Needs repo secret PROJECT_TOKEN (classic PAT with `project` + `repo` scope, or a
+# fine-grained token with Projects read/write) and repo variable PROJECT_NUMBER.
+# GITHUB_TOKEN cannot write to a user-owned Projects v2 board.
+on:
+  issues:
+    types: [opened, reopened, assigned, closed]
+  pull_request_target:
+    types: [opened, reopened, ready_for_review, converted_to_draft, closed]
+
+permissions: {}
+
+jobs:
+  move:
+    if: ${{ vars.PROJECT_NUMBER != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update board
+        env:
+          GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          NUMBER: ${{ vars.PROJECT_NUMBER }}
+          EVENT: ${{ github.event_name }}
+          ACTION: ${{ github.event.action }}
+          NODE_ID: ${{ github.event.issue.node_id || github.event.pull_request.node_id }}
+          DRAFT: ${{ github.event.pull_request.draft }}
+          MERGED: ${{ github.event.pull_request.merged }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT" = "issues" ]; then
+            case "$ACTION" in
+              opened|reopened) STATUS="To do" ;;
+              assigned)        STATUS="In progress" ;;
+              closed)          STATUS="Done" ;;
+            esac
+          else
+            case "$ACTION" in
+              closed)             STATUS="Done" ;;
+              ready_for_review)   STATUS="Review" ;;
+              converted_to_draft) STATUS="In progress" ;;
+              opened|reopened)    if [ "$DRAFT" = "true" ]; then STATUS="In progress"; else STATUS="Review"; fi ;;
+            esac
+          fi
+
+          export STATUS
+          read -r PROJECT_ID FIELD_ID OPTION_ID < <(gh api graphql -f owner="$OWNER" -F number="$NUMBER" -f status="$STATUS" -f query='
+            query($owner:String!,$number:Int!){
+              user(login:$owner){ projectV2(number:$number){ id
+                field(name:"Status"){ ... on ProjectV2SingleSelectField { id options { id name } } } } } }' \
+            --jq '.data.user.projectV2 as $p | [$p.id, $p.field.id, ($p.field.options[] | select(.name|ascii_downcase==($ENV.STATUS|ascii_downcase)) | .id)] | @tsv' 2>/dev/null \
+            || true)
+          if [ -z "${OPTION_ID:-}" ]; then echo "Status option '$STATUS' not found on project $NUMBER"; exit 1; fi
+
+          ITEM_ID=$(gh api graphql -f project="$PROJECT_ID" -f content="$NODE_ID" -f query='
+            mutation($project:ID!,$content:ID!){ addProjectV2ItemById(input:{projectId:$project,contentId:$content}){ item { id } } }' \
+            --jq '.data.addProjectV2ItemById.item.id')
+
+          gh api graphql -f project="$PROJECT_ID" -f item="$ITEM_ID" -f field="$FIELD_ID" -f option="$OPTION_ID" -f query='
+            mutation($project:ID!,$item:ID!,$field:ID!,$option:String!){
+              updateProjectV2ItemFieldValue(input:{projectId:$project,itemId:$item,fieldId:$field,value:{singleSelectOptionId:$option}}){ projectV2Item { id } } }' >/dev/null
+          echo "Moved to $STATUS"

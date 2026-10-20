@@ -1,0 +1,813 @@
+<title>Stocktrails Technical Documentation</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@500;600;700&display=swap">
+<style>
+/* Layout: a single reading column (68ch) with figures breaking out wider; brand navy + trail green from the Stocktrails logo; print-ready A4. */
+:root{
+  --paper:#f7f8fb; --surface:#ffffff; --ink:#182033; --ink2:#566179; --rule:#ccd3e1;
+  --accent:#0f8a5b; --accent-soft:#e3f3ec; --navy:#161a26;
+  --guard:#b8382c; --guard-soft:#fbecea;
+  --zone-dev:#e8f4ee; --zone-cloud:#e8edf8; --zone-ext:#f0f1f4;
+  --amber:#a66d00; --amber-soft:#fbf0d9; --code:#eef1f7;
+  --f-display:"Sora","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#12151f; --surface:#1d2231; --ink:#eef1f8; --ink2:#9ea7bc; --rule:#363e56;
+  --accent:#3ddc97; --accent-soft:#183026; --navy:#0c0f17;
+  --guard:#ff7a6b; --guard-soft:#341c1c;
+  --zone-dev:#152520; --zone-cloud:#182033; --zone-ext:#1b1e28;
+  --amber:#f1c35a; --amber-soft:#2f2614; --code:#1a1f2d; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --paper:#12151f; --surface:#1d2231; --ink:#eef1f8; --ink2:#9ea7bc; --rule:#363e56;
+  --accent:#3ddc97; --accent-soft:#183026; --navy:#0c0f17;
+  --guard:#ff7a6b; --guard-soft:#341c1c;
+  --zone-dev:#152520; --zone-cloud:#182033; --zone-ext:#1b1e28;
+  --amber:#f1c35a; --amber-soft:#2f2614; --code:#1a1f2d; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.doc{max-width:1000px;margin:0 auto}
+.col{max-width:70ch;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;letter-spacing:-0.02em;line-height:1.2}
+h2{font-size:1.75rem;margin:3.2rem 0 1rem;padding-top:1.4rem;border-top:2px solid var(--ink)}
+h2 .no{color:var(--accent);margin-right:.5em}
+h3{font-size:1.15rem;margin:2.2rem 0 .6rem}
+h3 .no{color:var(--ink2);font-weight:500;margin-right:.45em}
+p{margin:.7rem 0}
+a{color:var(--accent)}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--code);padding:.08em .32em;border-radius:3px}
+ul,ol{padding-left:1.25rem;margin:.6rem 0} li{margin:.25rem 0}
+strong{font-weight:600}
+.small{font-size:.875rem;color:var(--ink2)}
+
+/* cover */
+.cover{padding-block:56px 32px;border-bottom:1px solid var(--rule);margin-bottom:8px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand svg{width:48px;height:48px;flex:none}
+.brand-name{font-family:var(--f-display);font-weight:700;font-size:1.35rem;letter-spacing:-0.03em}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.cover h1{font-size:clamp(2.1rem,5vw,3.2rem);margin:2.2rem 0 .6rem;max-width:18ch}
+.cover .lede{font-size:1.15rem;color:var(--ink2);max-width:60ch;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem}
+.meta div{background:var(--surface);padding:12px 14px;min-width:0}
+.meta dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+.meta dd{margin:.15rem 0 0;font-size:.92rem;overflow-wrap:anywhere}
+
+.toc{columns:2 260px;column-gap:40px;margin:1.6rem 0;padding:0;list-style:none;font-size:.95rem}
+.toc li{break-inside:avoid;margin:.15rem 0}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.toc a:hover,.toc a:focus-visible{border-color:var(--accent);outline:none}
+.toc .sub{padding-left:1.3rem;color:var(--ink2);font-size:.88rem}
+
+.keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:1.4rem 0}
+.keyfacts div{border-top:3px solid var(--accent);padding-top:8px;min-width:0}
+.keyfacts b{display:block;font-family:var(--f-display);font-size:1.05rem}
+.keyfacts span{font-size:.9rem;color:var(--ink2)}
+
+/* tables */
+.tw{overflow-x:auto;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:7px 10px;border-bottom:1px solid var(--rule)}
+th{font-family:var(--f-mono);font-weight:500;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);border-bottom:1.5px solid var(--ink)}
+td.n{text-align:right;white-space:nowrap}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:.72rem;padding:1px 7px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.pill.ok{color:var(--accent)} .pill.warn{color:var(--amber)} .pill.bad{color:var(--guard)}
+
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:10px 16px;margin:1.2rem 0;font-size:.95rem}
+.callout.guard{border-color:var(--guard);background:var(--guard-soft)}
+.formula{font-family:var(--f-mono);font-size:.92rem;background:var(--code);padding:12px 16px;margin:1rem 0;overflow-x:auto;white-space:pre-wrap}
+
+/* figures */
+figure{margin:2rem 0;break-inside:avoid}
+.figframe{background:var(--surface);border:1px solid var(--rule);padding:14px;overflow-x:auto}
+.figframe svg{display:block;width:100%;min-width:760px;height:auto}
+figcaption{font-size:.88rem;color:var(--ink2);margin-top:.55rem;max-width:80ch}
+figcaption b{color:var(--ink);font-family:var(--f-display);font-weight:600;margin-right:.35em}
+
+/* svg vocabulary */
+svg text{font-family:var(--f-body);fill:var(--ink)}
+svg .t{font-size:14px;font-weight:600;text-anchor:middle}
+svg .s{font-size:11.5px;fill:var(--ink2);text-anchor:middle}
+svg .m{font-size:11.5px;fill:var(--ink2)}
+svg .lab{font-size:11.5px;fill:var(--ink)}
+svg .zl{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;fill:var(--ink2)}
+svg .box{fill:var(--surface);stroke:var(--rule);stroke-width:1.2}
+svg .box.acc{stroke:var(--accent);stroke-width:1.6}
+svg .box.grd{stroke:var(--guard);stroke-width:1.8;fill:var(--guard-soft)}
+svg .box.dash{fill:none;stroke:var(--ink2);stroke-dasharray:5 4}
+svg .box.note{fill:var(--code);stroke:none}
+svg .zone-dev{fill:var(--zone-dev)} svg .zone-cloud{fill:var(--zone-cloud)} svg .zone-ext{fill:var(--zone-ext)}
+svg .ar{fill:none;stroke:var(--ink2);stroke-width:1.5;marker-end:url(#ah)}
+svg .ar.acc{stroke:var(--accent);marker-end:url(#aha)}
+svg .ar.grd{stroke:var(--guard);marker-end:url(#ahg)}
+svg .ln{fill:none;stroke:var(--ink2);stroke-width:1.5}
+svg .life{stroke:var(--rule);stroke-width:1.5;stroke-dasharray:4 4}
+svg .ahp{fill:var(--ink2)} svg .ahpa{fill:var(--accent)} svg .ahpg{fill:var(--guard)}
+svg .fill-acc{fill:var(--accent)} svg .fill-acc-soft{fill:var(--accent-soft)}
+svg .fill-amber{fill:var(--amber-soft);stroke:var(--amber);stroke-width:1}
+svg .fill-guard{fill:var(--guard)} svg .fill-ink2{fill:var(--ink2)} svg .fill-rule{fill:var(--rule)}
+svg .stroke-acc{stroke:var(--accent)}
+svg .hdr{fill:var(--navy)} svg .hdrt{fill:#f2f5fb;font-size:12.5px;font-weight:600;text-anchor:middle;font-family:var(--f-display)}
+svg .frame{fill:none;stroke:var(--accent);stroke-width:1.4;stroke-dasharray:7 4}
+
+/* tier figure (html) */
+.tiers{display:grid;gap:10px;min-width:0}
+.tier{display:grid;grid-template-columns:84px minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start;border:1px solid var(--rule);background:var(--surface);padding:14px}
+.tier .code{font-family:var(--f-display);font-weight:700;font-size:1.6rem;line-height:1}
+.tier .code small{display:block;font-family:var(--f-mono);font-size:.65rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-top:6px}
+.tier h4{margin:0 0 4px;font-family:var(--f-display);font-size:.95rem}
+.tier p{margin:0;font-size:.88rem;color:var(--ink2)}
+.tier.t0{border-left:5px solid var(--accent)} .tier.t1{border-left:5px solid var(--amber)} .tier.t2{border-left:5px solid var(--guard);background:var(--guard-soft)}
+@media (max-width:640px){.tier{grid-template-columns:1fr}}
+
+pre.cmd{font-family:var(--f-mono);font-size:.85rem;background:var(--navy);color:#e8ecf5;padding:14px 16px;overflow-x:auto;line-height:1.55}
+.endnote{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink2)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media print{
+  body{background:#fff;font-size:10.5pt;padding:0}
+  .cover{padding-top:0}
+  h2{break-before:page;margin-top:0}
+  h2.keep{break-before:auto}
+  figure,.tier,tr{break-inside:avoid}
+  .figframe svg{min-width:0}
+  .col{max-width:none}
+  .meta{grid-template-columns:repeat(4,1fr)}
+  pre.cmd{white-space:pre-wrap}
+  h2#summary{break-before:page}
+  .cover{min-height:auto}
+  .figframe,.tw{overflow:visible}
+  a{text-decoration:none;color:inherit}
+}
+@page{size:A4;margin:16mm 15mm 18mm}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahp"/></marker>
+    <marker id="aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahpa"/></marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahpg"/></marker>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" class="fill-amber" style="stroke:none"/><line x1="0" y1="0" x2="0" y2="6" style="stroke:var(--amber);stroke-width:2"/></pattern>
+  </defs>
+</svg>
+
+<div class="doc">
+
+<header class="cover">
+  <div class="brand">
+    <svg viewBox="0 0 512 512" aria-hidden="true"><clipPath id="lc"><rect width="512" height="512" rx="112"/></clipPath><g clip-path="url(#lc)"><rect width="512" height="512" fill="#161a26"/><polygon points="0,330 90,250 170,300 270,200 350,260 440,120 512,200 512,512 0,512" fill="#222a3f"/><polygon points="0,400 130,350 300,380 512,300 512,512 0,512" fill="#1b2133"/><polygon points="0,470 200,450 512,420 512,512 0,512" fill="#0f121b"/><g fill="none" stroke="#3ddc97" stroke-linecap="round" stroke-linejoin="round"><path d="M56 452 L150 350" stroke-width="44"/><path d="M150 350 L196 390" stroke-width="34"/><path d="M196 390 L284 280" stroke-width="26"/><path d="M284 280 L322 310" stroke-width="18"/><path d="M322 310 L440 150" stroke-width="12"/></g><circle cx="440" cy="150" r="17" fill="#f2f5fb"/><circle cx="440" cy="150" r="8" fill="#3ddc97"/></g></svg>
+    <div><div class="brand-name">Stocktrails</div><div class="eyebrow">FinTechathon 2026 · International Track</div></div>
+  </div>
+  <h1>Technical documentation</h1>
+  <p class="lede">System architecture, core algorithms and security design of a behavioural finance agent that learns from what an investor researches and what they then trade.</p>
+  <dl class="meta">
+    <div><dt>Theme / topic</dt><dd>AI as a Financial Participant · Topic A, Personal Finance Assistant (parts of B)</dd></div>
+    <div><dt>Release described</dt><dd>Extension 0.4.0, web app and Supabase backend · build <code>c711d16</code></dd></div>
+    <div><dt>Document</dt><dd>Version 1.0 · 19 October 2026</dd></div>
+    <div><dt>Evidence</dt><dd>423 automated checks, 0 failing · synthetic data only</dd></div>
+  </dl>
+</header>
+
+<div class="col">
+<ul class="toc" aria-label="Contents">
+  <li><a href="#summary">Summary</a></li>
+  <li><a href="#arch">1 System architecture</a></li>
+  <li class="sub"><a href="#arch-components">1.1 Components and trust zones</a></li>
+  <li class="sub"><a href="#arch-data">1.2 Where each kind of data lives</a></li>
+  <li class="sub"><a href="#arch-capture">1.3 Capture and sync</a></li>
+  <li class="sub"><a href="#arch-stack">1.4 Technology and deployment</a></li>
+  <li><a href="#algo">2 Core algorithms</a></li>
+  <li class="sub"><a href="#algo-pipeline">2.1 Pipeline</a></li>
+  <li class="sub"><a href="#algo-decisions">2.2 Decisions and outcomes</a></li>
+  <li class="sub"><a href="#algo-shift">2.3 The circular shift test</a></li>
+  <li class="sub"><a href="#algo-wf">2.4 Rules and walk-forward validation</a></li>
+  <li class="sub"><a href="#algo-adherence">2.5 Adherence and the pre-trade check</a></li>
+  <li class="sub"><a href="#algo-agent">2.6 The assistant agent loop</a></li>
+  <li class="sub"><a href="#algo-paper">2.7 Two agents with paper portfolios</a></li>
+  <li class="sub"><a href="#algo-valid">2.8 Calibration results</a></li>
+  <li><a href="#sec">3 Security design</a></li>
+  <li class="sub"><a href="#sec-min">3.1 Data minimisation</a></li>
+  <li class="sub"><a href="#sec-tiers">3.2 Permission tiers</a></li>
+  <li class="sub"><a href="#sec-cloud">3.3 Cloud authorisation</a></li>
+  <li class="sub"><a href="#sec-controls">3.4 Controls</a></li>
+  <li class="sub"><a href="#sec-review">3.5 Security review and known risks</a></li>
+  <li class="sub"><a href="#sec-comp">3.6 Compliance</a></li>
+  <li><a href="#tests">4 Tests and reproduction</a></li>
+  <li><a href="#limits">5 Limits</a></li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+<p>Stocktrails is a browser extension, installable web app and mobile app. It records which stocks an investor looks at on finance portals, when, for how long and on which kind of page, together with the calls they make (Positive, Neutral or Negative, with an optional target, horizon and note). Investors can import their broker's transaction export, which is read and stored only on their device.</p>
+<p>On top of these two records sits a behavioural finance agent. It <strong>recognises</strong> the investor's own biases with statistical tests, <strong>recommends a concrete rule</strong> for each only after checking that the rule would have improved later trades it had not seen, lets the investor <strong>adopt</strong> the rule with one click, then <strong>tracks adherence</strong> and checks intended buys against adopted rules. An assistant answers questions about the investor's data by choosing read-only tools that run on the device.</p>
+<div class="keyfacts">
+  <div><b>Two deciders, in parallel</b><span>Verdicts and the rules agent are deterministic, tested code. The AI agent is a language model, stochastic by nature, deciding on the same statistics; each decision is saved once and compared.</span></div>
+  <div><b>Trades stay local</b><span>Imported trades, amounts and identifiers never leave the device. Three filters guard what does.</span></div>
+  <div><b>Out of sample first</b><span>A rule is recommended only if it held up on later decisions. In 24 worlds with no effect, 0 of 216 rules passed.</span></div>
+  <div><b>No order path</b><span>No tool, endpoint or credential exists that could place a trade. Every change is a click.</span></div>
+</div>
+</div>
+
+<!-- ============ 1 ARCHITECTURE ============ -->
+<div class="col">
+<h2 id="arch"><span class="no">1</span>System architecture</h2>
+<p>The product is local-first. Three clients share one set of JavaScript modules: a Chrome MV3 extension (the primary client), a progressive web app that runs the same dashboard with <code>chrome.*</code> shimmed over IndexedDB, and a React Native app for Android and iOS. A Supabase project in the EU provides sign-in, synchronisation of attention data between a user's devices, anonymous community aggregates and a small set of edge functions. The heavy analysis runs in the browser.</p>
+
+<h3 id="arch-components"><span class="no">1.1</span>Components and trust zones</h3>
+<p>Figure 1 groups the components by where they run. The device zone holds all raw data and all analytics. The cloud zone holds only attention events that the user chose to sync and per-user counters. Third-party services receive price requests, server-side data collection requests, or de-identified results for the model.</p>
+</div>
+
+<figure id="fig1">
+<div class="figframe">
+<svg viewBox="0 0 1000 652" role="img" aria-label="System architecture: device, Supabase cloud and third-party services">
+  <rect x="12" y="12" width="976" height="312" rx="10" class="zone-dev"/>
+  <text x="28" y="34" class="zl">ON THE USER'S DEVICE · EXTENSION, WEB APP OR MOBILE APP</text>
+  <g><rect x="32" y="52" width="150" height="60" rx="7" class="box"/><text x="107" y="78" class="t">Finance portals</text><text x="107" y="97" class="s">Yahoo, TradingView, +13</text></g>
+  <g><rect x="214" y="52" width="180" height="60" rx="7" class="box acc"/><text x="304" y="78" class="t">Capture script</text><text x="304" y="97" class="s">content.js · ticker, dwell, call</text></g>
+  <g><rect x="426" y="52" width="190" height="60" rx="7" class="box"/><text x="521" y="78" class="t">Service worker</text><text x="521" y="97" class="s">background.js · prices, alarms</text></g>
+  <g><rect x="648" y="52" width="320" height="60" rx="7" class="box"/><text x="808" y="78" class="t">Attention store</text><text x="808" y="97" class="s">chrome.storage.local · events, intraday, calls</text></g>
+  <path d="M182 82 H212" class="ar"/><path d="M394 82 H424" class="ar"/><path d="M616 82 H646" class="ar"/>
+
+  <g><rect x="32" y="146" width="150" height="60" rx="7" class="box"/><text x="107" y="172" class="t">Broker export</text><text x="107" y="191" class="s">CSV / XML, 10+ brokers</text></g>
+  <g><rect x="214" y="146" width="180" height="60" rx="7" class="box"/><text x="304" y="172" class="t">Import and matching</text><text x="304" y="191" class="s">ledger.js · ISIN + name</text></g>
+  <g><rect x="426" y="146" width="190" height="60" rx="7" class="box grd"/><text x="521" y="172" class="t">Trade ledger</text><text x="521" y="191" class="s">IndexedDB · never synced</text></g>
+  <g><rect x="648" y="146" width="320" height="60" rx="7" class="box acc"/><text x="808" y="172" class="t">Analytics core (pure, no model)</text><text x="808" y="191" class="s">decisions · biases · shadow · rationale</text></g>
+  <path d="M182 176 H212" class="ar"/><path d="M394 176 H424" class="ar"/><path d="M616 176 H646" class="ar"/>
+  <path d="M808 112 V144" class="ar"/>
+
+  <g><rect x="32" y="240" width="362" height="60" rx="7" class="box grd" style="fill:none;stroke-dasharray:6 4"/><text x="213" y="266" class="lab" text-anchor="middle" style="fill:var(--guard);font-weight:600">Stays in this zone: imported files, amounts,</text><text x="213" y="284" class="lab" text-anchor="middle" style="fill:var(--guard)">quantities, prices paid, ISINs, broker and account</text></g>
+  <g><rect x="426" y="240" width="190" height="60" rx="7" class="box"/><text x="521" y="266" class="t">Dashboard</text><text x="521" y="285" class="s">charts · coach · pre-trade check</text></g>
+  <g><rect x="648" y="240" width="320" height="60" rx="7" class="box acc"/><text x="808" y="266" class="t">AI client and privacy filter</text><text x="808" y="285" class="s">aitools.js · aiclient.js · aliases, isPrivate()</text></g>
+  <path d="M808 206 V238" class="ar"/>
+  <path d="M680 206 V223 H521 V238" class="ar"/>
+
+  <rect x="12" y="364" width="976" height="140" rx="10" class="zone-cloud"/>
+  <text x="28" y="494" class="zl">SUPABASE · EU (eu-west-3) · JWT ON EVERY CALL · ROW-LEVEL SECURITY</text>
+  <g><rect x="32" y="400" width="170" height="64" rx="7" class="box"/><text x="117" y="427" class="t">Auth</text><text x="117" y="447" class="s">Google OAuth · PKCE</text></g>
+  <g><rect x="226" y="400" width="230" height="64" rx="7" class="box"/><text x="341" y="427" class="t">Postgres + RLS</text><text x="341" y="447" class="s">events · intraday · user_meta</text></g>
+  <g><rect x="480" y="400" width="220" height="64" rx="7" class="box"/><text x="590" y="427" class="t">Community aggregates</text><text x="590" y="447" class="s">group-size floors 3 / 5 / 20</text></g>
+  <g><rect x="724" y="400" width="244" height="64" rx="7" class="box acc"/><text x="846" y="427" class="t">Edge functions</text><text x="846" y="447" class="s">ai-coach · yahoo · trending · earnings</text></g>
+  <path d="M202 432 H224" class="ar"/><path d="M456 432 H478" class="ar"/>
+
+  <path d="M521 300 V340 H400 V398" class="ar acc"/>
+  <text x="410" y="356" class="m" style="fill:var(--accent)">sync · own attention rows · last write wins</text>
+  <path d="M900 300 V398" class="ar acc"/>
+  <text x="890" y="356" class="m" text-anchor="end" style="fill:var(--accent)">de-identified results only</text>
+
+  <rect x="12" y="544" width="976" height="100" rx="10" class="zone-ext"/>
+  <text x="28" y="634" class="zl">THIRD-PARTY SERVICES</text>
+  <g><rect x="32" y="560" width="170" height="56" rx="7" class="box"/><text x="117" y="583" class="t">Resend</text><text x="117" y="601" class="s">opt-in alert e-mails</text></g>
+  <g><rect x="226" y="560" width="230" height="56" rx="7" class="box"/><text x="341" y="583" class="t">Nasdaq · SEC EDGAR</text><text x="341" y="601" class="s">earnings dates · trending lists</text></g>
+  <g><rect x="480" y="560" width="220" height="56" rx="7" class="box"/><text x="590" y="583" class="t">Yahoo Finance</text><text x="590" y="601" class="s">daily and hourly prices</text></g>
+  <g><rect x="724" y="560" width="244" height="56" rx="7" class="box"/><text x="846" y="583" class="t">OpenRouter</text><text x="846" y="601" class="s">store:false · no content kept</text></g>
+  <path d="M846 464 V558" class="ar"/>
+  <path d="M760 464 V524 H117 V558" class="ar"/><path d="M341 524 V558" class="ar"/><path d="M590 524 V558" class="ar"/>
+</svg>
+</div>
+<figcaption><b>Figure 1.</b>Components and trust zones. Green arrows are the only two paths by which user data leaves the device. The extension also fetches prices from Yahoo directly; the web app uses the <code>yahoo</code> proxy function because Yahoo sends no CORS headers.</figcaption>
+</figure>
+
+<div class="col">
+<div class="tw"><table>
+<thead><tr><th>Component</th><th>Code</th><th>Role</th></tr></thead>
+<tbody>
+<tr><td>Capture script</td><td><code>src/content.js</code>, <code>src/portals.js</code></td><td>Detects the ticker from the URL (15 built-in portals and user-defined patterns), falls back to page content (cashtags, exchange-qualified symbols, tracked names). Measures active visible time. Renders the call card in a closed shadow root.</td></tr>
+<tr><td>Service worker</td><td><code>src/background.js</code></td><td>Message router, price at the moment of the view, hourly price archive, alarms (sync every 5 min, daily prices), viewing sessions for the AI agent's live verdict.</td></tr>
+<tr><td>Local stores</td><td><code>store.js</code>, <code>ledgerdb.js</code>, <code>pricedb.js</code>, <code>pricecache.js</code></td><td>Attention events and settings in <code>chrome.storage.local</code>; trade ledger, adopted rules, agent decisions and pre-trade checks in IndexedDB; price archives in IndexedDB.</td></tr>
+<tr><td>Analytics core</td><td><code>decisions.js</code>, <code>biases.js</code>, <code>shadow.js</code>, <code>rationale.js</code>, <code>indicators.js</code></td><td>Pure functions, no I/O and no model: decisions and outcomes, bias tests, rule fitting and walk-forward validation, adherence, paper portfolios, statistics on notes.</td></tr>
+<tr><td>AI client</td><td><code>aitools.js</code>, <code>aiclient.js</code></td><td>Read-only tool catalogue built from allowlists, aliases, privacy check, the agent loop, number checking, action cards and the request log.</td></tr>
+<tr><td>Cloud</td><td><code>supabase/</code></td><td>Postgres with row-level security, Google sign-in, community RPCs with group-size floors, 7 edge functions (<code>ai-coach</code>, <code>yahoo</code>, <code>trending</code>, <code>earnings</code>, <code>crowd-alerts</code>, <code>geo</code>, <code>feedback-dispatch</code>).</td></tr>
+</tbody></table></div>
+
+<h3 id="arch-data"><span class="no">1.2</span>Where each kind of data lives</h3>
+<div class="tw"><table>
+<thead><tr><th>Data</th><th>Stored</th><th>Leaves the device</th><th>Deleted by</th></tr></thead>
+<tbody>
+<tr><td>Attention events (ticker, time, portal, page section, dwell, price at view, call)</td><td>Device; Supabase after sign-in</td><td><span class="pill warn">own account only</span></td><td>Delete all, or account deletion</td></tr>
+<tr><td>Imported broker trades, matches</td><td>IndexedDB <code>stocktrails_ledger</code>, per account</td><td><span class="pill ok">never</span></td><td>Delete all; not in JSON backup</td></tr>
+<tr><td>Adopted rules, reminders, review notes</td><td>IndexedDB</td><td><span class="pill ok">never</span></td><td>Delete all</td></tr>
+<tr><td>Paper decisions of the agents, pre-trade checks</td><td>IndexedDB stores <code>agent</code>, <code>checks</code></td><td><span class="pill ok">never</span></td><td>Delete all</td></tr>
+<tr><td>Tool results and questions sent to the assistant</td><td>Local request log (last 80 entries)</td><td><span class="pill warn">de-identified, on consent</span></td><td>Clear log; sign-out</td></tr>
+<tr><td>Assistant usage</td><td>Supabase <code>ai_usage</code>: user id, day, count</td><td>counter only</td><td>Account deletion</td></tr>
+<tr><td>Community aggregates</td><td>Computed at query time from synced events</td><td>only above group-size floors</td><td>n/a</td></tr>
+</tbody></table></div>
+
+<h3 id="arch-capture"><span class="no">1.3</span>Capture and sync</h3>
+<p>Capture needs no click. The content script polls the URL every 1.5 seconds; a new ticker becomes an attention event. Each event is written twice: to the <em>daily</em> set, where repeat views within 60 minutes collapse into one row with a view counter, and to the <em>intraday</em> set, which keeps every view. All writes land locally first, so the dashboard works offline.</p>
+<p>Synchronisation uses two cursors because push and pull ask different questions. The push cursor compares local timestamps with local timestamps. The pull cursor uses the server's own receive time (<code>synced_at</code>), because a row captured early but uploaded late would otherwise be invisible to devices whose cursor had moved past its capture time. Pulls page by keyset in blocks of 1000 rows, since PostgREST truncates responses at that size and offset paging skipped rows that changed during a pull.</p>
+</div>
+
+<figure id="fig2">
+<div class="figframe">
+<svg viewBox="0 0 1000 610" role="img" aria-label="Sequence of capture and synchronisation">
+  <g><rect x="20" y="14" width="160" height="46" rx="7" class="box acc"/><text x="100" y="35" class="t">Portal tab</text><text x="100" y="52" class="s">content.js</text></g>
+  <g><rect x="225" y="14" width="150" height="46" rx="7" class="box"/><text x="300" y="35" class="t">Service worker</text><text x="300" y="52" class="s">background.js</text></g>
+  <g><rect x="410" y="14" width="140" height="46" rx="7" class="box"/><text x="480" y="35" class="t">Local store</text><text x="480" y="52" class="s">storage · IndexedDB</text></g>
+  <g><rect x="580" y="14" width="140" height="46" rx="7" class="box"/><text x="650" y="35" class="t">Dashboard</text><text x="650" y="52" class="s">sync.js · cloud.js</text></g>
+  <g><rect x="800" y="14" width="160" height="46" rx="7" class="box"/><text x="880" y="35" class="t">Supabase</text><text x="880" y="52" class="s">PostgREST · Postgres</text></g>
+  <line x1="100" y1="60" x2="100" y2="590" class="life"/><line x1="300" y1="60" x2="300" y2="590" class="life"/><line x1="480" y1="60" x2="480" y2="590" class="life"/><line x1="650" y1="60" x2="650" y2="590" class="life"/><line x1="880" y1="60" x2="880" y2="590" class="life"/>
+
+  <text x="200" y="94" class="lab" text-anchor="middle">new ticker in URL (poll 1.5 s)</text>
+  <path d="M100 102 H298" class="ar acc"/>
+  <text x="390" y="124" class="lab" text-anchor="middle">daily row (60-min dedupe)</text>
+  <text x="390" y="139" class="lab" text-anchor="middle">+ intraday row (every view)</text>
+  <path d="M300 147 H478" class="ar"/>
+  <text x="390" y="173" class="lab" text-anchor="middle">price at view (Yahoo quote)</text>
+  <path d="M300 181 H478" class="ar"/>
+
+  <text x="200" y="215" class="lab" text-anchor="middle">dwell ping every 15 s</text>
+  <text x="200" y="230" class="m" text-anchor="middle">active, visible time only</text>
+  <path d="M100 238 H298" class="ar acc"/>
+  <text x="390" y="262" class="lab" text-anchor="middle">add dwell (≥ 30 min dropped)</text>
+  <path d="M300 270 H478" class="ar"/>
+
+  <text x="200" y="304" class="lab" text-anchor="middle">call: Positive / Neutral / Negative</text>
+  <text x="200" y="319" class="m" text-anchor="middle">+ target, horizon, note</text>
+  <path d="M100 327 H298" class="ar acc"/>
+  <text x="390" y="351" class="lab" text-anchor="middle">call on latest rows</text>
+  <path d="M300 359 H478" class="ar"/>
+
+  <line x1="20" y1="386" x2="980" y2="386" style="stroke:var(--ink);stroke-width:1"/>
+  <text x="24" y="404" class="zl">SYNC · AFTER EVERY WRITE AND EVERY 5 MIN, WHILE SIGNED IN</text>
+
+  <text x="565" y="430" class="lab" text-anchor="middle">rows with updatedAt</text>
+  <text x="565" y="445" class="lab" text-anchor="middle">&gt; push cursor</text>
+  <path d="M480 453 H648" class="ar"/>
+  <text x="765" y="438" class="lab" text-anchor="middle">upsert · RLS: own rows only</text>
+  <path d="M650 453 H878" class="ar acc"/>
+  <rect x="800" y="466" width="160" height="44" rx="6" class="box note"/>
+  <text x="880" y="484" class="m" text-anchor="middle">keep_newer(): last write wins</text>
+  <text x="880" y="500" class="m" text-anchor="middle">synced_at = now()</text>
+  <text x="765" y="530" class="lab" text-anchor="middle">rows with synced_at &gt; cursor − 5 s</text>
+  <text x="765" y="545" class="m" text-anchor="middle">keyset pages of 1000 rows</text>
+  <path d="M880 553 H652" class="ar"/>
+  <text x="565" y="567" class="lab" text-anchor="middle">merge, last write wins</text>
+  <path d="M650 575 H482" class="ar"/>
+</svg>
+</div>
+<figcaption><b>Figure 2.</b>Capture and sync for one page view. A full reconcile that ignores both cursors runs once a day and whenever the sync protocol version changes, so any gap closes by itself. The trade ledger is not part of sync.</figcaption>
+</figure>
+
+<div class="col">
+<h3 id="arch-stack"><span class="no">1.4</span>Technology and deployment</h3>
+<div class="tw"><table>
+<thead><tr><th>Layer</th><th>Technology</th><th>Delivery</th></tr></thead>
+<tbody>
+<tr><td>Extension</td><td>Chrome Manifest V3, plain JavaScript, no remote code, no build step</td><td>Chrome Web Store via GitHub Actions; Firefox and Safari packages</td></tr>
+<tr><td>Web app</td><td>Same dashboard, <code>pwa-shim.js</code> over IndexedDB, service worker, share target</td><td>GitHub Pages; only web-app files are published</td></tr>
+<tr><td>Mobile</td><td>React Native + Expo (TypeScript), Skia, ML Kit OCR</td><td>EAS build; reuses the Supabase backend unchanged</td></tr>
+<tr><td>Backend</td><td>Supabase: Postgres 15, Auth, RLS, pg_cron, Vault, Deno edge functions</td><td>SQL migrations in <code>supabase/migrations/</code>; functions deployed with JWT verification on</td></tr>
+<tr><td>Model</td><td>OpenRouter chat API (<code>data_collection: deny</code>); Cerebras as an alternative; <code>AI_PROVIDER=mock</code> for tests</td><td>Called only from the <code>ai-coach</code> function; one module builds and reads requests, so the provider is replaceable</td></tr>
+</tbody></table></div>
+<p>Deploying the AI layer takes three steps: apply <code>20261010_ai_usage.sql</code>; set <code>AI_PROVIDER=openrouter</code>, <code>OPENROUTER_API_KEY</code>, <code>AI_MODEL</code> and <code>AI_ALLOWED_USERS</code> (empty means nobody); deploy <code>ai-coach</code>. The judging sandbox needs none of this.</p>
+</div>
+
+<!-- ============ 2 ALGORITHMS ============ -->
+<div class="col">
+<h2 id="algo"><span class="no">2</span>Core algorithms</h2>
+<p>The central design decision is the division of labour. Everything that produces a number or a verdict is deterministic JavaScript, tested without a model. The model is used for four things only: choosing which read-only tools to run for a question, putting the returned results into words, proposing actions the user may approve, and, as one of two paper-trading agents, making decisions that are compared with the user's and the rules agent's.</p>
+
+<h3 id="algo-pipeline"><span class="no">2.1</span>Pipeline</h3>
+</div>
+
+<figure id="fig3">
+<div class="figframe">
+<svg viewBox="0 0 1000 410" role="img" aria-label="Algorithm pipeline from inputs to verdict and adoption">
+  <text x="16" y="26" class="zl">INPUTS</text>
+  <g><rect x="16" y="40" width="150" height="52" rx="6" class="box"/><text x="91" y="62" class="t" style="font-size:13px">Attention events</text><text x="91" y="80" class="s">views, dwell, page type</text></g>
+  <g><rect x="16" y="104" width="150" height="52" rx="6" class="box grd"/><text x="91" y="126" class="t" style="font-size:13px">Broker fills</text><text x="91" y="144" class="s">device ledger</text></g>
+  <g><rect x="16" y="168" width="150" height="52" rx="6" class="box"/><text x="91" y="190" class="t" style="font-size:13px">Prices</text><text x="91" y="208" class="s">daily bars, NASDAQ</text></g>
+  <g><rect x="16" y="232" width="150" height="52" rx="6" class="box"/><text x="91" y="254" class="t" style="font-size:13px">Calls and notes</text><text x="91" y="272" class="s">targets, horizons</text></g>
+  <path d="M166 66 H180 V258 H166 M166 130 H180 M166 194 H180" class="ln"/>
+  <path d="M180 162 H194" class="ar"/>
+
+  <g>
+    <rect x="196" y="40" width="146" height="244" rx="6" class="box acc"/><rect x="196" y="40" width="146" height="30" rx="6" class="hdr"/><rect x="196" y="62" width="146" height="8" class="hdr"/>
+    <text x="269" y="60" class="hdrt">1 · Decisions</text>
+    <text x="269" y="96" class="s">fills of one stock,</text><text x="269" y="112" class="s">one side, one day</text><text x="269" y="128" class="s">= one decision</text>
+    <text x="269" y="160" class="s">plans, derivatives,</text><text x="269" y="176" class="s">crypto set aside</text>
+    <text x="269" y="208" class="s">outcome: excess</text><text x="269" y="224" class="s">return vs NASDAQ</text><text x="269" y="240" class="s">at 21 and 63 days</text>
+  </g>
+  <g>
+    <rect x="356" y="40" width="146" height="244" rx="6" class="box acc"/><rect x="356" y="40" width="146" height="30" rx="6" class="hdr"/><rect x="356" y="62" width="146" height="8" class="hdr"/>
+    <text x="429" y="60" class="hdrt">2 · Context</text>
+    <text x="429" y="96" class="s">from bars before</text><text x="429" y="112" class="s">the trade day only</text>
+    <text x="429" y="144" class="s">20-day rise</text><text x="429" y="160" class="s">volatility percentile</text><text x="429" y="176" class="s">distance from high</text><text x="429" y="192" class="s">time of day</text><text x="429" y="208" class="s">research before buy</text><text x="429" y="224" class="s">size ÷ 6-month median</text>
+  </g>
+  <g>
+    <rect x="516" y="40" width="146" height="244" rx="6" class="box acc"/><rect x="516" y="40" width="146" height="30" rx="6" class="hdr"/><rect x="516" y="62" width="146" height="8" class="hdr"/>
+    <text x="589" y="60" class="hdrt">3 · Bias tests</text>
+    <text x="589" y="96" class="s">13 questions on</text><text x="589" y="112" class="s">research, buying,</text><text x="589" y="128" class="s">calls, selling</text>
+    <text x="589" y="160" class="s">circular shift test:</text><text x="589" y="176" class="s">99% range and p</text>
+    <text x="589" y="208" class="s">status: not enough</text><text x="589" y="224" class="s">data · indicative</text><text x="589" y="240" class="s">· solid</text>
+  </g>
+  <g>
+    <rect x="676" y="40" width="146" height="244" rx="6" class="box acc"/><rect x="676" y="40" width="146" height="30" rx="6" class="hdr"/><rect x="676" y="62" width="146" height="8" class="hdr"/>
+    <text x="749" y="60" class="hdrt">4 · Rules</text>
+    <text x="749" y="96" class="s">setting grid per rule</text>
+    <text x="749" y="128" class="s">fit on outcomes</text><text x="749" y="144" class="s">known at the time</text><text x="749" y="160" class="s">(embargo)</text>
+    <text x="749" y="192" class="s">apply to up to 6</text><text x="749" y="208" class="s">later blocks</text><text x="749" y="240" class="s">pool unseen gains</text>
+  </g>
+  <g>
+    <rect x="836" y="40" width="148" height="244" rx="6" class="box acc"/><rect x="836" y="40" width="148" height="30" rx="6" class="hdr"/><rect x="836" y="62" width="148" height="8" class="hdr"/>
+    <text x="910" y="60" class="hdrt">5 · Verdict</text>
+    <text x="910" y="100" class="s" style="fill:var(--accent);font-weight:600">supported</text><text x="910" y="116" class="s">99% range &gt; 0</text>
+    <text x="910" y="146" class="s" style="fill:var(--amber);font-weight:600">indicative</text><text x="910" y="162" class="s">95% range &gt; 0</text>
+    <text x="910" y="192" class="s">unclear · unsupported</text>
+    <text x="910" y="222" class="s">untested: &lt; 24 known</text><text x="910" y="238" class="s">or &lt; 8 flagged unseen</text>
+  </g>
+  <path d="M342 162 H354" class="ar"/><path d="M502 162 H514" class="ar"/><path d="M662 162 H674" class="ar"/><path d="M822 162 H834" class="ar"/>
+
+  <path d="M910 284 V304 H589 V322" class="ar acc"/>
+  <g><rect x="516" y="324" width="146" height="58" rx="6" class="box acc"/><text x="589" y="348" class="t" style="font-size:13px">Adopt</text><text x="589" y="366" class="s">one click by the user</text></g>
+  <g><rect x="676" y="324" width="146" height="58" rx="6" class="box"/><text x="749" y="348" class="t" style="font-size:13px">Adherence</text><text x="749" y="366" class="s">kept vs broken</text></g>
+  <g><rect x="836" y="324" width="148" height="58" rx="6" class="box"/><text x="910" y="348" class="t" style="font-size:13px">Pre-trade check</text><text x="910" y="366" class="s">intended buy vs rules</text></g>
+  <path d="M662 353 H674" class="ar"/><path d="M822 353 H834" class="ar"/>
+
+  <g><rect x="16" y="318" width="470" height="70" rx="6" class="box dash"/>
+  <text x="32" y="344" class="lab" style="font-weight:600">Language model (optional layer)</text>
+  <text x="32" y="364" class="lab" style="fill:var(--ink2)">Chooses read-only tools and words their results.</text>
+  <text x="32" y="380" class="lab" style="fill:var(--ink2)">It never computes a statistic, a range or a verdict.</text></g>
+</svg>
+</div>
+<figcaption><b>Figure 3.</b>From raw records to a recommendation. Steps 1 to 5 are pure functions in <code>src/decisions.js</code> and <code>src/biases.js</code>. A rule reaches the user only from step 5, and changes behaviour only after the user adopts it.</figcaption>
+</figure>
+
+<div class="col">
+<h3 id="algo-decisions"><span class="no">2.2</span>Decisions and outcomes</h3>
+<p>Fills of one instrument on one side on one day form a <strong>decision</strong>. Savings-plan executions, derivatives, bonds and crypto are set aside, as are decisions made before any research was recorded. The outcome of a buy is its excess return over the NASDAQ Composite (<code>^IXIC</code>) from the close of the trade day, over 21 trading days, and over 63 days for calls. Holdings that existed before the export begins are inferred from sales larger than the known position.</p>
+<p>Context is measured from bars <em>before</em> the trade day, so nothing the investor could not have seen enters a feature. Volatility is the standard deviation of 20 daily returns; the buy is then placed by percentile among all trading days of the covered period, so that "you buy in turbulent markets" is judged against how often markets are turbulent. Size is judged against the investor's median buy over the previous 6 months, so a growing portfolio does not read as buying bigger.</p>
+
+<h3 id="algo-shift"><span class="no">2.3</span>The circular shift test</h3>
+<p>Markets stay calm or turbulent for weeks, and buying comes in bursts. Neighbouring days and neighbouring buys are therefore alike, and an ordinary bootstrap gives ranges that are too narrow. Instead, the whole pattern of buys is slid along the calendar by every possible offset, wrapping around at the end, and each statistic is recomputed. The buys keep their spacing and the market keeps its stretches; only their alignment is broken. The distribution over all offsets gives the 99% range and the p-value of the observed statistic (<code>shiftTest</code>).</p>
+</div>
+
+<figure id="fig4">
+<div class="figframe">
+<svg viewBox="0 0 1000 290" role="img" aria-label="Circular shift test illustration">
+  <text x="16" y="26" class="zl">CALENDAR OF THE COVERED PERIOD</text>
+  <text x="140" y="62" class="lab" text-anchor="end">Market</text>
+  <rect x="150" y="48" width="470" height="20" class="fill-rule"/>
+  <rect x="178" y="48" width="38" height="20" class="fill-amber"/><rect x="291" y="48" width="47" height="20" class="fill-amber"/><rect x="479" y="48" width="42" height="20" class="fill-amber"/>
+  <text x="626" y="62" class="m">turbulent stretches</text>
+
+  <text x="140" y="108" class="lab" text-anchor="end" style="font-weight:600">Actual buys</text>
+  <line x1="150" y1="104" x2="620" y2="104" style="stroke:var(--rule)"/>
+  <g class="fill-acc"><circle cx="173.5" cy="104" r="6"/><circle cx="187.6" cy="104" r="6"/><circle cx="197" cy="104" r="6"/><circle cx="295.7" cy="104" r="6"/><circle cx="305.1" cy="104" r="6"/><circle cx="319.2" cy="104" r="6"/><circle cx="394.4" cy="104" r="6"/><circle cx="408.5" cy="104" r="6"/><circle cx="483.7" cy="104" r="6"/><circle cx="497.8" cy="104" r="6"/><circle cx="507.2" cy="104" r="6"/><circle cx="573" cy="104" r="6"/></g>
+  <text x="626" y="108" class="m">8 of 12 in turbulence</text>
+
+  <text x="140" y="148" class="lab" text-anchor="end">Shift by 23%</text>
+  <line x1="150" y1="144" x2="620" y2="144" style="stroke:var(--rule)"/>
+  <g class="fill-ink2"><circle cx="281.6" cy="144" r="5"/><circle cx="295.7" cy="144" r="5"/><circle cx="305.1" cy="144" r="5"/><circle cx="403.8" cy="144" r="5"/><circle cx="413.2" cy="144" r="5"/><circle cx="427.3" cy="144" r="5"/><circle cx="502.5" cy="144" r="5"/><circle cx="516.6" cy="144" r="5"/><circle cx="591.8" cy="144" r="5"/><circle cx="605.9" cy="144" r="5"/><circle cx="615.3" cy="144" r="5"/><circle cx="211.1" cy="144" r="5"/></g>
+  <text x="626" y="148" class="m">5 of 12</text>
+
+  <text x="140" y="188" class="lab" text-anchor="end">Shift by 61%</text>
+  <line x1="150" y1="184" x2="620" y2="184" style="stroke:var(--rule)"/>
+  <g class="fill-ink2"><circle cx="460.2" cy="184" r="5"/><circle cx="474.3" cy="184" r="5"/><circle cx="483.7" cy="184" r="5"/><circle cx="582.4" cy="184" r="5"/><circle cx="591.8" cy="184" r="5"/><circle cx="605.9" cy="184" r="5"/><circle cx="211.1" cy="184" r="5"/><circle cx="225.2" cy="184" r="5"/><circle cx="300.4" cy="184" r="5"/><circle cx="314.5" cy="184" r="5"/><circle cx="323.9" cy="184" r="5"/><circle cx="389.7" cy="184" r="5"/></g>
+  <text x="626" y="188" class="m">5 of 12</text>
+  <text x="140" y="226" class="lab" text-anchor="end" style="fill:var(--ink2)">… every shift</text>
+  <text x="150" y="226" class="m">spacing between buys and length of market stretches are kept; only their alignment changes</text>
+
+  <text x="756" y="26" class="zl">STATISTIC OVER ALL SHIFTS</text>
+  <rect x="768" y="60" width="204" height="190" class="fill-acc-soft"/>
+  <text x="870" y="76" class="m" text-anchor="middle">99% of shifts</text>
+  <g class="fill-ink2"><rect x="756" y="247" width="10" height="3"/><rect x="768" y="244" width="10" height="6"/><rect x="780" y="239" width="10" height="11"/><rect x="792" y="230" width="10" height="20"/><rect x="804" y="219" width="10" height="31"/><rect x="816" y="205" width="10" height="45"/><rect x="828" y="188" width="10" height="62"/><rect x="840" y="172" width="10" height="78"/><rect x="852" y="158" width="10" height="92"/><rect x="864" y="149" width="10" height="101"/><rect x="876" y="158" width="10" height="92"/><rect x="888" y="172" width="10" height="78"/><rect x="900" y="188" width="10" height="62"/><rect x="912" y="205" width="10" height="45"/><rect x="924" y="219" width="10" height="31"/><rect x="936" y="230" width="10" height="20"/><rect x="948" y="239" width="10" height="11"/><rect x="960" y="244" width="10" height="6"/><rect x="972" y="247" width="10" height="3"/></g>
+  <line x1="752" y1="250" x2="996" y2="250" style="stroke:var(--ink);stroke-width:1"/>
+  <line x1="990" y1="96" x2="990" y2="250" style="stroke:var(--accent);stroke-width:3"/>
+  <text x="984" y="108" class="lab" text-anchor="end" style="fill:var(--accent);font-weight:600">actual</text>
+  <text x="756" y="270" class="m">fewer in turbulence</text><text x="996" y="270" class="m" text-anchor="end">more</text>
+</svg>
+</div>
+<figcaption><b>Figure 4.</b>The shift test on an illustrative pattern of 12 buys. If the actual share of buys in turbulent markets lies outside the range produced by all shifts, the alignment of buying with turbulence is unlikely to be chance.</figcaption>
+</figure>
+
+<div class="col">
+<h3 id="algo-wf"><span class="no">2.4</span>Rules and walk-forward validation</h3>
+<p>Each bias maps to one or more rules, for example "wait after a run-up", "sleep on it", "avoid your worst time of day" or "cap the size in turbulent markets". A rule has a grid of settings, a <em>flag</em> (the rule says do not) and a <em>gain</em>: what not doing it would have been worth against the NASDAQ, assuming the skipped money earns the market. A cap rule scales the size instead of skipping.</p>
+<p><code>fit</code> chooses the setting that maximises</p>
+<div class="formula">score(s) = mean_gain(s) × √ n_flagged(s)
+
+subject to  n_flagged(s) ≥ 5,  n_flagged(s) ≤ 0.6 × n,  mean_gain(s) &gt; 0</div>
+<p><code>walkForward</code> orders decisions in time. The first half is only ever used for training. The rest is cut into up to six blocks. For each block, the rule is fitted on decisions whose outcome was <strong>already known when the block began</strong>: a buy's outcome takes a month to arrive, so the decisions of the month before the block are embargoed. The fitted setting is then applied to the block. A fold in which no setting helped recommends nothing for that block. Only the gains on the later blocks are pooled and given a bootstrap range.</p>
+</div>
+
+<figure id="fig5">
+<div class="figframe">
+<svg viewBox="0 0 1000 330" role="img" aria-label="Walk-forward validation with an embargo">
+  <text x="16" y="26" class="zl">DECISIONS IN TIME ORDER →</text>
+  <rect x="150" y="38" width="400" height="22" class="fill-acc-soft"/>
+  <text x="350" y="53" class="lab" text-anchor="middle">first half: training only</text>
+  <g style="fill:none;stroke:var(--rule)"><rect x="550" y="38" width="66.7" height="22"/><rect x="616.7" y="38" width="66.7" height="22"/><rect x="683.3" y="38" width="66.7" height="22"/><rect x="750" y="38" width="66.7" height="22"/><rect x="816.7" y="38" width="66.7" height="22"/><rect x="883.3" y="38" width="66.7" height="22"/></g>
+  <g class="m" text-anchor="middle"><text x="583" y="53">B1</text><text x="650" y="53">B2</text><text x="717" y="53">B3</text><text x="783" y="53">B4</text><text x="850" y="53">B5</text><text x="917" y="53">B6</text></g>
+
+  <g>
+    <text x="140" y="96" class="lab" text-anchor="end">Fold 1</text>
+    <rect x="150" y="82" width="372" height="20" class="fill-acc" style="opacity:.55"/><rect x="522" y="82" width="28" height="20" fill="url(#hatch)"/><rect x="550" y="82" width="66.7" height="20" class="fill-acc"/>
+    <text x="140" y="132" class="lab" text-anchor="end">Fold 2</text>
+    <rect x="150" y="118" width="438.7" height="20" class="fill-acc" style="opacity:.55"/><rect x="588.7" y="118" width="28" height="20" fill="url(#hatch)"/><rect x="616.7" y="118" width="66.7" height="20" class="fill-acc"/>
+    <text x="140" y="168" class="lab" text-anchor="end">Fold 3</text>
+    <rect x="150" y="154" width="505.3" height="20" class="fill-acc" style="opacity:.55"/><rect x="655.3" y="154" width="28" height="20" fill="url(#hatch)"/><rect x="683.3" y="154" width="66.7" height="20" class="fill-acc"/>
+    <text x="140" y="204" class="lab" text-anchor="end">Fold 4</text>
+    <rect x="150" y="190" width="572" height="20" class="fill-acc" style="opacity:.55"/><rect x="722" y="190" width="28" height="20" fill="url(#hatch)"/><rect x="750" y="190" width="66.7" height="20" class="fill-acc"/>
+    <text x="140" y="240" class="lab" text-anchor="end">Fold 5</text>
+    <rect x="150" y="226" width="638.7" height="20" class="fill-acc" style="opacity:.55"/><rect x="788.7" y="226" width="28" height="20" fill="url(#hatch)"/><rect x="816.7" y="226" width="66.7" height="20" class="fill-acc"/>
+    <text x="140" y="276" class="lab" text-anchor="end">Fold 6</text>
+    <rect x="150" y="262" width="705.3" height="20" class="fill-acc" style="opacity:.55"/><rect x="855.3" y="262" width="28" height="20" fill="url(#hatch)"/><rect x="883.3" y="262" width="66.7" height="20" class="fill-acc"/>
+  </g>
+  <g transform="translate(150 306)">
+    <rect width="16" height="12" class="fill-acc" style="opacity:.55"/><text x="22" y="10" class="m">fit: outcome already known</text>
+    <rect x="210" width="16" height="12" fill="url(#hatch)"/><text x="232" y="10" class="m">embargo: outcome still unknown (≈ 1 month)</text>
+    <rect x="520" width="16" height="12" class="fill-acc"/><text x="542" y="10" class="m">applied, never seen in fitting → pooled</text>
+  </g>
+</svg>
+</div>
+<figcaption><b>Figure 5.</b>Chronological walk-forward. Each block is judged only by a rule fitted on decisions that had finished by the time the block began. The pooled gains from the six test blocks give the verdict in Table 1.</figcaption>
+</figure>
+
+<div class="col">
+<div class="tw"><table>
+<caption class="small" style="caption-side:bottom;text-align:left;padding-top:6px">Table 1. Verdict on the pooled out-of-sample gain per flagged decision.</caption>
+<thead><tr><th>Verdict</th><th>Condition</th><th>What the user sees</th></tr></thead>
+<tbody>
+<tr><td><span class="pill ok">supported</span></td><td>99% bootstrap range above zero</td><td>Recommended, with setting, gains and ranges</td></tr>
+<tr><td><span class="pill warn">indicative</span></td><td>95% range above zero</td><td>Shown as a lead, not recommended</td></tr>
+<tr><td><span class="pill">unclear</span></td><td>range includes zero</td><td>Not recommended</td></tr>
+<tr><td><span class="pill bad">unsupported</span></td><td>range below zero, or in-sample only</td><td>Not recommended; the in-sample flattery is shown</td></tr>
+<tr><td><span class="pill">untested</span></td><td>fewer than 24 decisions with a known outcome, or fewer than 8 flagged out of sample</td><td>"Not enough data", a result in itself</td></tr>
+</tbody></table></div>
+
+<h3 id="algo-adherence"><span class="no">2.5</span>Adherence and the pre-trade check</h3>
+<p>After adoption, the coach reports the share of decisions that broke the rule against the same share over an equally long stretch before adoption, with a Newcombe interval for the change, and compares the outcome of decisions that kept the rule with those that broke it, with a bootstrap range. It is reported as an association, since nobody was assigned to comply. The pre-trade check takes an intended buy (stock and amount), measures the same features as of now, and lists which adopted rules object, which cannot be checked, and any reminder the user set for that stock. Every check is saved on the device with its inputs and the rule versions in force, so checks can be evaluated later.</p>
+
+<h3 id="algo-agent"><span class="no">2.6</span>The assistant agent loop</h3>
+<p>The assistant works in steps, at most five requests per question. Each request carries the question, with stocks replaced by aliases, and the results gathered so far. The model either names up to four more tools from a fixed read-only catalogue, or answers. The tools run in the browser, so the model can look further when a first result raises a question, for example by reading a rule's details after seeing the biases, or trying a rule with another setting. The fifth step must answer, and a tool call it already has is dropped. The browser then checks every number in the reply against the results and marks any it cannot find.</p>
+</div>
+
+<figure id="fig6">
+<div class="figframe">
+<svg viewBox="0 0 1000 650" role="img" aria-label="Sequence of the assistant agent loop">
+  <g><rect x="40" y="14" width="240" height="48" rx="7" class="box acc"/><text x="160" y="36" class="t">Browser</text><text x="160" y="53" class="s">on the device · src/aiclient.js</text></g>
+  <g><rect x="440" y="14" width="240" height="48" rx="7" class="box"/><text x="560" y="36" class="t">ai-coach</text><text x="560" y="53" class="s">Supabase Edge Function</text></g>
+  <g><rect x="780" y="14" width="190" height="48" rx="7" class="box"/><text x="875" y="36" class="t">Model provider</text><text x="875" y="53" class="s">OpenRouter · data_collection: deny</text></g>
+  <line x1="160" y1="62" x2="160" y2="636" class="life"/><line x1="560" y1="62" x2="560" y2="636" class="life"/><line x1="875" y1="62" x2="875" y2="636" class="life"/>
+
+  <rect x="40" y="76" width="240" height="44" rx="6" class="box note"/>
+  <text x="160" y="94" class="m" text-anchor="middle">question: stocks → "Stock 3",</text><text x="160" y="110" class="m" text-anchor="middle">e-mails, long numbers removed</text>
+
+  <rect x="20" y="134" width="962" height="364" rx="8" class="frame"/>
+  <rect x="20" y="134" width="300" height="22" rx="4" class="fill-acc"/>
+  <text x="30" y="149" class="m" style="fill:var(--paper);font-weight:600;letter-spacing:.06em">LOOP · ≤ 5 STEPS · STEP 5 MUST ANSWER</text>
+
+  <text x="360" y="178" class="lab" text-anchor="middle">{task: step, question, results, n}</text>
+  <path d="M160 186 H558" class="ar acc"/>
+  <rect x="440" y="196" width="240" height="78" rx="6" class="box note"/>
+  <text x="560" y="214" class="m" text-anchor="middle">verify JWT · allowlist (deny by default)</text>
+  <text x="560" y="230" class="m" text-anchor="middle">daily cap counted before the call</text>
+  <text x="560" y="246" class="m" text-anchor="middle">looksPrivate() → 422 refused</text>
+  <text x="560" y="262" class="m" text-anchor="middle">size ≤ 90 KB</text>
+  <text x="717" y="292" class="lab" text-anchor="middle">system prompt (server only)</text>
+  <text x="717" y="306" class="m" text-anchor="middle">data as labelled JSON strings</text>
+  <path d="M560 314 H873" class="ar"/>
+  <text x="717" y="336" class="lab" text-anchor="middle">tool names, or an answer</text>
+  <path d="M875 344 H562" class="ar"/>
+  <rect x="440" y="354" width="240" height="30" rx="6" class="box note"/>
+  <text x="560" y="373" class="m" text-anchor="middle">fixed catalogue · ≤ 4 tools · repeats dropped</text>
+  <text x="360" y="400" class="lab" text-anchor="middle">{kind: calls, [tool, args]}</text>
+  <path d="M560 408 H162" class="ar"/>
+  <rect x="40" y="420" width="240" height="64" rx="6" class="box note"/>
+  <text x="160" y="438" class="m" text-anchor="middle">run named tools HERE (T0 read-only)</text>
+  <text x="160" y="454" class="m" text-anchor="middle">aliases · multiples · months</text>
+  <text x="160" y="470" class="m" text-anchor="middle">isPrivate() → append to results</text>
+
+  <text x="360" y="522" class="lab" text-anchor="middle">{kind: answer, text, proposals, actions}</text>
+  <text x="360" y="537" class="m" text-anchor="middle">markup stripped · actions checked against results</text>
+  <path d="M560 545 H162" class="ar acc"/>
+  <rect x="40" y="556" width="240" height="78" rx="6" class="box note"/>
+  <text x="160" y="574" class="m" text-anchor="middle">check every number vs results</text>
+  <text x="160" y="590" class="m" text-anchor="middle">show answer with its results</text>
+  <text x="160" y="606" class="m" text-anchor="middle">actions → cards → a click (T1)</text>
+  <text x="160" y="622" class="m" text-anchor="middle">log in "What was sent"</text>
+  <rect x="440" y="556" width="240" height="44" rx="6" class="box note"/>
+  <text x="560" y="574" class="m" text-anchor="middle">keeps: user id, day, count</text>
+  <text x="560" y="590" class="m" text-anchor="middle">no content, no model text in logs</text>
+</svg>
+</div>
+<figcaption><b>Figure 6.</b>One question through the assistant. Raw data never crosses the dashed lifeline of the device; only tool results that passed the privacy check do. Every step counts against the user's daily cap.</figcaption>
+</figure>
+
+<div class="col">
+<div class="tw"><table>
+<thead><tr><th>Tool (T0, read-only)</th><th>Returns</th></tr></thead>
+<tbody>
+<tr><td><code>get_overview</code>, <code>get_finding(q1…q11)</code></td><td>Counts, shares, returns against the NASDAQ and statuses, as plain facts</td></tr>
+<tr><td><code>get_biases</code>, <code>get_rule(id)</code>, <code>simulate_rule(id)</code></td><td>Biases, rule wording, the out-of-sample verdict</td></tr>
+<tr><td><code>list_decisions</code></td><td>Alias, month, size as a multiple of the usual buy, research, rise, time of day, market, result; no amounts</td></tr>
+<tr><td><code>get_adherence</code>, <code>check_buy(stock, size)</code></td><td>How rules are kept; an intended buy against adopted rules and reminders</td></tr>
+<tr><td><code>compare_periods(days)</code>, <code>what_if(id, …)</code></td><td>Whether a habit is fading; a rule with another setting over the whole history and its later half</td></tr>
+<tr><td><code>explain_decision</code>, <code>stock_summary</code>, <code>get_weekly_review</code></td><td>One decision with its research and the rules that flag it; one stock's views, calls and decisions; the weekly review</td></tr>
+<tr><td><code>get_agent_portfolio</code>, <code>get_agent_decisions</code></td><td>The paper portfolios as ratios; what each agent decided at single moments and why</td></tr>
+</tbody></table></div>
+
+<h3 id="algo-paper"><span class="no">2.7</span>Two agents with paper portfolios</h3>
+<p>To show what following the rules would have meant in money terms, two agents trade paper portfolios on the investor's own buys and on the stocks they looked at. The <strong>rules agent</strong> (<code>src/shadow.js</code>, no model) keeps, each month, only the rules that had held up out of sample on outcomes known by then. For each candidate it buys at once, waits until no active rule objects (re-checking 1 to 10 trading days later), or passes. The <strong>AI agent</strong> receives each candidate as of that day (alias, "day N", ratios, the rules agent's view) in requests of 15, and is asked only about moments at most two days old. Every decision is saved once with its time; there is no backfill, so the model cannot know what happened next.</p>
+</div>
+
+<figure id="fig7">
+<div class="figframe">
+<svg viewBox="0 0 1000 300" role="img" aria-label="Two agents and four paper portfolios">
+  <g><rect x="16" y="100" width="180" height="100" rx="7" class="box"/><text x="106" y="128" class="t">Each moment t</text><text x="106" y="150" class="s">your buy, or a look</text><text x="106" y="168" class="s">features from data</text><text x="106" y="184" class="s">before t only</text></g>
+  <g><rect x="260" y="20" width="270" height="62" rx="7" class="box"/><text x="395" y="46" class="t">You</text><text x="395" y="66" class="s">what you actually did</text></g>
+  <g><rect x="260" y="108" width="270" height="76" rx="7" class="box acc"/><text x="395" y="134" class="t">Rules agent · no model</text><text x="395" y="154" class="s">rules that held up by month m</text><text x="395" y="171" class="s">buy · wait ≤ 10 days · pass · cap size</text></g>
+  <g><rect x="260" y="210" width="270" height="76" rx="7" class="box"/><text x="395" y="236" class="t">AI agent · model</text><text x="395" y="256" class="s">moments ≤ 2 days old, 15 per request</text><text x="395" y="273" class="s">saved once, never backfilled</text></g>
+  <path d="M196 150 H228 M228 51 V248" class="ln"/><path d="M228 51 H258" class="ar"/><path d="M228 146 H258" class="ar"/><path d="M228 248 H258" class="ar"/>
+  <path d="M395 184 V208" class="ar" style="stroke-dasharray:4 3"/>
+  <text x="403" y="200" class="m">its view at t</text>
+  <g><rect x="590" y="50" width="180" height="200" rx="7" class="box"/><text x="680" y="78" class="t">Paper portfolios</text>
+  <text x="680" y="104" class="s">you · rules · AI · NASDAQ</text><text x="680" y="130" class="s">fully invested</text><text x="680" y="150" class="s">idle money earns NASDAQ</text><text x="680" y="170" class="s">your sales mirrored</text><text x="680" y="190" class="s">daily FX to your currency</text><text x="680" y="216" class="s" style="fill:var(--guard)">no order is ever placed</text></g>
+  <path d="M530 51 H560 V248 H530 M530 146 H560" class="ln"/><path d="M560 150 H588" class="ar"/>
+  <g><rect x="820" y="80" width="164" height="140" rx="7" class="box acc"/><text x="902" y="108" class="t">Paired results</text><text x="902" y="134" class="s">agent minus you</text><text x="902" y="152" class="s">at 21 / 63 / 126 days</text><text x="902" y="170" class="s">99% bootstrap range</text><text x="902" y="188" class="s">before / after first</text><text x="902" y="204" class="s">live view</text></g>
+  <path d="M770 150 H818" class="ar"/>
+</svg>
+</div>
+<figcaption><b>Figure 7.</b>The agent simulation. Both agents act only on the investor's own buys and looks and only move paper portfolios drawn in the browser. Results are measured to the same end bar for each pair.</figcaption>
+</figure>
+
+<div class="col">
+<h3 id="algo-valid"><span class="no">2.8</span>Calibration results</h3>
+<p><code>tools/synth-world.js</code> builds deterministic synthetic investors with planted behaviours. The coach must find what is planted, recommend only what holds up on later trades, and find nothing where nothing exists. Table 2 is taken from the execution evidence (<code>docs/hackathon/evidence/demo-run.md</code>, seed 21, 140 analysed buys over about 31 months).</p>
+<div class="tw"><table>
+<caption class="small" style="caption-side:bottom;text-align:left;padding-top:6px">Table 2. Rules on a synthetic investor. Gains are percentage points against the NASDAQ per flagged decision, out of sample, with 99% ranges.</caption>
+<thead><tr><th>Rule</th><th>Verdict</th><th class="n">Flagged (later)</th><th class="n">Out of sample</th><th class="n">99% range</th><th class="n">In sample</th></tr></thead>
+<tbody>
+<tr><td>Wait after a run-up</td><td><span class="pill ok">supported</span></td><td class="n">15 / 70</td><td class="n">+16.3</td><td class="n">+10.8 to +21.5</td><td class="n">+14.2</td></tr>
+<tr><td>Avoid your worst time of day</td><td><span class="pill ok">supported</span></td><td class="n">19 / 70</td><td class="n">+17.0</td><td class="n">+12.3 to +21.1</td><td class="n">+15.0</td></tr>
+<tr><td>Sleep on it (impulse buys)</td><td><span class="pill ok">supported</span></td><td class="n">27 / 62</td><td class="n">+13.2</td><td class="n">+9.2 to +17.2</td><td class="n">+12.1</td></tr>
+<tr><td>Research before you buy</td><td><span class="pill ok">supported</span></td><td class="n">41 / 70</td><td class="n">+11.5</td><td class="n">+7.9 to +15.1</td><td class="n">+10.0</td></tr>
+<tr><td>Act on your calls or drop them</td><td><span class="pill ok">supported</span></td><td class="n">53 / 89</td><td class="n">+11.3</td><td class="n">+6.5 to +16.0</td><td class="n">+10.9</td></tr>
+<tr><td>Pause in turbulent markets</td><td><span class="pill ok">supported</span></td><td class="n">26 / 70</td><td class="n">+10.9</td><td class="n">+6.3 to +15.1</td><td class="n">+10.9</td></tr>
+<tr><td>Cap the size in turbulent markets</td><td><span class="pill ok">supported</span></td><td class="n">18 / 68</td><td class="n">+4.4</td><td class="n">+2.6 to +6.2</td><td class="n">+3.9</td></tr>
+</tbody></table></div>
+<div class="callout"><strong>Null worlds.</strong> In 24 synthetic worlds with no planted effect, 0 of 216 rules were called supported. An effect that stops halfway through the history is not recommended, and the embargo has its own unit tests.</div>
+</div>
+
+<!-- ============ 3 SECURITY ============ -->
+<div class="col">
+<h2 id="sec"><span class="no">3</span>Security design</h2>
+<p>The security design follows from one principle: the most sensitive data, an investor's trades, should not exist anywhere it does not need to. Raw trades are parsed in the browser and kept in IndexedDB on the device. The cloud receives attention events for the user's own account under row-level security, and the model receives only de-identified results that pass three filters. The agent has no path to an order.</p>
+<p>Trust boundaries, in order of exposure: (1) finance portal pages, which are untrusted and may read the DOM around the capture card; (2) the device, which holds everything; (3) the Supabase project, which holds synced attention and counters; (4) model and data providers, which see only what the edge functions send.</p>
+
+<h3 id="sec-min"><span class="no">3.1</span>Data minimisation</h3>
+</div>
+
+<figure id="fig8">
+<div class="figframe">
+<svg viewBox="0 0 1000 330" role="img" aria-label="Three privacy filters between device data and what is sent">
+  <g><rect x="16" y="30" width="230" height="262" rx="7" class="box grd"/>
+  <text x="131" y="56" class="t">On the device</text>
+  <g class="lab"><text x="36" y="88">× amounts and quantities</text><text x="36" y="114">× prices paid</text><text x="36" y="140">× ISINs, tickers, names</text><text x="36" y="166">× broker and account</text><text x="36" y="192">× exact dates and times</text><text x="36" y="218">× page URLs and titles</text><text x="36" y="244">× the imported file</text></g>
+  <text x="131" y="276" class="m" text-anchor="middle" style="fill:var(--guard)">no tool result has a field for these</text></g>
+
+  <g><rect x="288" y="56" width="160" height="210" rx="7" class="box acc"/><rect x="288" y="56" width="160" height="30" rx="7" class="hdr"/><rect x="288" y="78" width="160" height="8" class="hdr"/><text x="368" y="76" class="hdrt">Filter 1 · build</text>
+  <text x="368" y="116" class="t" style="font-size:13px">Allowlisted results</text><text x="368" y="138" class="s">src/aitools.js</text><text x="368" y="170" class="s">each tool copies only</text><text x="368" y="186" class="s">listed keys: counts,</text><text x="368" y="202" class="s">ratios, months, aliases</text></g>
+  <g><rect x="484" y="56" width="160" height="210" rx="7" class="box acc"/><rect x="484" y="56" width="160" height="30" rx="7" class="hdr"/><rect x="484" y="78" width="160" height="8" class="hdr"/><text x="564" y="76" class="hdrt">Filter 2 · device</text>
+  <text x="564" y="116" class="t" style="font-size:13px">isPrivate()</text><text x="564" y="138" class="s">before anything is sent</text><text x="564" y="170" class="s">ISIN-like ids, amounts,</text><text x="564" y="186" class="s">tickers, e-mails, links,</text><text x="564" y="202" class="s">long numbers</text></g>
+  <g><rect x="680" y="56" width="160" height="210" rx="7" class="box acc"/><rect x="680" y="56" width="160" height="30" rx="7" class="hdr"/><rect x="680" y="78" width="160" height="8" class="hdr"/><text x="760" y="76" class="hdrt">Filter 3 · server</text>
+  <text x="760" y="116" class="t" style="font-size:13px">looksPrivate()</text><text x="760" y="138" class="s">ai-coach/core.mjs</text><text x="760" y="170" class="s">same test again;</text><text x="760" y="186" class="s">a failing request is</text><text x="760" y="202" class="s" style="fill:var(--guard);font-weight:600">refused with 422</text></g>
+  <path d="M246 161 H286" class="ar"/><path d="M448 161 H482" class="ar"/><path d="M644 161 H678" class="ar"/><path d="M840 161 H862" class="ar acc"/>
+  <g><rect x="864" y="56" width="120" height="210" rx="7" class="box"/><text x="924" y="82" class="t">Sent</text>
+  <g class="m" text-anchor="middle"><text x="924" y="112">"Stock 3"</text><text x="924" y="136">×1.8 usual buy</text><text x="924" y="160">2025-07</text><text x="924" y="184">−3.2 pts vs</text><text x="924" y="198">NASDAQ</text><text x="924" y="222">rule statistics</text><text x="924" y="246">redacted notes</text></g></g>
+  <text x="288" y="300" class="m">tools/test-ai.js runs a synthetic investor through every tool and multi-step question and scans each request</text>
+  <text x="288" y="316" class="m">for amounts, ISINs, real tickers and exact dates. Real stock names are an opt-in, refused (403) unless a paid plan is set.</text>
+</svg>
+</div>
+<figcaption><b>Figure 8.</b>Defence in depth for everything sent to the model. Filter 1 makes leakage structurally hard; filters 2 and 3 catch what a future code change might let through.</figcaption>
+</figure>
+
+<div class="col">
+<h3 id="sec-tiers"><span class="no">3.2</span>Permission tiers</h3>
+<p>The agent's authority is fixed in code. The server validates every tool call and proposed action, and the browser executes only what the user confirms.</p>
+</div>
+
+<figure id="fig9">
+<div class="figframe" style="overflow:visible">
+<div class="tiers">
+  <div class="tier t0"><div class="code">T0<small>read-only</small></div><div><h4>What the agent may do</h4><p>Name tools from a fixed catalogue that read results computed on the device. As the AI agent: say buy, wait 1 to 10 trading days or pass on a paper portfolio.</p></div><div><h4>How it is enforced</h4><p>Server accepts only <code>TOOLS</code> in <code>core.mjs</code>, checks every argument, ≤ 4 tools per step, ≤ 5 steps. Paper decisions: asked ids only, three actions, clamped days, ≤ 15 per request.</p></div></div>
+  <div class="tier t1"><div class="code">T1<small>user decides</small></div><div><h4>What the agent may do</h4><p>Propose an action: adopt, retire or retune a rule, set a pre-trade reminder for a stock, save a review note.</p></div><div><h4>How it is enforced</h4><p>Validated against <code>ACTIONS</code>: known types, rule ids and stocks that appear in the results, at most 3. Shown as a card with what-if numbers; written locally only on a click, logged as "You approved".</p></div></div>
+  <div class="tier t2"><div class="code">T2<small>not offered</small></div><div><h4>What the agent can never do</h4><p>Place or change orders, hold broker or bank credentials, write trade data to any server, change account settings.</p></div><div><h4>How it is enforced</h4><p>No tool, endpoint, scope or code path exists. The function has no database access beyond upserting a usage counter.</p></div></div>
+</div>
+</div>
+<figcaption><b>Figure 9.</b>Permission tiers as implemented, with the test that covers each in <code>tools/test-ai.js</code> and <code>tools/test-shadow.js</code>.</figcaption>
+</figure>
+
+<div class="col">
+<h3 id="sec-cloud"><span class="no">3.3</span>Cloud authorisation</h3>
+<p>Row-level security is enabled on every table. Owner policies use <code>user_id = auth.uid()</code> for reading and writing. Admin reads go through <code>is_admin()</code>, which a user cannot set because <code>profiles</code> has a column-level UPDATE grant. Service-only tables (<code>ai_usage</code>, <code>crowd_notified</code>) have no policies, and their functions are revoked from <code>anon</code> and <code>authenticated</code>. Security-definer functions pin <code>search_path</code>. Community views return a cell only when enough distinct users stand behind it.</p>
+</div>
+
+<figure id="fig10">
+<div class="figframe">
+<svg viewBox="0 0 1000 236" role="img" aria-label="Request authorisation in the Supabase backend">
+  <g><rect x="16" y="82" width="150" height="70" rx="7" class="box"/><text x="91" y="110" class="t">Client</text><text x="91" y="130" class="s">anon key + user JWT</text></g>
+  <g><rect x="200" y="82" width="140" height="70" rx="7" class="box acc"/><text x="270" y="110" class="t">JWT verified</text><text x="270" y="130" class="s">Google sign-in, PKCE</text></g>
+  <path d="M166 117 H198" class="ar"/>
+  <g><rect x="390" y="20" width="270" height="70" rx="7" class="box"/><text x="525" y="47" class="t">Own data tables</text><text x="525" y="67" class="s">RLS: user_id = auth.uid() · LWW trigger</text></g>
+  <g><rect x="390" y="144" width="270" height="70" rx="7" class="box"/><text x="525" y="171" class="t">Community RPC</text><text x="525" y="191" class="s">security definer · pinned search_path</text></g>
+  <path d="M340 117 H362 M362 55 V179" class="ln"/><path d="M362 55 H388" class="ar"/><path d="M362 179 H388" class="ar"/>
+  <g><rect x="700" y="20" width="284" height="70" rx="7" class="box"/><text x="842" y="47" class="t">Your rows only</text><text x="842" y="67" class="s">admin data via is_admin() gate</text></g>
+  <g><rect x="700" y="144" width="140" height="70" rx="7" class="box acc"/><text x="770" y="171" class="t">Group-size floor</text><text x="770" y="191" class="s">cell ≥ 3–5 users</text><text x="770" y="205" class="s">day ≥ 5–20 users</text></g>
+  <g><rect x="864" y="144" width="120" height="70" rx="7" class="box"/><text x="924" y="171" class="t">Aggregate</text><text x="924" y="191" class="s">or nothing</text></g>
+  <path d="M660 55 H698" class="ar"/><path d="M660 179 H698" class="ar"/><path d="M840 179 H862" class="ar"/>
+</svg>
+</div>
+<figcaption><b>Figure 10.</b>Authorisation path for a request. Cross-user data is only ever an aggregate, and only above a minimum group size (migration <code>20261017_community_privacy_floors.sql</code>).</figcaption>
+</figure>
+
+<div class="col">
+<h3 id="sec-controls"><span class="no">3.4</span>Controls</h3>
+<div class="tw"><table>
+<thead><tr><th>Area</th><th>Control</th></tr></thead>
+<tbody>
+<tr><td>Consent</td><td>The assistant is off by default. Explicit consent with a list of what is and is not sent; withdrawn in one click. Notes are previewed, redacted, before they are sent. Accepting the Terms and Privacy Policy is a separate, required step before sign-in.</td></tr>
+<tr><td>Access</td><td>Deny by default: <code>AI_ALLOWED_USERS</code> lists who may use the function, empty means nobody. JWT verified. E-mail allowlist entries match Google sign-ins only.</td></tr>
+<tr><td>Abuse and cost</td><td>Per-user daily cap counted in the database before the model is called; a failing counter stops the call. Every agent step counts. 90 KB request limit. Notes cached by hash and sent once.</td></tr>
+<tr><td>Prompt injection</td><td>System prompts live only on the server. Question and results travel inside JSON strings labelled as data. Tool names are validated against the catalogue; no tool can write. Replies are validated, markup is stripped and the page renders text only.</td></tr>
+<tr><td>Hallucination</td><td>Answers are built from results; every number is checked against them and marked when unmatched; the results are shown under each answer.</td></tr>
+<tr><td>Explainability</td><td>Each recommendation shows its rule, setting, out-of-sample and in-sample result, sample sizes and ranges.</td></tr>
+<tr><td>Auditability</td><td>"What was sent" shows every request, tool run with its tier, and answer, with exact bodies, downloadable. The server keeps no content.</td></tr>
+<tr><td>Retention</td><td>Server: one counter per user and day. Provider: <code>store:false</code>. Device: log of the last 80 entries, notes cache, rules, paper decisions, all deletable.</td></tr>
+<tr><td>Client hardening</td><td>MV3 default CSP, no remote code, no <code>externally_connectable</code>. Dashboard CSP <code>script-src 'self'; object-src 'none'; base-uri 'none'</code>. Closed shadow root for the in-page card, which ignores synthetic events. Every HTML sink fed by imports, other users or AI replies is escaped; CSV exports neutralise formulas.</td></tr>
+<tr><td>Supply chain and CI</td><td>Third-party GitHub Actions pinned to commit SHAs; Pages publishes only web-app files; PR previews deploy only after a maintainer label.</td></tr>
+<tr><td>Kill switch</td><td>Remove a user from the allowlist or unset the key; the rest of the app is unaffected. Provider error text is never returned to the client.</td></tr>
+</tbody></table></div>
+
+<h3 id="sec-review"><span class="no">3.5</span>Security review and known risks</h3>
+<p>A read-only code review on 17 October 2026 covered database authorisation, edge functions, browser clients, build and hosting, and the mobile app. Each reported issue was re-checked against the code by a second, independent reviewer. It confirmed 3 high, 16 medium and 16 low findings. All three high findings were fixed or partly fixed in code, with the remaining steps listed as owner actions (for example, moving store-publishing secrets to a protected environment). Details are in <code>docs/SECURITY_ASSESSMENT.md</code>.</p>
+<div class="tw"><table>
+<thead><tr><th>ID</th><th>High finding</th><th>Fix</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>H1</td><td>A crowd-overlap function had no minimum group size and returned precise values, from which other users' views could be reconstructed</td><td>20-user day and 5-user cell floors; anon access revoked</td><td><span class="pill ok">fixed</span></td></tr>
+<tr><td>H2</td><td>User feedback text could steer an internal automation agent holding a repository token</td><td>Feedback insert locked down; the agent's shell limited; feedback marked untrusted</td><td><span class="pill warn">partly fixed</span></td></tr>
+<tr><td>H3</td><td>The public site published the whole private repository</td><td>Pages deploy limited to web-app files</td><td><span class="pill ok">fixed</span></td></tr>
+</tbody></table></div>
+<p>The main residual risks of the AI layer, from the risk register in <code>docs/hackathon/SECURITY.md</code>:</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Risk</th><th>Mitigation</th><th>Residual</th></tr></thead>
+<tbody>
+<tr><td>R1</td><td>The model states a wrong number or explains a true one wrongly</td><td>Numbers checked and marked; results shown</td><td>A wrong explanation of a right number is not detected</td></tr>
+<tr><td>R2</td><td>Personal data typed into a question or a note</td><td>Redaction of obvious patterns; preview; consent text</td><td>Names in free text cannot be reliably recognised</td></tr>
+<tr><td>R3</td><td>Re-identification from the AI agent's per-decision records</td><td>Aliases, day offsets, request-local ids</td><td>A price path matched to public prices can date a record</td></tr>
+<tr><td>R4</td><td>Free-tier provider terms (content use; no EEA, UK, CH users)</td><td>Deny-by-default allowlist; docs state the plan requirement</td><td>Depends on the owner configuring it correctly</td></tr>
+<tr><td>R7</td><td>A rule looks good by luck</td><td>Walk-forward with embargo; 99% range; 0 of 216 in null worlds</td><td>Overlapping holding periods make ranges somewhat optimistic</td></tr>
+<tr><td>R14</td><td>Hindsight in the AI agent's backtest</td><td>Asked only about moments ≤ 2 days old; saved once; no backfill</td><td>Few AI decisions at first</td></tr>
+<tr><td>R15</td><td>Paper decisions read as advice</td><td>Labelled as paper portfolios; acts only on the user's own buys and looks; no order path</td><td>A user may still copy a "buy"</td></tr>
+</tbody></table></div>
+
+<h3 id="sec-comp"><span class="no">3.6</span>Compliance</h3>
+<ul>
+<li><strong>GDPR principles.</strong> Purpose limitation, data minimisation (section 3.1), consent before any transfer, transparency through "What was sent", storage limitation (nothing kept on the server), and user control (turn off, delete). The transfer to a model provider is declared in the privacy policy and store listing. The backend is hosted in the EU.</li>
+<li><strong>Financial regulation.</strong> The product describes the user's own behaviour and shows the evidence. It gives no personalised investment advice, no price forecasts and no order execution, which keeps it outside MiFID II investment advice and order handling. Rules are framed as habits; every answer states that it is not investment advice.</li>
+<li><strong>Model risk.</strong> The model is replaceable through one module. The decisions it influences are limited to choosing read-only tools, wording, and paper decisions; the statistics that drive recommendations contain no model.</li>
+</ul>
+</div>
+
+<!-- ============ 4 TESTS ============ -->
+<div class="col">
+<h2 id="tests"><span class="no">4</span>Tests and reproduction</h2>
+<p>All suites run in Node 22 with no network, no key and synthetic data. Counts are from a run on 19 October 2026 of build <code>c711d16</code>.</p>
+<div class="tw"><table>
+<thead><tr><th>Suite</th><th>Covers</th><th class="n">Checks</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><code>tools/test-ai.js</code></td><td>AI layer, step validation, privacy filters, every tool, scans of every request</td><td class="n">150</td><td><span class="pill ok">pass</span></td></tr>
+<tr><td><code>tools/test-trades.js</code></td><td>Broker import, matching, decisions, the 13 questions</td><td class="n">105</td><td><span class="pill ok">pass</span></td></tr>
+<tr><td><code>tools/test-indicators.js</code></td><td>Bias indicators and their edge cases</td><td class="n">77</td><td><span class="pill ok">pass</span></td></tr>
+<tr><td><code>tools/test-biases.js</code></td><td>Coach, out-of-sample validation, embargo, null worlds, adherence</td><td class="n">39</td><td><span class="pill ok">pass</span></td></tr>
+<tr><td><code>tools/test-shadow.js</code></td><td>Rules and AI agents, look-ahead, what requests carry, holdings</td><td class="n">90</td><td><span class="pill ok">pass</span></td></tr>
+<tr><td><code>tools/test-pricecache.js</code></td><td>Price cache, staleness, splits</td><td class="n">18</td><td><span class="pill ok">pass</span></td></tr>
+<tr><td><code>tools/test-agent-session.js</code></td><td>Live verdict viewing sessions: merging, when due, re-deciding</td><td class="n">22</td><td><span class="pill ok">pass</span></td></tr>
+<tr><td><code>tools/test-headinfo.js</code></td><td>Every headline has its info text</td><td class="n">1</td><td><span class="pill ok">pass</span></td></tr>
+<tr><td colspan="2"><strong>Total</strong></td><td class="n"><strong>502</strong></td><td>0 failing</td></tr>
+</tbody></table></div>
+<pre class="cmd">node tools/sandbox.js      # the real dashboard on a synthetic investor → http://127.0.0.1:8780/
+node tools/demo-run.js     # regenerates the execution evidence
+node tools/test-ai.js      # and the other suites above</pre>
+<p>The sandbox runs the <code>ai-coach</code> function's own code in the page with a stand-in model, so consent, questions, tools, "What was sent", adopting a rule and checking a buy all work offline.</p>
+</div>
+
+<!-- ============ 5 LIMITS ============ -->
+<div class="col">
+<h2 id="limits" class="keep"><span class="no">5</span>Limits</h2>
+<ul>
+<li>The statistics were validated on synthetic investors with planted effects and on worlds with no effect. They have not yet been validated on a population of real investors.</li>
+<li>A rule needs about 24 decisions with a known outcome before it is tested, and 8 flagged out of sample before it can be called supported. Light traders will often see "not enough data".</li>
+<li>The model request and reply shapes follow the public documentation and are tested against a fake model; <code>tools/ai-smoke.js</code> checks them against the live API with a key.</li>
+<li>The free model tier may be used only on synthetic or demo data and not for users in the EEA, UK or Switzerland. Real users need a paid plan.</li>
+<li>Group-size floors raise the cost of re-identification but do not stop an attacker with many accounts. Noise or rate limits would be the next step.</li>
+</ul>
+<p class="endnote">Source documents in the repository: <code>ARCHITECTURE.md</code> (sections 2 to 6, 8b, 8c), <code>docs/AI.md</code>, <code>docs/hackathon/TECHNICAL.md</code>, <code>docs/hackathon/SECURITY.md</code>, <code>docs/SECURITY_ASSESSMENT.md</code>, <code>docs/hackathon/evidence/demo-run.md</code>. Nothing in this document or in the product is investment advice.</p>
+</div>
+
+</div>

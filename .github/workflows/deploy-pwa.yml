@@ -1,0 +1,39 @@
+name: Deploy PWA
+
+# Publishes the static PWA to the gh-pages branch on every merge to main.
+# Branch-based Pages (not the artifact API) so per-PR previews can live alongside
+# the main site under /pr-preview/. Free. Served at <pages-url>/ (index.html
+# redirects to dashboard/dashboard.html; relative ../src and ../vendor paths hold).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    # A manual run from another branch would ship unreviewed code to every user.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Publish only what the web app loads. Pages is public even though the repo
+      # is private, so publishing "." exposed server/, supabase/, docs/, mobile/,
+      # store/ and the internal notes to anyone.
+      - name: Collect the web app files
+        run: |
+          mkdir site
+          cp -r index.html manifest.webmanifest sw.js dashboard src vendor icons pwa site/
+      - uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
+        with:
+          branch: gh-pages
+          folder: site
+          # Keep PR preview folders from being wiped by a main deploy.
+          clean-exclude: pr-preview/
+          commit-message: "Deploy ${{ github.sha }}"

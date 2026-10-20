@@ -1,0 +1,43 @@
+# Snapshots the third-party attention lists (stockanalysis.com pageviews, Reddit
+# mentions, Stocktwits, Yahoo trending) once per trading day. None of those
+# sources keep history, so a day that is not captured is lost for good - hence a
+# cron rather than relying on a dashboard being open.
+#
+# Uses the same repo secrets as supabase-keepalive: SUPABASE_URL and SUPABASE_ANON,
+# plus TRENDING_FORCE_SECRET - it must match the edge function's env var of the
+# same name. force=1 is what makes this run take the FINAL counts for the day
+# rather than skipping because a dashboard happened to capture minutes earlier,
+# and the function only honours force for a caller that knows the secret (the
+# endpoint is public, so an ungated force is a free scrape-on-demand button).
+# Without the secret set the run still captures whenever the stored snapshot is
+# over 30 min old, which is the usual case at this hour.
+name: trending-capture
+on:
+  schedule:
+    # Two slots because cron is UTC and the US close is not: 20:40 UTC is 16:40
+    # EDT but 15:40 EST. The edge function skips whichever run comes after the
+    # day's post-close snapshot. Supabase pg_cron calls the same two slots
+    # (migration 20260925_trending_cron.sql); this workflow is the backup.
+    - cron: "40 20 * * 1-5"
+    - cron: "40 21 * * 1-5"
+  workflow_dispatch: {}
+# The job only runs curl; it needs no GitHub token.
+permissions: {}
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Capture trending lists
+        run: |
+          body=$(curl -s -m 60 -w "\n%{http_code}" -X POST \
+            "$SUPABASE_URL/functions/v1/trending?force=1" \
+            -H "apikey: $SUPABASE_ANON" -H "Authorization: Bearer $SUPABASE_ANON" \
+            -H "x-trending-secret: $TRENDING_FORCE_SECRET")
+          code=$(echo "$body" | tail -n1)
+          echo "$body" | head -n-1
+          echo "HTTP $code"
+          test "$code" = "200"
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON: ${{ secrets.SUPABASE_ANON }}
+          TRENDING_FORCE_SECRET: ${{ secrets.TRENDING_FORCE_SECRET }}

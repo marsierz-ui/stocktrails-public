@@ -1,0 +1,98 @@
+# Keeps the free-tier Supabase project from pausing. Runs daily and performs a
+# real database WRITE via the keepalive_ping() RPC - the old every-3-days anon
+# SELECT against an RLS-protected table returned zero rows and did not prevent
+# the 2026-07 pause. On failure this opens/updates a GitHub issue, so a broken
+# keepalive is noticed on day one instead of silently repeating for a week.
+#
+# Repo secrets: SUPABASE_URL (https://<ref>.supabase.co) and SUPABASE_ANON.
+name: supabase-keepalive
+
+on:
+  schedule:
+    - cron: "17 6 * * *"   # daily at 06:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  issues: write
+
+concurrency:
+  group: supabase-keepalive
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase (real write, with retries)
+        id: ping
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON: ${{ secrets.SUPABASE_ANON }}
+        run: |
+          # No `set -e`: we classify failures ourselves so the log says why.
+          set -uo pipefail
+
+          if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_ANON:-}" ]; then
+            echo "::error::SUPABASE_URL or SUPABASE_ANON repo secret is missing."
+            echo "reason=Repo secret SUPABASE_URL or SUPABASE_ANON is missing." >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+
+          reason=""
+          for attempt in 1 2 3; do
+            : > /tmp/body.txt   # avoid reporting a stale body when curl never writes
+            http=$(curl -sS -o /tmp/body.txt -w "%{http_code}" --max-time 30 \
+              -X POST "$SUPABASE_URL/rest/v1/rpc/keepalive_ping" \
+              -H "apikey: $SUPABASE_ANON" \
+              -H "Authorization: Bearer $SUPABASE_ANON" \
+              -H "Content-Type: application/json" \
+              -d '{}')
+            rc=$?
+            body=$(cat /tmp/body.txt 2>/dev/null)
+            echo "attempt $attempt: curl_exit=$rc http=$http body=$body"
+
+            if [ "$rc" -eq 0 ] && [ "$http" = "200" ]; then
+              echo "Keepalive write OK, pinged_at=$body"
+              exit 0
+            fi
+
+            case "$rc:$http" in
+              6:*)   reason="DNS lookup for the Supabase host failed (curl exit 6). The project is almost certainly PAUSED or deleted - restore it in the Supabase dashboard." ;;
+              0:404) reason="HTTP 404 - the keepalive_ping() RPC is missing. Apply supabase/migrations/20260727_keepalive.sql." ;;
+              0:401|0:403) reason="HTTP $http - the SUPABASE_ANON key is rejected. Rotate the repo secret." ;;
+              0:*)   reason="HTTP $http from the keepalive RPC. Body: $body" ;;
+              *)     reason="curl failed with exit code $rc (network/TLS/timeout)." ;;
+            esac
+
+            [ "$attempt" -lt 3 ] && sleep $((attempt * 20))
+          done
+
+          echo "::error::$reason"
+          echo "reason=$reason" >> "$GITHUB_OUTPUT"
+          exit 1
+
+      - name: Alert on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REASON: ${{ steps.ping.outputs.reason }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -uo pipefail
+          gh label create keepalive-failure --color B60205 \
+            --description "Supabase keepalive ping is failing" 2>/dev/null || true
+
+          body=$(printf '%s\n\n%s\n\n%s\n' \
+            "The Supabase keepalive ping failed." \
+            "**Reason:** ${REASON:-unknown}" \
+            "Run: ${RUN_URL}")
+
+          existing=$(gh issue list --label keepalive-failure --state open --limit 1 \
+            --json number --jq '.[0].number // empty')
+
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "Supabase keepalive is failing" \
+              --label keepalive-failure --body "$body"
+          fi

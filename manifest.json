@@ -1,0 +1,95 @@
+{
+  "manifest_version": 3,
+  "name": "Stocktrails",
+  "version": "0.4.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5u15AHor8GAKDTEA3/UZ5wit4PUfARnQHOODdUyX0EsfbNXpwHee1QjXDG+r3DwzB04Tw8df0M7/lQggbMAYLSCERDdfXByjfMopwUee7cGw9CvKqhTdiYjNjY9vSvegzCZGc/cXX9b3G9MU9kAR4um98nY1wyHexz0YZYZDgaUrhy31PBj6DyJOG0gHdlaSPQgeVvHnJF3VxpyvuxInAmEtYv3Vc3O7C7+iIzWEEd2ApE8rj1ZMOyH0bwvJ/Wqw/Q+Cv/TtYkXx1axEBSEV8yTt7U1uR2JwJX14LuoE3hB2M4Bq7DLkrfjLqCdJIMX0jWIjcwaxjhswZ0UYVX6upwIDAQAB",
+  "description": "Track the stocks you research, log your outlook and see how your research and your trades pay off, with a coach for your biases.",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "scripting",
+    "alarms",
+    "offscreen",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://finance.yahoo.com/*",
+    "https://www.google.com/finance/*",
+    "https://www.marketwatch.com/*",
+    "https://www.cnbc.com/*",
+    "https://www.bloomberg.com/*",
+    "https://stockanalysis.com/*",
+    "https://www.marketbeat.com/*",
+    "https://finviz.com/*",
+    "https://query1.finance.yahoo.com/*",
+    "https://query2.finance.yahoo.com/*",
+    "https://unymnlguicuwllkuqglm.supabase.co/*",
+    "https://*.perplexity.ai/*",
+    "https://perplexity.ai/*",
+    "https://*.tradingview.com/*",
+    "https://tradingview.com/*",
+    "https://*.seekingalpha.com/*",
+    "https://seekingalpha.com/*",
+    "https://*.nasdaq.com/*",
+    "https://nasdaq.com/*",
+    "https://*.stocktwits.com/*",
+    "https://stocktwits.com/*",
+    "https://*.wsj.com/*",
+    "https://wsj.com/*",
+    "https://holdingschannel.com/*",
+    "https://*.holdingschannel.com/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://finance.yahoo.com/*",
+        "https://www.google.com/finance/*",
+        "https://www.marketwatch.com/*",
+        "https://www.cnbc.com/*",
+        "https://www.bloomberg.com/*",
+        "https://stockanalysis.com/*",
+        "https://www.marketbeat.com/*",
+        "https://finviz.com/*",
+        "https://*.perplexity.ai/*",
+        "https://perplexity.ai/*",
+        "https://*.tradingview.com/*",
+        "https://tradingview.com/*",
+        "https://*.seekingalpha.com/*",
+        "https://seekingalpha.com/*",
+        "https://*.nasdaq.com/*",
+        "https://nasdaq.com/*",
+        "https://*.stocktwits.com/*",
+        "https://stocktwits.com/*",
+        "https://*.wsj.com/*",
+        "https://wsj.com/*",
+        "https://holdingschannel.com/*",
+        "https://*.holdingschannel.com/*"
+      ],
+      "js": [
+        "src/portals.js",
+        "src/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

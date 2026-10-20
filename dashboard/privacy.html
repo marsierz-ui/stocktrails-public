@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stocktrails Privacy Policy</title>
+  <style>
+    :root { --bg: #161a26; --fg: #e8ecf6; --muted: #9aa5bd; --line: #2b3145; --accent: #3ddc97; --card: #1d2232; }
+    @media (prefers-color-scheme: light) { :root { --bg: #fafbfe; --fg: #182033; --muted: #455174; --line: #d5dbea; --accent: #0b7a4d; --card: #ffffff; } }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 780px; margin: 0 auto; padding: 32px 20px 64px; }
+    h1 { font-size: 28px; margin: 0 0 4px; }
+    h2 { font-size: 19px; margin: 32px 0 6px; padding-top: 12px; border-top: 1px solid var(--line); }
+    h3 { font-size: 16px; margin: 20px 0 4px; }
+    .muted { color: var(--muted); font-size: 14px; }
+    a { color: var(--accent); }
+    li { margin: 4px 0; }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0; }
+    th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-weight: 600; }
+    .box { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Stocktrails Privacy Policy</h1>
+  <p class="muted">Version 2, effective 2026-10-19. Applies to the Stocktrails browser extension, the Stocktrails web app and the Stocktrails mobile app. Read together with the <a href="terms.html">Terms of Use</a>.</p>
+
+  <div class="box">
+    <b>In short.</b> Stocktrails records the stocks you look at on supported finance sites, the labels and notes you add, and shows you how those stocks did afterwards. That data syncs to your account so it is on all your devices. Broker transactions you import never leave your browser. We do not sell your data, do not use it for advertising and do not track you on other sites. You can export your data and have it deleted.
+  </div>
+
+  <h2>1. Who is responsible</h2>
+  <p>Stocktrails is run by Marek Szczęsny, Frankfurt am Main, Germany ("we", "us"), the controller of your personal data. Contact for every privacy question and request: <a href="mailto:spendtrails@gmail.com">spendtrails@gmail.com</a>.</p>
+
+  <h2>2. What we collect and why</h2>
+
+  <h3>2.1 Your account</h3>
+  <p>You sign in with Google, or with an e-mail address and a password. Sign-in is handled by Supabase Auth; we never see your Google password, and an e-mail password is stored by Supabase Auth only as a salted hash. With e-mail sign-in we keep only the address you registered. We receive your <b>e-mail address</b> and <b>name</b> from Google and keep them in your profile, with the date you signed up and the date of your first recorded view. Purpose: to identify your account and keep your data apart from everyone else's.</p>
+
+  <h3>2.2 What you look at on supported finance sites</h3>
+  <p>Only on the sites listed in the extension (Yahoo Finance, Google Finance, MarketWatch, CNBC, Bloomberg, StockAnalysis, MarketBeat, Finviz, TradingView, Seeking Alpha, Nasdaq, Stocktwits, WSJ, Perplexity, Holdings Channel) and on portals you add yourself, the extension records each stock page you open:</p>
+  <ul>
+    <li>the <b>ticker</b>, the <b>site</b>, the <b>page address</b> and the <b>time</b>;</li>
+    <li>how you engaged with the page: <b>time on page</b>, <b>scroll depth</b> and how often you switched away;</li>
+    <li>facts about the stock at that moment: <b>price</b>, sector, industry, market capitalisation and where the price sits in its 52-week range;</li>
+    <li>whether the market was open, and which part of the page you were on (for example news or chart).</li>
+  </ul>
+  <p>It does not read page content beyond what identifies the stock, does not capture keystrokes, passwords or form fields, and does nothing on other websites. The optional "all sites" permission is requested only if you add a finance portal of your own, and is then used only on that portal.</p>
+
+  <h3>2.3 What you add yourself</h3>
+  <p>Your <b>outlook</b> (positive, neutral, negative) and when you changed it, whether you <b>took a position</b>, <b>target prices</b>, <b>time horizons</b>, your written <b>rationale notes</b>, your settings and the portals you added.</p>
+
+  <h3>2.4 Usage and device information</h3>
+  <p>Which sections of the dashboard you open and when, the total time spent in the dashboard, your browser's <b>user-agent string</b> (browser and operating system version) and the time of your last session. Purpose: to keep the app working across devices, to find errors and to see which features are used.</p>
+
+  <h3>2.5 Your country</h3>
+  <p>When the dashboard syncs, our server looks up your IP address with the geolocation service ipapi.co to find your <b>country</b> and an approximate location (rounded to about 10 km). The IP address is not stored. The approximate location is sent only to your device, which keeps the last one to spot impossible travel (a VPN switching countries faster than a plane could fly); it is not uploaded or stored on our server. If the lookup fails, your browser's language or time zone is used instead. When your country changes we record the date, so past activity stays with the country you were in. Purpose: country-level community statistics (the World view).</p>
+
+  <h3>2.6 Imported broker transactions (optional, stay on your device)</h3>
+  <p>In My Habits &gt; Trades &amp; research you can import the transaction export of your broker. The file is read in your browser and <b>never uploaded</b>. Only trades, dividends and share changes are kept: instrument (ISIN, symbol, name), date and time, quantity, price, amount, fees, taxes and currency. Card payments, transfers, IBANs, counterparty names and payment references are discarded while reading. The kept records are stored only in this browser (IndexedDB), are not synced, not in the JSON backup, not used for community statistics and not visible to us. To show prices, ISINs and symbols are looked up on Yahoo Finance; those lookups contain no quantities, amounts, dates or account details.</p>
+
+  <h3>2.7 Imported browsing history (optional)</h3>
+  <p>In Settings &gt; Data you can load a browsing-history file (a Google Takeout Chrome export or a history CSV). The file is read in your browser and is never uploaded. Only visits to the supported finance sites and your own portals are kept, and only those not already recorded. They become ordinary attention records (stock, time, page address, that day's closing price) and sync to your account. Every other site in the file is discarded while reading.</p>
+
+  <h3>2.8 Feedback you send</h3>
+  <p>If you use the Feedback button we store your message, the page address and, if you attach one, the <b>screenshot</b> of the area you selected. The broker-trades section is left out of screenshots. We may forward the text of your message (not the screenshot) to our private GitHub repository, where an AI coding assistant (Anthropic's Claude) may help implement the change. Do not put personal information in feedback.</p>
+
+  <h3 id="ai">2.9 The AI assistant</h3>
+  <p>My Habits &gt; Trades &amp; research includes an optional assistant ("Assistant") and an AI agent that decides a paper portfolio. It is off until you turn it on with its own tick box at sign-up (or later in the assistant panel); it is not part of accepting the terms. You can turn it off at any time, and it only answers accounts we have switched on.</p>
+  <ul>
+    <li><b>What can be sent:</b> your question, with your stocks replaced by "Stock 1", "Stock 2" and long numbers and e-mail addresses removed; results computed on your device (counts, shares, returns against the NASDAQ, sizes as multiples of your usual buy, dates by month); if you ask for it, the text of your notes with links, e-mail addresses and long numbers removed; for the AI agent, each buy or look from the last 2 days, and the stock you are checking when you use "Check a buy before you place it", with the stock as "Stock N" and the date as "day N" (never the amount you typed). If you choose to use real stock names, tickers and dates are sent instead.</li>
+    <li><b>Never sent:</b> amounts, quantities, prices, ISINs, instrument names, your broker, account details, the file you imported or your list of trades.</li>
+    <li><b>Who receives it:</b> our AI function on Supabase, which forwards it to a model provider (currently OpenRouter, which passes the request on to the model that answers; the analysis of your notes and the AI agent's decisions may go to a decision model through OpenRouter too; each request asks OpenRouter to use only endpoints that do not train on prompts; another provider such as Cerebras may be used instead if we switch). Our function does not store or log the content; it can count requests per account per day to enforce a daily limit. Depending on the provider's plan, the provider may keep the content for a limited time to detect abuse and, on free plans, may use it to improve its products.</li>
+    <li><b>Your control:</b> everything sent and received is listed in the app under "What was sent", where you can download or clear it, and turn the assistant off.</li>
+  </ul>
+
+  <h3>2.10 E-mail alerts (optional)</h3>
+  <p>If you switch on e-mail alerts in the Crowd view, we send them to your account e-mail through the e-mail service Resend and record which alerts were sent so you do not get duplicates.</p>
+
+  <h2>3. Legal bases (EEA and UK users)</h2>
+  <table>
+    <tr><th>Processing</th><th>Legal basis</th></tr>
+    <tr><td>Account, sync, your dashboard, imports, feedback handling</td><td>Performance of our contract with you (Art. 6(1)(b) GDPR)</td></tr>
+    <tr><td>Security, abuse prevention, usage statistics, country-level community statistics</td><td>Our legitimate interest in running a secure, working service (Art. 6(1)(f)); you can object (section 8)</td></tr>
+    <tr><td>AI assistant, e-mail alerts, optional site permission</td><td>Your consent (Art. 6(1)(a)), which you can withdraw at any time in the app</td></tr>
+  </table>
+  <p>Stocktrails makes no automated decisions that have legal or similarly significant effects on you.</p>
+
+  <h2>4. Who else sees it</h2>
+  <p>Inside Stocktrails, each account's data is isolated by row-level security: other users cannot read your records. Other users see only <b>community aggregates</b> (for example how many people looked at a stock on a day, or the share of positive outlooks), shown only where at least 3 people contributed, and never your name, e-mail, notes or individual records. We (the operator) can see account data for support, security and to produce aggregate statistics.</p>
+  <p>We use these service providers, who process data on our behalf or receive it as described:</p>
+  <table>
+    <tr><th>Provider</th><th>Role</th><th>Data</th></tr>
+    <tr><td>Supabase</td><td>Database, sign-in, server functions (hosted in the EU, Paris)</td><td>Everything that syncs (sections 2.1 to 2.5, 2.7, 2.8); technical request logs including IP addresses, kept briefly</td></tr>
+    <tr><td>Google</td><td>Google sign-in</td><td>Sign-in data</td></tr>
+    <tr><td>OpenRouter</td><td>Model provider for the AI assistant: passes requests on to the model that answers; decision models</td><td>AI requests (section 2.9)</td></tr>
+    <tr><td>Cerebras</td><td>Alternative AI model providers, if we switch</td><td>AI requests (section 2.9)</td></tr>
+    <tr><td>Yahoo Finance</td><td>Prices and instrument lookups</td><td>Tickers, ISINs, names you search for, and short word lines read on your device from a screenshot you share to find a stock (lines with long numbers are not sent); your IP address in the extension and the mobile app (the web app goes through our server); no account data</td></tr>
+    <tr><td>ipapi.co</td><td>Country lookup</td><td>Your IP address, through our server, not stored</td></tr>
+    <tr><td>Resend</td><td>E-mail alerts, only if you switch them on</td><td>Your e-mail address and the alert text</td></tr>
+    <tr><td>GitHub, Anthropic</td><td>Hosting of the web app; handling of forwarded feedback</td><td>IP address of web-app visitors; text of forwarded feedback</td></tr>
+  </table>
+  <p>We do <b>not</b> sell or rent personal data, do not share it for advertising or cross-site tracking, and do not use it to decide creditworthiness or lending. We disclose data to authorities only where the law requires it.</p>
+
+  <h2>5. International transfers</h2>
+  <p>Our database is in the EU. Some providers above (Google, Cerebras, OpenRouter, Resend, GitHub, Anthropic, ipapi.co) may process data outside the EEA, mainly in the United States. Those transfers rely on the EU-U.S. Data Privacy Framework where the provider is certified, or on the European Commission's standard contractual clauses.</p>
+
+  <h2>6. Where data is stored and for how long</h2>
+  <ul>
+    <li>A working copy is kept in your browser so the app works offline. Signing out removes this device's copy.</li>
+    <li>Synced account data is kept for as long as you have an account. When you ask us to delete your account, we delete it and all synced records within 30 days; backups held by our provider roll over within the following days.</li>
+    <li>Feedback is kept until it is resolved and then for up to 12 months.</li>
+    <li>AI request counts are kept per day where a daily limit applies; AI content is not stored or logged by us.</li>
+    <li>Imported broker transactions stay in your browser until you delete them, clear site data or uninstall.</li>
+  </ul>
+
+  <h2>7. Security</h2>
+  <p>All traffic uses HTTPS. Access to synced data requires your signed-in session and is limited to your own rows by the database. Administrative access is restricted to the operator's account. Imported transactions never leave your device. No system is perfectly secure; if a breach affects your personal data we will notify you and, where required, the supervisory authority within the legal time limits.</p>
+
+  <h2>8. Your rights</h2>
+  <p>Under the GDPR (and the UK GDPR) you have the right of access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object to processing based on legitimate interests (Art. 21). Where processing rests on your consent, you can withdraw it at any time with effect for the future, without affecting the lawfulness of processing before the withdrawal (Art. 7(3)). You are not obliged to provide personal data, but the data in section 2.1 are necessary to create and use an account. In the app, Settings lets you export your data (JSON backup) and clear this device; for account deletion or any other request, e-mail us. We answer within one month. You also have the right to lodge a complaint with a supervisory authority, in particular in the EU or EEA country where you live, work or where the alleged infringement took place.</p>
+
+  <h2>9. Children</h2>
+  <p>Stocktrails is for adults. You must be at least 18 to use it. We do not knowingly collect data from children; if you believe a child has an account, contact us and we will delete it.</p>
+
+  <h2>10. Changes</h2>
+  <p>We will update this policy when the app changes how it uses data, and change the version and date above. If a change adds a new use of your data, the app asks you to accept the new version before you continue.</p>
+
+  <h2>11. Contact</h2>
+  <p>Marek Szczęsny, Frankfurt am Main, Germany, <a href="mailto:spendtrails@gmail.com">spendtrails@gmail.com</a>.</p>
+</main>
+</body>
+</html>

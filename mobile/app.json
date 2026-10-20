@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "Stocktrails",
+    "slug": "attention-tracker",
+    "version": "1.0.0",
+    "scheme": "attentiontracker",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.attentiontracker.app"
+    },
+    "android": {
+      "package": "com.attentiontracker.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-web-browser",
+      "expo-sharing",
+      [
+        "expo-share-intent",
+        {
+          "androidIntentFilters": [
+            "text/*",
+            "image/*"
+          ],
+          "disableIOS": true
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Stocktrails scans screenshots on-device to find stock tickers."
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "358d6488-256d-4aa6-98a9-5a50d2465639"
+      }
+    },
+    "owner": "marsierz"
+  }
+}
