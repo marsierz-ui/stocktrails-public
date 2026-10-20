@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Stocktrails</title>
+<!-- Relative redirect: works at the Pages root and inside each /pr-preview/pr-N/ folder.
+     OAuth returns the session (or the error) in the URL fragment, and a meta
+     refresh drops the fragment - so forward search + hash explicitly when JS is
+     available, and keep the meta refresh only as the no-JS fallback. -->
+<script>
+  location.replace("dashboard/dashboard.html" + location.search + location.hash);
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=dashboard/dashboard.html"></noscript>
+<a href="dashboard/dashboard.html">Open Stocktrails</a>

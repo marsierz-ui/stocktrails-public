@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <clipPath id="c"><rect width="512" height="512" rx="112"/></clipPath>
+  <g clip-path="url(#c)">
+    <rect width="512" height="512" fill="#161a26"/>
+    <polygon points="0,330 90,250 170,300 270,200 350,260 440,120 512,200 512,512 0,512" fill="#222a3f"/>
+    <polygon points="0,400 130,350 300,380 512,300 512,512 0,512" fill="#1b2133"/>
+    <polygon points="0,470 200,450 512,420 512,512 0,512" fill="#0f121b"/>
+    <g fill="none" stroke="#3ddc97" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M56 452 L150 350" stroke-width="44"/>
+      <path d="M150 350 L196 390" stroke-width="34"/>
+      <path d="M196 390 L284 280" stroke-width="26"/>
+      <path d="M284 280 L322 310" stroke-width="18"/>
+      <path d="M322 310 L440 150" stroke-width="12"/>
+    </g>
+    <path d="M56 452 L150 350 L196 390 L284 280 L322 310 L440 150" fill="none" stroke="#161a26" stroke-width="3" stroke-dasharray="14 12" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <circle cx="440" cy="150" r="17" fill="#f2f5fb"/>
+    <circle cx="440" cy="150" r="8" fill="#3ddc97"/>
+  </g>
+</svg>
